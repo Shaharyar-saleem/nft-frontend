@@ -1,7 +1,6 @@
 const constants = require('./constants');
 const abi = require('./abi/nft');
 const providerHelper = require('./helper/provider.helper');
-const {log} = require("surge/lib/middleware/util/helpers");
 const etherProvider = providerHelper.getProvider();
 const signer = providerHelper.getSigner();
 const nftContract = constants.nftContract;
@@ -162,7 +161,6 @@ async function startUp() {
 }
 
 async function disconnect() {
-    await web3Modal.clearCachedProvider();
     selectedAccount = null;
     localStorage.clear();
     isConnected = false;

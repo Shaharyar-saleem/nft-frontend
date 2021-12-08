@@ -97,23 +97,23 @@
             </li>
           </ul>
           <ul class="ml-auto my-auto">
-            <div id="prepare">
+            <div id="prepare" style="display: none">
             <li class="nav-item">
-              <a class="nav-link primary-button mt-3" onclick="connectAccount()" type="button"
+              <a class="nav-link primary-button mt-3" id="btn-connect" onclick="connectAccount()" type="button"
                 >Connect wallet</a>
             </li>
             </div>
-            <div id="connected" style="display: none">
+            <div id="connected">
             <li class="nav-item dropdown">
               <a class="nav-link connected-btn dropdown-toggle" type="button" data-toggle="dropdown">
-              <div class="media">
+              <div class="media position-realtive">
                 <img src="./img/online-icon.svg" alt="online icon" width="44px">
                 <div class="media-body pl-2">
                   Connected<br>
                   <span class="bnbBalance">25.00 BNB</span>
                 </div>
+<!--                <span class="caret"></span>-->
               </div>
-                <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
                 <li class="pt-2"><a href="#">Profile</a></li>

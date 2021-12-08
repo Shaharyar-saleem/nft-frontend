@@ -13,6 +13,7 @@ section {
 }
 a {
   color: white !important;
+  cursor: pointer !important;
 }
 a:hover {
   text-decoration: none;
@@ -118,8 +119,8 @@ nav .nav-link:hover {
 }
 .dropdown-toggle::after{
   position: absolute;
-  right: 12px;
   top: 50%;
+  left: 160px;
 }
 /* Navbar ends here */
 
@@ -435,6 +436,9 @@ nav .nav-link:hover {
 
 /* For tablet */
 @media only screen and (max-width: 1150px) {
+  .bfIkEQ {
+    width: 50% !important;
+  }
   .custom-container {
     width: 90%;
   }
@@ -507,6 +511,9 @@ nav .nav-link:hover {
 
 /* for mobile */
 @media only screen and (max-width: 600px) {
+  .bfIkEQ {
+    width: 85% !important;
+  }
   .section-heading {
     font-size: 33px;
   }
