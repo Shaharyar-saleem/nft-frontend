@@ -87,6 +87,9 @@ h3 {
   border-bottom: 2px solid #ffc378;
   border-left: none;
 }
+.is-disabled {
+  cursor: not-allowed !important;
+}
 /* Global css ends here */
 
 /* Navbar starts here */
@@ -128,7 +131,7 @@ nav .nav-link:hover {
 .hero-section {
   padding-top: 15%;
   padding-bottom: 23%;
-  background-image: url(../img/hero-bg.svg);
+  background-image: url(../img/home/hero/hero-bg.svg);
   background-position: top;
   height: auto;
 }
@@ -284,7 +287,7 @@ nav .nav-link:hover {
   padding-bottom: 5%;
   padding-top: 5%;
   height: auto;
-  background-image: url(../img/dry-tree-left.svg);
+  background-image: url(../img/home/steps/dry-tree-left.svg);
   background-position: left;
   background-size: 250px;
   background-repeat: no-repeat;
@@ -311,7 +314,7 @@ nav .nav-link:hover {
 
 /* join community section starts here */
 .join-community-block {
-  background-image: url(../img/community-bg.svg);
+  background-image: url(../img/home/community/community-bg.svg);
   background-size: cover;
   background-position: center;
   width: 77%;
@@ -340,7 +343,7 @@ nav .nav-link:hover {
 
 /* footer section starts here */
 .footer-section {
-  background-image: url(../img/footer-bg.svg);
+  background-image: url(../img/footer/footer-bg.svg);
   padding-top: 16%;
   padding-bottom: 1%;
   height: auto;
