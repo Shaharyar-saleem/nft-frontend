@@ -15,15 +15,10 @@
       content="Fuzion NFTs will come in 5 stages: Originals, Chained, Evolution, Adventure, Nirvana!"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://nft.fuzion.team/nft-logo.png" />
+    <meta property="og:image" content="https://nft.fuzion.team/img/header/nft-logo.png" />
     <meta property="og:url" content="https://nft.fuzion.team/" />
     <title>Fuzion NFTs</title>
-    <link
-      rel="icon"
-      href="./img/nft-logo.png"
-      type="image/gif"
-      sizes="16x16"
-    />
+    <link rel="icon" href="./img/header/nft-logo.png" type="image/gif" sizes="16x16" />
 
     <!------- ALL LINKED CSS------->
     <!-- Bootstrap 4 css CDN -->
@@ -38,11 +33,10 @@
   </head>
   <body>
     <!-- Navbar starts here -->
-
     <nav class="navbar navbar-expand-lg fixed-top fixed-header">
       <div class="custom-container nav-row">
         <a class="navbar-brand pt-2" href="#">
-          <img src="./img/nft-logo.svg" alt="NFT logo" />
+          <img src="./img/header/nft-logo.svg" alt="NFT logo" />
         </a>
         <button
           class="navbar-toggler float-right mt-3"
@@ -96,12 +90,46 @@
               <a class="nav-link" href="#">Marketplace</a>
             </li>
           </ul>
-          <ul class="ml-auto">
-            <li class="nav-item">
-              <a class="nav-link primary-button mt-3" href="#"
-                >Connect wallet</a
-              >
-            </li>
+          <ul class="ml-auto my-auto">
+            <div id="prepare" style="display: none">
+              <li class="nav-item">
+                <a
+                  class="nav-link primary-button mt-3"
+                  id="btn-connect"
+                  onclick="connectAccount()"
+                  type="button"
+                  >Connect wallet</a
+                >
+              </li>
+            </div>
+            <div id="connected">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link connected-btn dropdown-toggle"
+                  type="button"
+                  data-toggle="dropdown"
+                >
+                  <div class="media position-realtive">
+                    <img
+                      src="./img/header/online-icon.svg"
+                      alt="online icon"
+                      width="44px"
+                    />
+                    <div class="media-body pl-2">
+                      Connected<br />
+                      <span class="bnbBalance">25.00 BNB</span>
+                    </div>
+                    <!--                <span class="caret"></span>-->
+                  </div>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="pt-2"><a href="#">Profile</a></li>
+                  <li class="pt-2">
+                    <a onclick="disconnect()">Disconnect Wallet</a>
+                  </li>
+                </ul>
+              </li>
+            </div>
           </ul>
         </div>
       </div>
@@ -120,18 +148,18 @@
             </h1>
             <div class="d-flex mt-5">
               <div class="input-group explore-btn">
-                <a href="" class="form-control explore-btn-inner">Explore</a>
+                <a href="" class="form-control explore-btn-inner is-disabled">Explore</a>
                 <div class="input-group-prepend">
                   <div class="input-group-text">
                     <img
-                      src="./img/right-arrow.png"
+                      src="./img/home/hero/right-arrow.png"
                       alt="right arrow"
                       class="right-arrow"
                     />
                   </div>
                 </div>
               </div>
-              <a href="" class="mint-btn">MINT YOUR NFT</a>
+              <a href="" class="mint-btn is-disabled">MINT YOUR NFT</a>
             </div>
           </div>
           <div class="offset-md-6"></div>
@@ -176,7 +204,7 @@
                     class="feature-block-icon d-flex justify-content-center h-100"
                   >
                     <img
-                      src="./img/minting-icon.svg"
+                      src="./img/home/feature/minting-icon.svg"
                       alt="Minting icon"
                       class="my-auto"
                       height="80px"
@@ -195,7 +223,8 @@
                     </p>
                     <ul class="block-content-list">
                       <li>14% to NFT Holders</li>
-                      <li>10% to referrals (if no referral exists then will be
+                      <li>
+                        10% to referrals (if no referral exists then will be
                         split between 5 & 6)
                       </li>
                       <li>4% to PAZ holders</li>
@@ -214,7 +243,7 @@
                     class="feature-block-icon d-flex justify-content-center h-100"
                   >
                     <img
-                      src="./img/royalties-icon.svg"
+                      src="./img/home/feature/royalties-icon.svg"
                       alt="Royalties icon"
                       class="my-auto"
                       height="80px"
@@ -240,7 +269,8 @@
                       <li>7% reflections to all NFT Holders</li>
                       <li>70% royalties to the original minter</li>
                       <li>0.05 BNB Listing Fee reflected to all NFT Holders</li>
-                      <li>0.05 BNB Delisting Fee reflected to all NFT Holders
+                      <li>
+                        0.05 BNB Delisting Fee reflected to all NFT Holders
                       </li>
                     </ul>
                   </div>
@@ -260,7 +290,7 @@
         <div class="row">
           <div class="col-md-6 d-flex justify-content-center">
             <img
-              src="./img/japan-mecha.svg"
+              src="./img/home/mecha/japan-mecha.svg"
               alt="Mecha img"
               class="img-fluid mecha-img"
             />
@@ -301,21 +331,21 @@
         <div class="row">
           <div class="col-md-4">
             <img
-              src="./img/artwork-1.svg"
+              src="./img/home/artwork/artwork-1.svg"
               alt="artwork 1"
               class="img-fluid artwork-1"
             />
           </div>
           <div class="col-md-4">
             <img
-              src="./img/artwork-2.svg"
+              src="./img/home/artwork/artwork-2.svg"
               alt="artwork 2"
               class="img-fluid artwork-2"
             />
           </div>
           <div class="col-md-4">
             <img
-              src="./img/artwork-3.svg"
+              src="./img/home/artwork/artwork-3.svg"
               alt="artwork 3"
               class="img-fluid artwork-3"
             />
@@ -339,9 +369,10 @@
               </div>
               <div class="col-11">
                 <p class="section-txt pt-4">
-                  This roadmap outlines our goals and where we want to take MekaVerse.
-                  We have a lot of ideas and concepts that we are working on. It may
-                  evolve over time and hopefully become even better!
+                  This roadmap outlines our goals and where we want to take
+                  MekaVerse. We have a lot of ideas and concepts that we are
+                  working on. It may evolve over time and hopefully become even
+                  better!
                 </p>
               </div>
             </div>
@@ -415,7 +446,7 @@
                 role="tabpanel"
                 aria-labelledby="launch-roadmap-tab"
               >
-                <img src="./img/boy.svg" alt="boy img" class="boy-img" />
+                <img src="./img/home/roadmap/boy.svg" alt="boy img" class="boy-img" />
                 <div class="roadmap-step-block">
                   <div class="roadmap-step-header">
                     <p class="section-subheading mb-0">Step 01</p>
@@ -442,11 +473,7 @@
                 role="tabpanel"
                 aria-labelledby="physical-part-tab"
               >
-                <img
-                  src="./img/boy.svg"
-                  alt="robot img"
-                  class="boy-img"
-                />
+                <img src="./img/home/roadmap/boy.svg" alt="robot img" class="boy-img" />
                 <div class="roadmap-step-block">
                   <div class="roadmap-step-header">
                     <p class="section-subheading mb-0">Step 02</p>
@@ -473,11 +500,7 @@
                 role="tabpanel"
                 aria-labelledby="mekaverse-artists-tab"
               >
-                <img
-                  src="./img/boy.svg"
-                  alt="robot img"
-                  class="boy-img"
-                />
+                <img src="./img/home/roadmap/boy.svg" alt="robot img" class="boy-img" />
                 <div class="roadmap-step-block">
                   <div class="roadmap-step-header">
                     <p class="section-subheading mb-0">Step 03</p>
@@ -504,11 +527,7 @@
                 role="tabpanel"
                 aria-labelledby="meka-multiverse-tab"
               >
-                <img
-                  src="./img/boy.svg"
-                  alt="robot img"
-                  class="boy-img"
-                />
+                <img src="./img/home/roadmap/boy.svg" alt="robot img" class="boy-img" />
                 <div class="roadmap-step-block">
                   <div class="roadmap-step-header">
                     <p class="section-subheading mb-0">Step 04</p>
@@ -535,11 +554,7 @@
                 role="tabpanel"
                 aria-labelledby="future-mekas-tab"
               >
-                <img
-                  src="./img/boy.svg"
-                  alt="robot img"
-                  class="boy-img"
-                />
+                <img src="./img/home/roadmap/boy.svg" alt="robot img" class="boy-img" />
                 <div class="roadmap-step-block">
                   <div class="roadmap-step-header">
                     <p class="section-subheading mb-0">Step 05</p>
@@ -582,7 +597,7 @@
           <div class="row">
             <div class="col-md-4">
               <div class="step-card text-center">
-                <img src="./img/step-1.svg" alt="selling step 1" />
+                <img src="./img/home/steps/step-1.svg" alt="selling step 1" />
                 <h3 class="py-3">
                   Set up<br />
                   your wallet
@@ -595,7 +610,7 @@
             </div>
             <div class="col-md-4">
               <div class="step-card-2 text-center">
-                <img src="./img/step-2.svg" alt="selling step 2" />
+                <img src="./img/home/steps/step-2.svg" alt="selling step 2" />
                 <h3 class="py-3">Add your NFTs</h3>
                 <p class="pt-4">
                   Click on Connected in the header and select Create Sale.
@@ -605,7 +620,7 @@
             </div>
             <div class="col-md-4">
               <div class="step-card text-center">
-                <img src="./img/step-3.svg" alt="selling step 3" />
+                <img src="./img/home/steps/step-3.svg" alt="selling step 3" />
                 <h3 class="py-3">
                   List them<br />
                   for sale
@@ -621,13 +636,13 @@
         <div class="row">
           <div class="col-md-12 d-flex justify-content-center">
             <div class="input-group mt-5 explore-btn" style="width: 185px">
-              <a href="" class="form-control explore-btn-inner"
+              <a href="" class="form-control explore-btn-inner is-disabled"
                 >MINT YOUR NFT</a
               >
               <div class="input-group-prepend">
                 <div class="input-group-text">
                   <img
-                    src="./img/right-arrow.png"
+                    src="./img/home/hero/right-arrow.png"
                     alt="right arrow"
                     class="right-arrow"
                   />
@@ -655,11 +670,11 @@
             </div>
             <div class="col-md-4">
               <div class="input-group mt-5 explore-btn">
-                <a href="" class="form-control explore-btn-inner">Explore</a>
+                <a href="" class="form-control explore-btn-inner is-disabled">Explore</a>
                 <div class="input-group-prepend">
                   <div class="input-group-text">
                     <img
-                      src="./img/right-arrow.png"
+                      src="./img/home/hero/right-arrow.png"
                       alt="right arrow"
                       class="right-arrow"
                     />
@@ -678,13 +693,13 @@
       <div class="custom-container">
         <div class="row">
           <div class="col-lg-6 col-md-4 footer-logo">
-            <img src="./img/nft-logo.svg" alt="NFT logo" />
+            <img src="./img/footer/nft-logo.svg" alt="NFT logo" />
           </div>
           <div class="col-lg-6 col-md-8">
             <ul class="pt-3 footer-links">
-              <li><a href="#">HOME</a></li>
-              <li><a href="#">TERMS & CONDITIONS</a></li>
-              <li><a href="#">SMART CONTRACT</a></li>
+              <li><a href="index.html">HOME</a></li>
+              <li><a href="#" class="is-disabled">TERMS & CONDITIONS</a></li>
+              <li><a href="#" class="is-disabled">SMART CONTRACT</a></li>
             </ul>
           </div>
         </div>
@@ -700,7 +715,7 @@
               <li class="pr-2">
                 <a href="">
                   <img
-                    src="./img/mail-icon.svg"
+                    src="./img/social/mail-icon.svg"
                     alt="mail icon"
                     class="social-icon"
                     width="45px"
@@ -710,7 +725,7 @@
               <li class="pr-2">
                 <a href="">
                   <img
-                    src="./img/facebook-icon.svg"
+                    src="./img/social/facebook-icon.svg"
                     alt="facebook icon"
                     class="social-icon"
                     width="45px"
@@ -720,7 +735,7 @@
               <li class="pr-2">
                 <a href="">
                   <img
-                    src="./img/twitter-icon.svg"
+                    src="./img/social/twitter-icon.svg"
                     alt="twitter icon"
                     class="social-icon"
                     width="45px"
@@ -730,7 +745,7 @@
               <li class="pr-2">
                 <a href="">
                   <img
-                    src="./img/telegram-icon.svg"
+                    src="./img/social/telegram-icon.svg"
                     alt="telegram icon"
                     class="social-icon"
                     width="45px"
@@ -740,7 +755,7 @@
               <li class="pr-2">
                 <a href="">
                   <img
-                    src="./img/ticktok-icon.svg"
+                    src="./img/social/ticktok-icon.svg"
                     alt="ticktok icon"
                     class="social-icon"
                     width="45px"
@@ -776,6 +791,32 @@
       src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
+    ></script>
+    <!-- Web3.js CDN -->
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/web3modal@1.9.0/dist/index.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/fortmatic@2.0.6/dist/fortmatic.js"
+    ></script>
+    <!-- Ethers.js CDN -->
+    <script
+      src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+      type="application/javascript"
     ></script>
     <!-- custom js -->
     <script src="./js/nft.bundle.js"></script>
