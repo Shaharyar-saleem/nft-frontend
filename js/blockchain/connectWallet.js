@@ -11,6 +11,7 @@ const evmChains = window.evmChains;
 
 let status;
 let web3Modal;
+let isConnected;
 let connection;
 let provider;
 let mainContract = undefined;
@@ -39,12 +40,6 @@ function init() {
         infuraId: "8043bb2cf99347b1bfadfb233c5325c0",
       },
     },
-    fortmatic: {
-      package: Fortmatic,
-      options: {
-        key: "pk_test_391E26A3B43A3350",
-      },
-    },
   };
   web3Modal = new Web3Modal({
     cacheProvider: false, // optional
@@ -66,19 +61,10 @@ async function connectAccount() {
     console.log("Could not connect to wallet", error);
     return;
   }
-
-  // Functions from vestingContract
-
-  // const extendedInfo = localStorage.getItem("extendedContest");
-  // console.log("user is:", extendedInfo)
-  // if (extendedInfo == "true") {
-  //   const widthdrawBtn = document.getElementById("withdrawBtn");
-  //   widthdrawBtn.classList.add("is-disabled");
-  //   }
 }
 
 async function userLoginAttempt() {
-  let isConnected = false;
+  isConnected = false;
   await window.addEventListener("load", async function () {
     status = localStorage.getItem("connectStatus");
     try {
@@ -123,29 +109,16 @@ async function startUp() {
   if (user.address != undefined) {
     let p2 = user.address.slice(42 - 5);
     // $("#shortAddress")[0].innerHTML = `${user.address.slice(0, 4)}...${p2}`;
-    // $("#walletAddress")[0].innerHTML = `${user.address.slice(0, 4)}...${p2}`;
-    // $("#shortAccount")[0].innerHTML = `${user.address.slice(0, 4)}...${p2}`;
 
     const web3 = new Web3(Web3.givenProvider);
     const chainId = await web3.eth.getChainId();
     const vestingInfo = localStorage.getItem("isVesting");
     // Display Network Error
-    if (chainId != 56 && chainId != 97) {
-      document.querySelector("#prepare").style.display = "none";
-      document.querySelector("#connected").style.display = "none";
-      // document.querySelector("#networkError").style.display = "block";
-    } else if (
-      (vestingInfo == "false" && chainId == 97) ||
-      (vestingInfo == "false" && chainId == 56)
-    ) {
-      document.querySelector("#connected").style.display = "none";
-      document.querySelector("#prepare").style.display = "none";
-      // document.querySelector("#networkError").style.display = "none";
-    } else {
-      // document.querySelector("#networkError").style.display = "none";
-      document.querySelector("#prepare").style.display = "none";
-      document.querySelector("#connected").style.display = "block";
-    }
+    // if (chainId != 56 && chainId != 97) {
+    //   document.querySelector("#prepare").style.display = "none";
+    //   document.querySelector("#connected").style.display = "none";
+    //   document.querySelector("#networkError").style.display = "block";
+    // }
 
     //Bscscan link href
     // const link = document.getElementById("bscscan-link");
@@ -160,7 +133,6 @@ async function startUp() {
 }
 
 async function disconnect() {
-  selectedAccount = null;
   localStorage.clear();
   isConnected = false;
   user.address = undefined;
