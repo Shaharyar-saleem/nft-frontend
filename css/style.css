@@ -131,8 +131,9 @@ nav .nav-link:hover {
 .hero-section {
   padding-top: 15%;
   padding-bottom: 23%;
-  background-image: url(../img/home/hero/hero-bg.svg);
-  background-position: top;
+  background-image: url(../img/home/hero/alien-hero.svg);
+  background-position: right;
+  background-repeat: no-repeat;
   height: auto;
 }
 .hero-img {
@@ -196,7 +197,7 @@ nav .nav-link:hover {
   padding-top: 3%;
   padding-bottom: 3%;
   height: auto;
-  background-image: url(../img/dry-tree-right.svg);
+  background-image: url(../img/home/mecha/dry-tree-right.svg);
   background-repeat: no-repeat;
   background-position: right;
   background-size: 181px;
@@ -511,6 +512,9 @@ nav .nav-link:hover {
     padding-top: 20%;
     padding-bottom: 20%;
   }
+  .nav-item .nav-link{
+    float: right;
+  }
 }
 
 /* for mobile */
@@ -623,5 +627,8 @@ nav .nav-link:hover {
   .social-icons-list {
     display: flex;
     justify-content: center;
+  }
+  .nav-item .nav-link{
+    float: right;
   }
 }
