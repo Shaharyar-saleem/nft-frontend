@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45">
-  <g id="Group_2" data-name="Group 2" transform="translate(-53.5 0.5)">
-    <circle id="Oval_Copy_14" data-name="Oval Copy 14" cx="22" cy="22" r="22" transform="translate(54)" fill="none" stroke="#434565" stroke-miterlimit="10" stroke-width="1"/>
-    <path id="Path" d="M24,12A12,12,0,1,0,10.125,23.854V15.469H7.078V12h3.047V9.357c0-3.007,1.792-4.669,4.533-4.669a18.418,18.418,0,0,1,2.686.235V7.876H15.83A1.735,1.735,0,0,0,13.874,9.75V12H17.2l-.532,3.47h-2.8v8.385A12,12,0,0,0,24,12Z" transform="translate(64 10)" fill="#fff"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45"><g id="Group_2" data-name="Group 2" transform="translate(-53.5 0.5)"><circle id="Oval_Copy_14" cx="22" cy="22" r="22" fill="none" stroke="#434565" stroke-miterlimit="10" stroke-width="1" data-name="Oval Copy 14" transform="translate(54)"/><path id="Path" fill="#fff" d="M24,12A12,12,0,1,0,10.125,23.854V15.469H7.078V12h3.047V9.357c0-3.007,1.792-4.669,4.533-4.669a18.418,18.418,0,0,1,2.686.235V7.876H15.83A1.735,1.735,0,0,0,13.874,9.75V12H17.2l-.532,3.47h-2.8v8.385A12,12,0,0,0,24,12Z" transform="translate(64 10)"/></g></svg>
