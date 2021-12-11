@@ -1,6 +1,6 @@
 /* Global css starts here */
 :root {
-  --primary-color: #040d17;
+  --primary-color: #0D1748;
   --secondry-color: #15192a;
 }
 body {
@@ -61,7 +61,7 @@ h3 {
   text-transform: uppercase;
 }
 .section-txt {
-  color: #e9cdb1;
+  color: #5BEBF3;
   font-size: 16px;
 }
 .explore-btn {
@@ -89,6 +89,12 @@ h3 {
 }
 .is-disabled {
   cursor: not-allowed !important;
+}
+.color-white{
+  color: white !important;
+}
+.color-black{
+  color: #0E0B4C !important;
 }
 /* Global css ends here */
 
@@ -131,10 +137,11 @@ nav .nav-link:hover {
 .hero-section {
   padding-top: 15%;
   padding-bottom: 23%;
-  background-image: url(../img/home/hero/alien-hero.svg);
-  background-position: right;
+  background-image: url("../img/home/hero/alien-hero.svg");
   background-repeat: no-repeat;
   height: auto;
+  background-position: 30%;
+  background-size: 122%;
 }
 .hero-img {
   width: 90%;
@@ -149,6 +156,10 @@ nav .nav-link:hover {
   padding-top: 3%;
   padding-bottom: 3%;
   height: auto;
+  background-image: url("../img/home/feature/feature-bg.svg");
+  background-repeat: no-repeat;
+  background-position: 2% 17%;
+
 }
 .feature-section hr {
   border-top: 2px solid #115b80 !important;
@@ -157,12 +168,12 @@ nav .nav-link:hover {
   margin-top: 36px;
 }
 .feature-block-icon {
-  background-color: #022b41;
-  border-top: 5px solid #115b80;
+  background-color: #1640B0;
+  border-top: 5px solid #64E2D4;
 }
 .feature-block-content {
-  background-color: #042232;
-  border-top: 5px solid #0a344a;
+  background-color: #082D91;
+  border-top: 5px solid #2D82BC;
   padding: 20px 25px;
 }
 .block-content-heading {
@@ -172,14 +183,14 @@ nav .nav-link:hover {
 }
 .block-content-strip {
   color: #ffc378;
-  background: #152d37;
+  background: #18378F;
   padding: 5px 20px;
 }
 .block-content-list {
   padding-inline-start: 13px;
 }
 .block-content-list li {
-  color: #ffeedd;
+  color: #5BEBF3;
   font-size: 14px;
 }
 .block-content-list li::before {
@@ -192,25 +203,10 @@ nav .nav-link:hover {
 }
 /* feature section ends here */
 
-/* mecha section starts here */
-.mecha-section {
-  padding-top: 3%;
-  padding-bottom: 3%;
-  height: auto;
-  background-image: url(../img/home/mecha/dry-tree-right.svg);
-  background-repeat: no-repeat;
-  background-position: right;
-  background-size: 181px;
-}
-.mecha-img {
-  width: 60%;
-}
-/* mecha section ends here */
-
 /* artworks section starts here */
 .artworks-section {
   padding-top: 3%;
-  padding-bottom: 3%;
+  padding-bottom: 13%;
   height: auto;
 }
 .artwork-1 {
@@ -219,8 +215,27 @@ nav .nav-link:hover {
 .artwork-2 {
   margin-top: 50px;
 }
-.artworks-section img {
-  width: 91%;
+.lighting-img{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.stars-img{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.stone-right{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.stone-left{
+  position: absolute;
+  left: -176px;
+  bottom: 0;
+  /* width: 50%; */
+  height: 75%;
 }
 /* artworks section ends here */
 
@@ -247,10 +262,17 @@ nav .nav-link:hover {
   float: left;
   margin-top: 38px;
 }
+.roadmap-step-block{
+  background-image: url("../img/home/roadmap/roadmap-bg.svg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  height: 570px;
+  background-size: cover;
+}
 .roadmap-step-header {
-  background-color: #0a2237;
   padding: 30px;
-  border-top: 2px solid #4d4e55;
+  border-top: 2px solid #FF8334;
+  width: 99.2%;
 }
 .step-heading {
   color: #ffffff !important;
@@ -258,23 +280,20 @@ nav .nav-link:hover {
   font-weight: 450;
 }
 .step-body {
-  background: rgb(19, 60, 75);
-  background: linear-gradient(
-    0deg,
-    rgba(19, 60, 75, 1) 42%,
-    rgba(31, 88, 106, 1) 100%
-  );
-  padding: 23px 57px 20px 30px;
+  padding: 57px;
   color: white;
+  border-top: 2px solid #435FB6;
+  width: 99.2%;
 }
 .roadmap-step-block {
   width: 90%;
 }
 .boy-img {
   position: absolute;
-  right: -37px;
-  top: 63px;
-  width: 23%;
+  right: -17px;
+  width: 24%;
+  bottom: -2%;
+
 }
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
@@ -288,13 +307,11 @@ nav .nav-link:hover {
   padding-bottom: 5%;
   padding-top: 5%;
   height: auto;
-  background-image: url(../img/home/steps/dry-tree-left.svg);
-  background-position: left;
   background-size: 250px;
   background-repeat: no-repeat;
 }
 .selling-steps-block {
-  background-color: #042232;
+  background-color: #082d91;
   width: 77%;
   margin: 0 auto;
   padding: 0px 30px;
@@ -311,11 +328,18 @@ nav .nav-link:hover {
 .step-card-2 p {
   color: #b7babd;
 }
+.selling-stone{
+  position: absolute;
+  right: 54px;
+  height: 61%;
+  top: 22%;
+  z-index: -1000;
+}
 /* selling steps section ends here */
 
 /* join community section starts here */
 .join-community-block {
-  background-image: url(../img/home/community/community-bg.svg);
+  background-image: url("../img/home/community/community-bg.svg");
   background-size: cover;
   background-position: center;
   width: 77%;
@@ -323,17 +347,27 @@ nav .nav-link:hover {
   padding: 9% 5% 8% 6%;
   position: relative;
 }
+.join-community-block::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #e97cb885;
+}
 .join-community-block p {
   color: white;
   font-size: 16px;
 }
 .join-community-block .explore-btn-inner {
-  border: 2px solid #ffffff;
+  border: 2px solid #ff8437;
+  background: #FF8437;
 }
 .join-community-block .explore-btn .input-group-text {
-  border-top: 2px solid #ffffff;
-  border-right: 2px solid #ffffff;
-  border-bottom: 2px solid #ffffff;
+  border-top: 2px solid #ffc378b0;
+  border-right: 2px solid #ffc378b0;
+  border-bottom: 2px solid #ffc378b0;
   border-left: none;
   background: #ffc378b0;
 }
@@ -344,25 +378,26 @@ nav .nav-link:hover {
 
 /* footer section starts here */
 .footer-section {
-  background-image: url(../img/footer/footer-bg.svg);
+  background-image: url("../img/footer/footer-bg.svg");
   padding-top: 16%;
   padding-bottom: 1%;
   height: auto;
   margin-top: -115px;
-  background-position: center;
+  background-position: 55% 77%;
   position: relative;
   z-index: -1000;
-  background-size: cover;
+  background-size: 125%;
+  background-repeat: no-repeat;
 }
-.footer-section::before {
-  content: "";
-  position: absolute;
-  background-color: #040d1787;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
+/*.footer-section::before {*/
+/*  content: "";*/
+/*  position: absolute;*/
+/*  background-color: #040d1787;*/
+/*  top: 0;*/
+/*  bottom: 0;*/
+/*  left: 0;*/
+/*  right: 0;*/
+/*}*/
 .footer-section ul li {
   display: inline;
 }
@@ -451,9 +486,6 @@ nav .nav-link:hover {
   }
   .section-subheading {
     font-size: 15px;
-  }
-  .mekas-img {
-    height: 95%;
   }
   .roadmap-section hr {
     width: 35px;
@@ -630,5 +662,11 @@ nav .nav-link:hover {
   }
   .nav-item .nav-link{
     float: right;
+  }
+  .stone-right{
+    display: none;
+  }
+  .stone-left{
+    display: none;
   }
 }
