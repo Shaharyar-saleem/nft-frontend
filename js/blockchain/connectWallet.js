@@ -103,7 +103,7 @@ async function initContract() {
     }, 2000);
   }
   setInterval(function () {
-    getShortAddressCheckNetworkErrorCopyLink();
+    getShortAddressCheckNetworkErrorCopyLink();  // todo figure out async setTimeout implementation
   }, 5000);
 }
 
@@ -140,7 +140,7 @@ async function getShortAddressCheckNetworkErrorCopyLink() {
 }
 
 // trigger when disconnect btn pressed
-async function disconnect() {
+function disconnect() {
   localStorage.clear();
   isConnected = false;
   user.address = undefined;
