@@ -1,12 +1,11 @@
 const constants = require("./constants");
 const abi = require("./abi/nft");
-const providerHelper = require("./helper/provider.helper");
+const { providerHelper } = require("./helper");
 const etherProvider = providerHelper.getProvider();
 const signer = providerHelper.getSigner();
 const nftContract = constants.nftContract;
 const Web3Modal = window.Web3Modal.default;
 const WalletConnectProvider = window.WalletConnectProvider.default;
-const Fortmatic = window.Fortmatic;
 const evmChains = window.evmChains;
 
 let status;
@@ -20,15 +19,16 @@ let user = {
   address: "",
 };
 
-$(function () {
-  init();
+async function init(){
+  connectWallet.initWeb3Modal();
   const connectionStatus = localStorage.getItem("connectStatus");
   if (connectionStatus == "connected") {
-    userLoginAttempt();
+     await connectWallet.userLoginAttempt();
   }
-});
+}
 
-function init() {
+
+function initWeb3Modal() {
   if (location.protocol !== "https:") {
     document.querySelector("#btn-connect").setAttribute("disabled", "disabled");
     return;
@@ -48,21 +48,22 @@ function init() {
   });
 }
 
+// triger when connectWallet btn is clicked
 async function connectAccount() {
   try {
     provider = await web3Modal.connect();
     const web3 = new Web3(Web3.givenProvider);
     localStorage.setItem("connectStatus", "connected");
-    web3.eth.getAccounts().then(function (result) {
-      user.address = result[0];
+    const result = await web3.eth.getAccounts();
+    user.address = result[0];
       initContract();
-    });
   } catch (error) {
     console.log("Could not connect to wallet", error);
     return;
   }
 }
 
+// checks if user is already connected
 async function userLoginAttempt() {
   isConnected = false;
   await window.addEventListener("load", async function () {
@@ -72,47 +73,50 @@ async function userLoginAttempt() {
         provider = await web3Modal;
         localStorage.setItem("connectStatus", "connected");
       } else {
-        startUp();
+       await getShortAddressCheckNetworkErrorCopyLink();
       }
       const web3 = new Web3(Web3.givenProvider);
-      await web3.eth.getAccounts().then(function (result) {
-        user.address = result[0];
-        initContract();
-      });
+      const result = await web3.eth.getAccounts();
+      user.address = result[0];
+      await initContract();
     } catch (error) {
       console.error(error);
     }
   });
 }
-
+// initialize contract
 async function initContract() {
   try {
     await (mainContract = new web3.eth.Contract(abi, nftContract));
     if (mainContract != undefined) {
-      startUp();
+      await getShortAddressCheckNetworkErrorCopyLink();
     } else {
-      setTimeout(() => {
-        initContract();
-      }, 2000);
+      // setTimeout(() => {
+      //   initContract();
+      // }, 2000);
+      await initContract();
     }
   } catch (e) {
-    setTimeout(() => {
-      initContract();
-    }, 2000);
+    await initContract();
+    // setTimeout(() => {
+    //   initContract();
+    // }, 2000);
   }
-  setInterval(function () {
-    startUp();
-  }, 5000);
+  await getShortAddressCheckNetworkErrorCopyLink();
+  // setInterval(function () {
+  //   startUp();
+  // }, 5000);
 }
 
-async function startUp() {
+
+async function getShortAddressCheckNetworkErrorCopyLink() {
   if (user.address != undefined) {
     let p2 = user.address.slice(42 - 5);
     // $("#shortAddress")[0].innerHTML = `${user.address.slice(0, 4)}...${p2}`;
 
     const web3 = new Web3(Web3.givenProvider);
     const chainId = await web3.eth.getChainId();
-    const vestingInfo = localStorage.getItem("isVesting");
+
     // Display Network Error
     // if (chainId != 56 && chainId != 97) {
     //   document.querySelector("#prepare").style.display = "none";
@@ -132,6 +136,7 @@ async function startUp() {
   }
 }
 
+// trigger when disconnect btn pressed
 async function disconnect() {
   localStorage.clear();
   isConnected = false;
@@ -145,9 +150,11 @@ window.connectAccount = connectAccount;
 window.disconnect = disconnect;
 
 module.exports = {
+  init,
   connectAccount,
   userLoginAttempt,
   initContract,
-  startUp,
+  getShortAddressCheckNetworkErrorCopyLink,
   disconnect,
+  initWeb3Modal,
 };
