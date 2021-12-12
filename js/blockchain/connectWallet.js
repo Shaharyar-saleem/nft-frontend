@@ -1,9 +1,9 @@
 const constants = require("./constants");
 const abi = require("./abi/nft");
-const { providerHelper } = require("./helper");
-const etherProvider = providerHelper.getProvider();
-const signer = providerHelper.getSigner();
+// const { providerHelper } = require("./helper");
+// const signer = providerHelper.getSigner();
 const nftContract = constants.nftContract;
+
 const Web3Modal = window.Web3Modal.default;
 const WalletConnectProvider = window.WalletConnectProvider.default;
 const evmChains = window.evmChains;
@@ -20,10 +20,12 @@ let user = {
 };
 
 async function init(){
-  connectWallet.initWeb3Modal();
+  // connectWallet.initWeb3Modal();
+  initWeb3Modal();
   const connectionStatus = localStorage.getItem("connectStatus");
   if (connectionStatus == "connected") {
-     await connectWallet.userLoginAttempt();
+     // await connectWallet.userLoginAttempt();
+    userLoginAttempt();
   }
 }
 
@@ -91,21 +93,18 @@ async function initContract() {
     if (mainContract != undefined) {
       await getShortAddressCheckNetworkErrorCopyLink();
     } else {
-      // setTimeout(() => {
-      //   initContract();
-      // }, 2000);
-      await initContract();
+      setTimeout(() => {
+        initContract();
+      }, 2000);
     }
   } catch (e) {
-    await initContract();
-    // setTimeout(() => {
-    //   initContract();
-    // }, 2000);
+    setTimeout(() => {
+      initContract();
+    }, 2000);
   }
-  await getShortAddressCheckNetworkErrorCopyLink();
-  // setInterval(function () {
-  //   startUp();
-  // }, 5000);
+  setInterval(function () {
+    getShortAddressCheckNetworkErrorCopyLink();
+  }, 5000);
 }
 
 
@@ -118,11 +117,15 @@ async function getShortAddressCheckNetworkErrorCopyLink() {
     const chainId = await web3.eth.getChainId();
 
     // Display Network Error
-    // if (chainId != 56 && chainId != 97) {
-    //   document.querySelector("#prepare").style.display = "none";
-    //   document.querySelector("#connected").style.display = "none";
-    //   document.querySelector("#networkError").style.display = "block";
-    // }
+    if (chainId != 56 && chainId != 97) {
+      document.querySelector("#prepare").style.display = "none";
+      document.querySelector("#connected").style.display = "none";
+      // document.querySelector("#networkError").style.display = "block";
+    }
+    else{
+      document.querySelector("#prepare").style.display = "none";
+      document.querySelector("#connected").style.display = "block";
+    }
 
     //Bscscan link href
     // const link = document.getElementById("bscscan-link");
