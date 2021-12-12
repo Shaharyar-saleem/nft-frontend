@@ -6,7 +6,7 @@ module.exports = {
     modules: ["node_modules"],
     fallback: [],
   },
-  entry: ["./js/scroll.js", "./js/blockchain/connectWallet.js"],
+  entry: ["./js/index.js"],
   output: {
     path: path.resolve(__dirname, "js"),
     filename: "nft.bundle.js",
