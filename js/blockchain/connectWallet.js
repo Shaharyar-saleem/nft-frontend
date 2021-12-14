@@ -19,16 +19,15 @@ let user = {
   address: "",
 };
 
-async function init(){
+async function init() {
   // connectWallet.initWeb3Modal();
   initWeb3Modal();
   const connectionStatus = localStorage.getItem("connectStatus");
   if (connectionStatus == "connected") {
-     // await connectWallet.userLoginAttempt();
+    // await connectWallet.userLoginAttempt();
     userLoginAttempt();
   }
 }
-
 
 function initWeb3Modal() {
   if (location.protocol !== "https:") {
@@ -58,7 +57,7 @@ async function connectAccount() {
     localStorage.setItem("connectStatus", "connected");
     const result = await web3.eth.getAccounts();
     user.address = result[0];
-      initContract();
+    initContract();
   } catch (error) {
     console.log("Could not connect to wallet", error);
     return;
@@ -75,7 +74,7 @@ async function userLoginAttempt() {
         provider = await web3Modal;
         localStorage.setItem("connectStatus", "connected");
       } else {
-       await getShortAddressCheckNetworkErrorCopyLink();
+        await getShortAddressCheckNetworkErrorCopyLink();
       }
       const web3 = new Web3(Web3.givenProvider);
       const result = await web3.eth.getAccounts();
@@ -103,10 +102,9 @@ async function initContract() {
     }, 2000);
   }
   setInterval(function () {
-    getShortAddressCheckNetworkErrorCopyLink();  // todo figure out async setTimeout implementation
+    getShortAddressCheckNetworkErrorCopyLink(); // todo figure out async setTimeout implementation
   }, 5000);
 }
-
 
 async function getShortAddressCheckNetworkErrorCopyLink() {
   if (user.address != undefined) {
@@ -121,8 +119,7 @@ async function getShortAddressCheckNetworkErrorCopyLink() {
       document.querySelector("#prepare").style.display = "none";
       document.querySelector("#connected").style.display = "none";
       // document.querySelector("#networkError").style.display = "block";
-    }
-    else{
+    } else {
       document.querySelector("#prepare").style.display = "none";
       document.querySelector("#connected").style.display = "block";
     }

@@ -1,5 +1,5 @@
-const providerHelper = require('./provider.helper');
+const providerHelper = require("./provider.helper");
 
 module.exports = {
-    providerHelper,
-}
+  providerHelper,
+};

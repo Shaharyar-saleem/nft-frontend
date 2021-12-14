@@ -1,6 +1,6 @@
 /* Global css starts here */
 :root {
-  --primary-color: #0D1748;
+  --primary-color: #0d1748;
   --secondry-color: #15192a;
 }
 body {
@@ -61,7 +61,7 @@ h3 {
   text-transform: uppercase;
 }
 .section-txt {
-  color: #5BEBF3;
+  color: #5bebf3;
   font-size: 16px;
 }
 .explore-btn {
@@ -90,11 +90,11 @@ h3 {
 .is-disabled {
   cursor: not-allowed !important;
 }
-.color-white{
+.color-white {
   color: white !important;
 }
-.color-black{
-  color: #0E0B4C !important;
+.color-black {
+  color: #0e0b4c !important;
 }
 /* Global css ends here */
 
@@ -159,7 +159,6 @@ nav .nav-link:hover {
   background-image: url("../img/home/feature/feature-bg.svg");
   background-repeat: no-repeat;
   background-position: 2% 17%;
-
 }
 .feature-section hr {
   border-top: 2px solid #115b80 !important;
@@ -168,12 +167,12 @@ nav .nav-link:hover {
   margin-top: 36px;
 }
 .feature-block-icon {
-  background-color: #1640B0;
-  border-top: 5px solid #64E2D4;
+  background-color: #1640b0;
+  border-top: 5px solid #64e2d4;
 }
 .feature-block-content {
-  background-color: #082D91;
-  border-top: 5px solid #2D82BC;
+  background-color: #082d91;
+  border-top: 5px solid #2d82bc;
   padding: 20px 25px;
 }
 .block-content-heading {
@@ -183,14 +182,14 @@ nav .nav-link:hover {
 }
 .block-content-strip {
   color: #ffc378;
-  background: #18378F;
+  background: #18378f;
   padding: 5px 20px;
 }
 .block-content-list {
   padding-inline-start: 13px;
 }
 .block-content-list li {
-  color: #5BEBF3;
+  color: #5bebf3;
   font-size: 14px;
 }
 .block-content-list li::before {
@@ -215,22 +214,22 @@ nav .nav-link:hover {
 .artwork-2 {
   margin-top: 50px;
 }
-.lighting-img{
+.lighting-img {
   position: absolute;
   top: 0;
   right: 0;
 }
-.stars-img{
+.stars-img {
   position: absolute;
   bottom: 0;
   right: 0;
 }
-.stone-right{
+.stone-right {
   position: absolute;
   right: 0;
   bottom: 0;
 }
-.stone-left{
+.stone-left {
   position: absolute;
   left: -176px;
   bottom: 0;
@@ -262,7 +261,7 @@ nav .nav-link:hover {
   float: left;
   margin-top: 38px;
 }
-.roadmap-step-block{
+.roadmap-step-block {
   background-image: url("../img/home/roadmap/roadmap-bg.svg");
   background-position: bottom;
   background-repeat: no-repeat;
@@ -271,7 +270,7 @@ nav .nav-link:hover {
 }
 .roadmap-step-header {
   padding: 30px;
-  border-top: 2px solid #FF8334;
+  border-top: 2px solid #ff8334;
   width: 99.2%;
 }
 .step-heading {
@@ -282,7 +281,7 @@ nav .nav-link:hover {
 .step-body {
   padding: 57px;
   color: white;
-  border-top: 2px solid #435FB6;
+  border-top: 2px solid #435fb6;
   width: 99.2%;
 }
 .roadmap-step-block {
@@ -293,7 +292,6 @@ nav .nav-link:hover {
   right: -17px;
   width: 24%;
   bottom: -2%;
-
 }
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
@@ -328,7 +326,7 @@ nav .nav-link:hover {
 .step-card-2 p {
   color: #b7babd;
 }
-.selling-stone{
+.selling-stone {
   position: absolute;
   right: 54px;
   height: 61%;
@@ -347,8 +345,8 @@ nav .nav-link:hover {
   padding: 9% 5% 8% 6%;
   position: relative;
 }
-.join-community-block::before{
-  content: '';
+.join-community-block::before {
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
@@ -362,7 +360,7 @@ nav .nav-link:hover {
 }
 .join-community-block .explore-btn-inner {
   border: 2px solid #ff8437;
-  background: #FF8437;
+  background: #ff8437;
 }
 .join-community-block .explore-btn .input-group-text {
   border-top: 2px solid #ffc378b0;
@@ -371,7 +369,7 @@ nav .nav-link:hover {
   border-left: none;
   background: #ffc378b0;
 }
-.join-community-block .explore-btn{
+.join-community-block .explore-btn {
   width: 250px !important;
 }
 .join-community-block .right-arrow {
@@ -447,7 +445,7 @@ nav .nav-link:hover {
 .kaSVED {
   border: none !important;
 }
-.iKXYBM{
+.iKXYBM {
   background-color: #0d1c43 !important;
   padding: 25px 0px !important;
 }
@@ -551,7 +549,7 @@ nav .nav-link:hover {
     padding-top: 20%;
     padding-bottom: 20%;
   }
-  .nav-item .nav-link{
+  .nav-item .nav-link {
     float: right;
   }
 }
@@ -667,13 +665,13 @@ nav .nav-link:hover {
     display: flex;
     justify-content: center;
   }
-  .nav-item .nav-link{
+  .nav-item .nav-link {
     float: right;
   }
-  .stone-right{
+  .stone-right {
     display: none;
   }
-  .stone-left{
+  .stone-left {
     display: none;
   }
 }
