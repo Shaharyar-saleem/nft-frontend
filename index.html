@@ -169,7 +169,7 @@
                   </div>
                 </div>
               </div>
-              <a href="" class="mint-btn is-disabled">MINT YOUR NFT</a>
+              <a href="" class="mint-btn is-disabled"  data-toggle="tooltip" data-placement="bottom" title="Minting Will Be Live Soon!">MINT YOUR NFT</a>
             </div>
           </div>
           <div class="offset-md-6"></div>
@@ -182,7 +182,7 @@
     <section class="feature-section">
       <div class="custom-container">
         <div class="row">
-          <div class="col-lg-5 col-md-4">
+          <div class="col-lg-3 col-md-4">
             <h1 class="section-heading text-center">Why Fuzion</h1>
           </div>
           <div class="col-lg-7 col-md-8">
@@ -192,19 +192,15 @@
               </div>
               <div class="col-11">
                 <p class="section-txt pt-4 pl-4">
-                  Whilst minting, Fuzion CryptoPunk utilized a provably fair
-                  system with randomization; this meant that everyone who minted
-                  one of the original 10,000 had an equal chance of minting a
-                  rare Fuzion CryptoPunk. If you are reading this now and missed
-                  the original mint, don't lose hope. Join the discord, trade,
-                  barter and enter competitions to get your very own.
+                  Fuzion Team utilized a provably fair system with randomization; this means that everyone who mints one of the original 10,000 has an equal chance of minting a rare Fuzion CryptoPunk. If you are reading this now and missed the original mint, don't lose hope. Join the discord, trade, barter and enter competitions to get your very own.
                 </p>
               </div>
             </div>
           </div>
+          <div class="offset-md-2"></div>
         </div>
 
-        <div class="row">
+        <div class="row mt-2">
           <div class="offset-lg-2"></div>
           <div class="col-lg-8 col-md-12">
             <div class="feature-block">
@@ -682,8 +678,10 @@
           <div class="col-md-12 d-flex justify-content-center">
             <div class="input-group mt-5 explore-btn" style="width: 185px">
               <a href="" class="form-control explore-btn-inner is-disabled"
+                 data-toggle="tooltip" data-placement="bottom" title="Minting Will Be Live Soon!"
                 >MINT YOUR NFT</a
               >
+
               <div class="input-group-prepend">
                 <div class="input-group-text">
                   <img
@@ -870,5 +868,8 @@
     ></script>
     <!-- custom js -->
     <script src="./js/nft.bundle.js"></script>
+    <script>
+      $('[data-toggle="tooltip"]').tooltip()
+    </script>
   </body>
 </html>
