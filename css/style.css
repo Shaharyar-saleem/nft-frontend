@@ -148,16 +148,18 @@ nav .nav-link:hover {
   background: #ff8337;
 }
 .hero-section .minting-block{
-  background-image: url("../img/home/hero/minting-bg.svg");
+  background-image: url(../img/home/hero/minting-bg.svg);
   background-position: center;
   background-repeat: no-repeat;
   margin-top: 10px;
-  width: 321px;
+  width: 232px;
   padding: 10px;
+  margin-left: 88px;
 }
  .minting-block p{
    color: #67EAF9;
    font-size: 14px;
+   text-align: center;
  }
 /* hero section ends here */
 
@@ -217,6 +219,10 @@ nav .nav-link:hover {
   right: -5px;
   z-index: -100000;
   width: 58%;
+  mix-blend-mode: lighten;
+}
+.female-img{
+  mix-blend-mode: screen;
 }
 
 /* feature section ends here */
@@ -311,6 +317,7 @@ nav .nav-link:hover {
   right: -17px;
   width: 24%;
   bottom: -2%;
+  mix-blend-mode: luminosity;
 }
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
@@ -339,7 +346,7 @@ nav .nav-link:hover {
   background-position: center;
   background-repeat: no-repeat;
   margin-top: 10px;
-  width: 321px;
+  width: 250px;
   padding: 10px;
 }
 .step-card {
@@ -399,13 +406,14 @@ nav .nav-link:hover {
   font-size: 16px;
 }
 .join-community-block .explore-btn-inner {
-  border: 2px solid #ffcf00;
+  border: 2px solid #ffffff;
   background: #ffcf00;
+  color: black !important;
 }
 .join-community-block .explore-btn .input-group-text {
-  border-top: 2px solid #ff8437;
-  border-right: 2px solid #ff8437;
-  border-bottom: 2px solid #ff8437;
+  border-top: 2px solid #ffff;
+  border-right: 2px solid #ffff;
+  border-bottom: 2px solid #ffff;
   border-left: none;
   background: #ff8437;
 }
