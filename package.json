@@ -4,7 +4,8 @@
     "build": "webpack --config webpack.prod.js",
     "build:dev": "webpack --config webpack.dev.js",
     "dev": "webpack serve --open --config webpack.dev.js",
-    "start": "yarn build && surge --project . --domain nft-fuzion.surge.sh"
+    "start": "yarn build && surge --project . --domain nft-fuzion.surge.sh",
+    "start:shery": "yarn build && surge --project . --domain paz-nft.surge.sh/"
   },
   "devDependencies": {
     "@squoosh/lib": "^0.4.0",
