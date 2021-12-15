@@ -224,7 +224,15 @@ nav .nav-link:hover {
 .female-img{
   mix-blend-mode: screen;
 }
-
+.cutoff-shade{
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgb(0 0 0 / 39%) 36%, #0d1748 79%);
+  height: 45%;
+  position: absolute;
+  bottom: -41%;
+  right: 0;
+  left: 0;
+}
 /* feature section ends here */
 
 /* artworks section starts here */
@@ -602,6 +610,9 @@ nav .nav-link:hover {
   }
   .globe-stars{
     display: none;
+  }
+  .cutoff-shade{
+    height: 44%;
   }
 }
 
