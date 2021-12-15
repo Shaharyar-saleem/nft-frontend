@@ -410,9 +410,15 @@ nav .nav-link:hover {
   background: #EC9B27;
   opacity: 0.2;
 }
+.join-community-block h3{
+  font-weight: 700 !important;
+  letter-spacing: 1.5px;
+  font-size: 30px;
+
+}
 .join-community-block p {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
 }
 .join-community-block .explore-btn-inner {
   border: 2px solid #ffffff;
@@ -460,7 +466,7 @@ nav .nav-link:hover {
   border-top: 1px solid rgb(255 255 255 / 10%) !important;
 }
 .footer-txt {
-  color: #a1a3c3;
+  color: white;
 }
 .footer-links li a:hover {
   color: #ffc378 !important;
@@ -526,6 +532,9 @@ nav .nav-link:hover {
   color: black !important;
 }
 .web3modal-provider-wrapper:nth-child(3) {
+  display: none !important;
+}
+.web3modal-provider-wrapper:nth-child(2) {
   display: none !important;
 }
 /* Network error */
