@@ -398,6 +398,7 @@ nav .nav-link:hover {
   margin: 0 auto;
   padding: 9% 5% 8% 6%;
   position: relative;
+  font-weight: 600;
 }
 .join-community-block::before {
   content: "";
