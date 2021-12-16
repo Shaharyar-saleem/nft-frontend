@@ -1,4 +1,4 @@
-/* Global css starts here */
+/**** Global css starts here ****/
 :root {
   --primary-color: #0d1748;
   --secondry-color: #15192a;
@@ -94,7 +94,9 @@ h3 {
 .color-black {
   color: #0e0b4c !important;
 }
-/* Global css ends here */
+/**** Global css ends here ****/
+
+/****home page starts here****/
 
 /* Navbar starts here */
 .nav-link {
@@ -539,7 +541,65 @@ nav .nav-link:hover {
 }
 /* Network error */
 
-/* Media queries */
+/****home page ends here****/
+
+/****profile page starts here****/
+.profile-section{
+  padding-top: 10%;
+  padding-bottom: 10%;
+  color: white;
+  height: auto;
+}
+.punks-numbers{
+  color: #FFC378;
+}
+.profile-section .form-control{
+  border: 1px solid #6A5E51 !important;
+  background-color: transparent !important;
+  border-radius: 50px !important;
+  height: 48px;
+}
+.profile-section .input-group-text{
+  background-color: transparent !important;
+  border: none;
+  position: absolute;
+  right: 10px;
+  top: 4px;
+}
+.profile-block{
+  background: #060A35;
+  padding: 28px 0px;
+}
+.profile-block .rewards-block{
+  background: #082D91;
+  padding: 50px;
+  width: 91%;
+  margin: 59px auto;
+}
+.profile-section hr{
+  border-top: 1px solid #ffffff75 !important;
+}
+.reward-heading{
+  font-size: 21px;
+}
+.reward-amount{
+  background-color: #113996;
+  padding: 10px 20px;
+  color: #67EAF9;
+  width: 40%;
+  margin: 0 auto;
+}
+.claim-btn{
+  border: 2px solid #FF8437;
+  background-color: transparent;
+  height: 50px;
+  color: white;
+  text-align: center;
+}
+/****profile page ends here****/
+
+
+/**** Media queries ****/
 
 /* For tablet */
 @media only screen and (max-width: 1150px) {
