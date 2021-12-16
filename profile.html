@@ -12,13 +12,21 @@
     />
     <meta
             property="og:description"
-            content="Fuzion NFTs will come in 5 stages: Originals, Chained, Evolution, Adventure, Nirvana!"
+            content="Fuzion NFTs will come in 5 stages evolving and challenging the current status quo by progressing NFT technology, creating greater utility, originality and entertainment!"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://nft.fuzion.team/img/header/nft-logo.png" />
+    <meta
+            property="og:image"
+            content="https://nft.fuzion.team/img/header/nft-logo.png"
+    />
     <meta property="og:url" content="https://nft.fuzion.team/" />
     <title>Fuzion NFTs</title>
-    <link rel="icon" href="./img/header/nft-logo.png" type="image/gif" sizes="16x16" />
+    <link
+            rel="icon"
+            href="./img/header/nft-logo.png"
+            type="image/gif"
+            sizes="16x16"
+    />
 
     <!------- ALL LINKED CSS------->
     <!-- Bootstrap 4 css CDN -->
@@ -159,30 +167,71 @@
                 <div class="profile-block">
                     <ul class="nav nav-pills mb-3 px-5" id="pills-tab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">ON SALE</a>
+                            <a class="nav-link active" id="pills-sale-tab" data-toggle="pill" href="#pills-sale" role="tab" aria-controls="pills-sale" aria-selected="true">ON SALE</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">PORTFOLIO</a>
+                            <a class="nav-link" id="pills-portfolio-tab" data-toggle="pill" href="#pills-portfolio" role="tab" aria-controls="pills-portfolio" aria-selected="false">PORTFOLIO</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">REWARDS</a>
+                            <a class="nav-link" id="pills-reward-tab" data-toggle="pill" href="#pills-reward" role="tab" aria-controls="pills-reward" aria-selected="false">REWARDS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-referral-tab" data-toggle="pill" href="#pills-referral" role="tab" aria-controls="pills-referral" aria-selected="false">REFERRALS</a>
                         </li>
                     </ul>
                     <hr>
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active px-5" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <div class="tab-pane fade show active px-5" id="pills-sale" role="tabpanel" aria-labelledby="pills-sale-tab">
                             On sale tab content comes here...
                         </div>
-                        <div class="tab-pane fade px-5" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="tab-pane fade px-5" id="pills-portfolio" role="tabpanel" aria-labelledby="pills-portfolio-tab">
                             PORTFOLIO tab content comes here...
                         </div>
-                        <div class="tab-pane fade px-5" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                        <div class="tab-pane fade px-5" id="pills-reward" role="tabpanel" aria-labelledby="pills-reward-tab">
                             <div class="rewards-block text-center">
                                 <p class="reward-heading">Your Available Rewards</p>
                                 <div class="reward-amount">0.00000000 BNB</div>
-                                <a href="" class="claim-btn">CLAIM REWARDS</a>
-                                <p>30% Current Holder Rewards and 5% Original Minter<br>
+                                <div class="claim-btn-block">
+                                    <button class="claim-btn">CLAIM REWARDS</button>
+                                </div>
+                                <p class="reward-note mb-0">30% Current Holder Rewards and 5% Original Minter<br>
                                     Royalties from sale price of Fuzion NFTs.</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade px-5" id="pills-referral" role="tabpanel" aria-labelledby="pills-referral-tab">
+                            <div class="referral-block">
+                              <p class="referral-note1">Share the referral link below to invite your friends and earn 1% of your friend’s earnings FOREVER!</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="referral-card-header">
+                                            <h5 class="mb-0">Total Referrals</h5>
+                                        </div>
+                                        <div class="referral-card-body">
+                                            <p class="mb-0">0</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="referral-card-header">
+                                            <h5 class="mb-0">Total Referral Commissions</h5>
+                                        </div>
+                                        <div class="referral-card-body">
+                                            <p class="mb-0">0.0000 RICE</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-md-12">
+                                        <div class="referral-link-card">
+                                            <h5>Your Referral Link</h5>
+                                            <div class="user-referral-link position-relative">
+                                                <p class="mb-0">https://www.fuzion.com/search?dates=any&format</p>
+                                                <a href="#" class="copy-link">Copy</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="referral-note2 mb-0 mt-5">* Referral link is for farming earnings only and not rice purchases.</p>
+                                <p class="referral-note2">**The 1% is not taken from your referrals, therefore no one loses any RICE. Everyone wins!</p>
                             </div>
                         </div>
                     </div>
@@ -324,6 +373,7 @@
         type="application/javascript"
 ></script>
 <!-- custom js -->
-<script src="./js/nft.bundle.js"></script>
+<!--<script src="./nft.bundle.js"></script>-->
+<script src=".js/nft.bundle.js"></script>
 </body>
 </html>

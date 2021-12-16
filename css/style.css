@@ -570,6 +570,7 @@ nav .nav-link:hover {
   background: #060A35;
   padding: 28px 0px;
 }
+/*reward block*/
 .profile-block .rewards-block{
   background: #082D91;
   padding: 50px;
@@ -580,7 +581,7 @@ nav .nav-link:hover {
   border-top: 1px solid #ffffff75 !important;
 }
 .reward-heading{
-  font-size: 21px;
+  font-size: 20px;
 }
 .reward-amount{
   background-color: #113996;
@@ -589,12 +590,75 @@ nav .nav-link:hover {
   width: 40%;
   margin: 0 auto;
 }
+.claim-btn-block{
+  width: 40%;
+  margin: 15px auto;
+}
 .claim-btn{
-  border: 2px solid #FF8437;
+  border: 1px solid #FF8437;
   background-color: transparent;
-  height: 50px;
+  height: 44px;
+  width: 100%;
   color: white;
   text-align: center;
+}
+.reward-note{
+  color: #6AA7C6;
+  margin-top: 10px;
+}
+
+/*referral block*/
+.referral-block{
+  padding: 24px 14px;
+  width: 100%;
+  margin: 0px auto;
+}
+.referral-card-header{
+  background-color: #082D91;
+  padding: 15px;
+  color: white;
+  text-align: center;
+}
+.referral-card-body{
+  background-color: #113996;
+  padding: 15px;
+  color: #67EAF9;
+  text-align: center;
+}
+.referral-note1{
+  color: #67EAF9;
+  font-size: 14px;
+  text-align: center;
+}
+.referral-note2{
+  color: #BEC3F9;
+  font-size: 15px;
+  text-align: center;
+}
+.referral-card-header h5{
+  font-weight: 350 !important;
+}
+.referral-link-card{
+  background-color: #082D91;
+  padding: 30px 31px 45px 31px;
+  color: white;
+}
+.referral-link-card h5{
+  font-weight: 350 !important;
+  text-align: center;
+}
+.user-referral-link{
+  background-color: #103696;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+.copy-link{
+  color: #FF8437 !important;
+  float: right !important;
+  position: absolute;
+  right: 15px;
+  top: 15px;
 }
 /****profile page ends here****/
 
