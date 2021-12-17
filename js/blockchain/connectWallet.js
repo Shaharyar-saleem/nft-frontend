@@ -59,6 +59,7 @@ async function connectAccount() {
     const result = await web3.eth.getAccounts();
     user.address = result[0];
     initContract();
+    // function for get bnb Balance
     await getBnbBalance();
   } catch (error) {
     console.log("Could not connect to wallet", error);
@@ -82,6 +83,7 @@ async function userLoginAttempt() {
       const result = await web3.eth.getAccounts();
       user.address = result[0];
       await initContract();
+      // function for get bnb Balance
       await getBnbBalance();
     } catch (error) {
       console.error(error);

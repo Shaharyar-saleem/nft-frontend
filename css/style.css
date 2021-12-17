@@ -100,7 +100,7 @@ h3 {
 
 /* Navbar starts here */
 .navbar{
-  padding: 26px 1rem !important;
+  padding: 12px 1rem !important;
 }
 .nav-link {
   color: #ffffff;
@@ -135,6 +135,10 @@ nav .nav-link:hover {
   top: 47%;
   left: 155px;
 }
+.online-icon{
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+
 /* Navbar ends here */
 
 /* hero section starts here */
@@ -579,6 +583,10 @@ nav .nav-link:hover {
   position: absolute;
   right: 10px;
   top: 4px;
+}
+.copy-icon{
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(
+          288deg) brightness(102%) contrast(102%);
 }
 .profile-block{
   background: #060A35;
