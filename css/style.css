@@ -99,6 +99,9 @@ h3 {
 /****home page starts here****/
 
 /* Navbar starts here */
+.navbar{
+  padding: 26px 1rem !important;
+}
 .nav-link {
   color: #ffffff;
 }
@@ -116,6 +119,7 @@ nav .nav-link:hover {
   color: #ffc378 !important;
   width: 186px;
   border: 1px solid #0b456e;
+  padding: 7px 7px;
 }
 .bnbBalance {
   color: white !important;
@@ -128,8 +132,8 @@ nav .nav-link:hover {
 }
 .dropdown-toggle::after {
   position: absolute;
-  top: 50%;
-  left: 160px;
+  top: 47%;
+  left: 155px;
 }
 /* Navbar ends here */
 
@@ -659,6 +663,46 @@ nav .nav-link:hover {
   position: absolute;
   right: 15px;
   top: 15px;
+}
+/*portfolio*/
+.portfolio-card{
+  background-color: #082D91;
+  padding-top: 50px;
+  margin-top: 30px;
+}
+.portfolio-card-footer{
+  border-top: 2px solid #164F76;
+  padding: 15px 17px 2px 17px;
+  color: #8C93B2;
+  font-size: 15px;
+  font-weight: 500;
+}
+.portfolio-card-tag{
+  background: #055099;
+  position: absolute;
+  right: 0;
+  display: flex;
+  top: 0;
+}
+.portfolio-card-tag .rank-txt{
+  color: #FFC378;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.portfolio-card-tag .ranking-status{
+  border-right: 2px solid #299BD4;
+  border-top: 2px solid #299BD4;
+  border-bottom: 2px solid #299BD4;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.portfolio-nft{
+  height: 175px;
+}
+.owner-address{
+  color: #8C93B2
 }
 /****profile page ends here****/
 
