@@ -554,6 +554,16 @@ nav .nav-link:hover {
   color: white;
   height: auto;
 }
+.profile-section .nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+  background-color: none !important;
+  color: white !important;
+  border-radius: 0px;
+  border-bottom: 3px solid #FFC378;
+  padding: 0.5rem 0px 10px 0px;
+}
+.profile-section .nav-link{
+  padding: 0.5rem 0rem !important;
+}
 .punks-numbers{
   color: #FFC378;
 }
@@ -583,6 +593,7 @@ nav .nav-link:hover {
 }
 .profile-section hr{
   border-top: 1px solid #ffffff75 !important;
+  margin-top: 0px !important;
 }
 .reward-heading{
   font-size: 20px;
@@ -792,6 +803,18 @@ nav .nav-link:hover {
   .cutoff-shade{
     height: 44%;
   }
+  .profile-block{
+    margin-top: 35px;
+  }
+  .profile-section .nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+    background: #b0996d00 !important;
+  }
+  .reward-amount{
+    width: 65%;
+  }
+  .claim-btn-block{
+    width: 65%;
+  }
 }
 
 /* for mobile */
@@ -922,5 +945,35 @@ nav .nav-link:hover {
   }
   .light-img{
     display: none;
+  }
+  .profile-block .rewards-block{
+    width: 90%;
+    padding: 25px;
+  }
+  .reward-note{
+    font-size: 11px;
+  }
+  .profile-section .tab-pane{
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+  }
+  .copy-link{
+    right: 46%;
+    top: 65px;
+  }
+  .referral-link-card {
+    padding: 30px 10px 45px 10px;
+  }
+  .reward-amount {
+    width: 90%;
+  }
+  .claim-btn-block {
+    width: 90%;
+  }
+  .profile-section .nav-pills{
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+    display: flex;
+    justify-content: center;
   }
 }

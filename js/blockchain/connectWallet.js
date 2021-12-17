@@ -1,5 +1,6 @@
 const constants = require("./constants");
 const abi = require("./abi/nft");
+const {getBnbBalance} = require("./bnbBalance");
 // const { providerHelper } = require("./helper");
 // const signer = providerHelper.getSigner();
 const nftContract = constants.nftContract;
@@ -58,6 +59,7 @@ async function connectAccount() {
     const result = await web3.eth.getAccounts();
     user.address = result[0];
     initContract();
+    await getBnbBalance();
   } catch (error) {
     console.log("Could not connect to wallet", error);
     return;
@@ -80,6 +82,7 @@ async function userLoginAttempt() {
       const result = await web3.eth.getAccounts();
       user.address = result[0];
       await initContract();
+      await getBnbBalance();
     } catch (error) {
       console.error(error);
     }
