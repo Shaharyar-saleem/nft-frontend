@@ -1,6 +1,6 @@
 const constants = require("./constants");
 const abi = require("./abi/nft");
-const {getBnbBalance} = require("./bnbBalance");
+const { getBnbBalance } = require("./bnbBalance");
 // const { providerHelper } = require("./helper");
 // const signer = providerHelper.getSigner();
 const nftContract = constants.nftContract;

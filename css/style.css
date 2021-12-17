@@ -99,7 +99,7 @@ h3 {
 /****home page starts here****/
 
 /* Navbar starts here */
-.navbar{
+.navbar {
   padding: 12px 1rem !important;
 }
 .nav-link {
@@ -135,8 +135,9 @@ nav .nav-link:hover {
   top: 47%;
   left: 155px;
 }
-.online-icon{
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+.online-icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+    brightness(102%) contrast(102%);
 }
 
 /* Navbar ends here */
@@ -157,7 +158,7 @@ nav .nav-link:hover {
 .right-arrow {
   background: #ff8337;
 }
-.hero-section .minting-block{
+.hero-section .minting-block {
   background-image: url(../img/home/hero/minting-bg.svg);
   background-position: center;
   background-repeat: no-repeat;
@@ -166,11 +167,11 @@ nav .nav-link:hover {
   padding: 10px;
   margin-left: 88px;
 }
- .minting-block p{
-   color: #67EAF9;
-   font-size: 14px;
-   text-align: center;
- }
+.minting-block p {
+  color: #67eaf9;
+  font-size: 14px;
+  text-align: center;
+}
 /* hero section ends here */
 
 /* feature section starts here */
@@ -223,7 +224,7 @@ nav .nav-link:hover {
   width: 1em;
   margin-left: -1em;
 }
-.light-img{
+.light-img {
   position: absolute;
   top: -130px;
   right: -5px;
@@ -231,11 +232,11 @@ nav .nav-link:hover {
   width: 58%;
   mix-blend-mode: lighten;
 }
-.female-img{
+.female-img {
   mix-blend-mode: screen;
 }
-.cutoff-shade{
-  background: rgb(0,0,0);
+.cutoff-shade {
+  background: rgb(0, 0, 0);
   background: linear-gradient(180deg, rgb(0 0 0 / 39%) 36%, #0d1748 79%);
   height: 45%;
   position: absolute;
@@ -357,9 +358,9 @@ nav .nav-link:hover {
   width: 77%;
   margin: 0 auto;
   padding: 0px 30px;
-  border: 1px solid #2B7FBA;
+  border: 1px solid #2b7fba;
 }
-.selling-steps-section .minting-block{
+.selling-steps-section .minting-block {
   background-image: url("../img/home/selling/minting-bg.svg");
   background-position: center;
   background-repeat: no-repeat;
@@ -374,15 +375,15 @@ nav .nav-link:hover {
   padding: 57px 20px;
 }
 .step-card p {
-  color: #5BEBF3;
+  color: #5bebf3;
 }
 .step-card-2 p {
-  color: #5BEBF3;
+  color: #5bebf3;
 }
-.card-border-right{
+.card-border-right {
   border-right: 1px solid #5bebf357;
 }
-.card-border-left{
+.card-border-left {
   border-left: 1px solid #5bebf357;
 }
 .selling-stone {
@@ -392,7 +393,7 @@ nav .nav-link:hover {
   top: 22%;
   z-index: -1000;
 }
-.globe-stars{
+.globe-stars {
   position: absolute;
   top: -262px;
   left: 0px;
@@ -417,14 +418,13 @@ nav .nav-link:hover {
   bottom: 0;
   right: 0;
   left: 0;
-  background: #EC9B27;
+  background: #ec9b27;
   opacity: 0.2;
 }
-.join-community-block h3{
+.join-community-block h3 {
   font-weight: 700 !important;
   letter-spacing: 1.5px;
   font-size: 30px;
-
 }
 .join-community-block p {
   color: white;
@@ -552,179 +552,179 @@ nav .nav-link:hover {
 /****home page ends here****/
 
 /****profile page starts here****/
-.profile-section{
+.profile-section {
   padding-top: 10%;
   padding-bottom: 10%;
   color: white;
   height: auto;
 }
-.profile-section .nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+.profile-section .nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
   background-color: none !important;
   color: white !important;
   border-radius: 0px;
-  border-bottom: 3px solid #FFC378;
+  border-bottom: 3px solid #ffc378;
   padding: 0.5rem 0px 10px 0px;
 }
-.profile-section .nav-link{
+.profile-section .nav-link {
   padding: 0.5rem 0rem !important;
 }
-.punks-numbers{
-  color: #FFC378;
+.punks-numbers {
+  color: #ffc378;
 }
-.profile-section .form-control{
-  border: 1px solid #6A5E51 !important;
+.profile-section .form-control {
+  border: 1px solid #6a5e51 !important;
   background-color: transparent !important;
   border-radius: 50px !important;
   height: 48px;
 }
-.profile-section .input-group-text{
+.profile-section .input-group-text {
   background-color: transparent !important;
   border: none;
   position: absolute;
   right: 10px;
   top: 4px;
 }
-.copy-icon{
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(
-          288deg) brightness(102%) contrast(102%);
+.copy-icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+    brightness(102%) contrast(102%);
 }
-.profile-block{
-  background: #060A35;
+.profile-block {
+  background: #060a35;
   padding: 28px 0px;
 }
 /*reward block*/
-.profile-block .rewards-block{
-  background: #082D91;
+.profile-block .rewards-block {
+  background: #082d91;
   padding: 50px;
   width: 91%;
   margin: 59px auto;
 }
-.profile-section hr{
+.profile-section hr {
   border-top: 1px solid #ffffff75 !important;
   margin-top: 0px !important;
 }
-.reward-heading{
+.reward-heading {
   font-size: 20px;
 }
-.reward-amount{
+.reward-amount {
   background-color: #113996;
   padding: 10px 20px;
-  color: #67EAF9;
+  color: #67eaf9;
   width: 40%;
   margin: 0 auto;
 }
-.claim-btn-block{
+.claim-btn-block {
   width: 40%;
   margin: 15px auto;
 }
-.claim-btn{
-  border: 1px solid #FF8437;
+.claim-btn {
+  border: 1px solid #ff8437;
   background-color: transparent;
   height: 44px;
   width: 100%;
   color: white;
   text-align: center;
 }
-.reward-note{
-  color: #6AA7C6;
+.reward-note {
+  color: #6aa7c6;
   margin-top: 10px;
 }
 
 /*referral block*/
-.referral-block{
+.referral-block {
   padding: 24px 14px;
   width: 100%;
   margin: 0px auto;
 }
-.referral-card-header{
-  background-color: #082D91;
+.referral-card-header {
+  background-color: #082d91;
   padding: 15px;
   color: white;
   text-align: center;
 }
-.referral-card-body{
+.referral-card-body {
   background-color: #113996;
   padding: 15px;
-  color: #67EAF9;
+  color: #67eaf9;
   text-align: center;
 }
-.referral-note1{
-  color: #67EAF9;
+.referral-note1 {
+  color: #67eaf9;
   font-size: 14px;
   text-align: center;
 }
-.referral-note2{
-  color: #BEC3F9;
+.referral-note2 {
+  color: #bec3f9;
   font-size: 15px;
   text-align: center;
 }
-.referral-card-header h5{
+.referral-card-header h5 {
   font-weight: 350 !important;
 }
-.referral-link-card{
-  background-color: #082D91;
+.referral-link-card {
+  background-color: #082d91;
   padding: 30px 31px 45px 31px;
   color: white;
 }
-.referral-link-card h5{
+.referral-link-card h5 {
   font-weight: 350 !important;
   text-align: center;
 }
-.user-referral-link{
+.user-referral-link {
   background-color: #103696;
   color: white;
   text-align: center;
   padding: 15px;
 }
-.copy-link{
-  color: #FF8437 !important;
+.copy-link {
+  color: #ff8437 !important;
   float: right !important;
   position: absolute;
   right: 15px;
   top: 15px;
 }
 /*portfolio*/
-.portfolio-card{
-  background-color: #082D91;
+.portfolio-card {
+  background-color: #082d91;
   padding-top: 50px;
   margin-top: 30px;
 }
-.portfolio-card-footer{
-  border-top: 2px solid #164F76;
+.portfolio-card-footer {
+  border-top: 2px solid #164f76;
   padding: 15px 17px 2px 17px;
-  color: #8C93B2;
+  color: #8c93b2;
   font-size: 15px;
   font-weight: 500;
 }
-.portfolio-card-tag{
+.portfolio-card-tag {
   background: #055099;
   position: absolute;
   right: 0;
   display: flex;
   top: 0;
 }
-.portfolio-card-tag .rank-txt{
-  color: #FFC378;
+.portfolio-card-tag .rank-txt {
+  color: #ffc378;
   padding: 5px;
   font-size: 12px;
   font-weight: 600;
 }
-.portfolio-card-tag .ranking-status{
-  border-right: 2px solid #299BD4;
-  border-top: 2px solid #299BD4;
-  border-bottom: 2px solid #299BD4;
+.portfolio-card-tag .ranking-status {
+  border-right: 2px solid #299bd4;
+  border-top: 2px solid #299bd4;
+  border-bottom: 2px solid #299bd4;
   padding: 5px;
   font-size: 12px;
   font-weight: 600;
 }
-.portfolio-nft{
+.portfolio-nft {
   height: 175px;
 }
-.owner-address{
-  color: #8C93B2
+.owner-address {
+  color: #8c93b2;
 }
 /****profile page ends here****/
-
 
 /**** Media queries ****/
 
@@ -802,25 +802,26 @@ nav .nav-link:hover {
   .nav-item .nav-link {
     float: right;
   }
-  .masked-alien{
+  .masked-alien {
     width: 70%;
   }
-  .globe-stars{
+  .globe-stars {
     display: none;
   }
-  .cutoff-shade{
+  .cutoff-shade {
     height: 44%;
   }
-  .profile-block{
+  .profile-block {
     margin-top: 35px;
   }
-  .profile-section .nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+  .profile-section .nav-pills .nav-link.active,
+  .nav-pills .show > .nav-link {
     background: #b0996d00 !important;
   }
-  .reward-amount{
+  .reward-amount {
     width: 65%;
   }
-  .claim-btn-block{
+  .claim-btn-block {
     width: 65%;
   }
 }
@@ -945,27 +946,27 @@ nav .nav-link:hover {
   .stone-left {
     display: none;
   }
-  .card-border-right{
+  .card-border-right {
     border: none;
   }
-  .card-border-left{
+  .card-border-left {
     border: none;
   }
-  .light-img{
+  .light-img {
     display: none;
   }
-  .profile-block .rewards-block{
+  .profile-block .rewards-block {
     width: 90%;
     padding: 25px;
   }
-  .reward-note{
+  .reward-note {
     font-size: 11px;
   }
-  .profile-section .tab-pane{
+  .profile-section .tab-pane {
     padding-right: 0px !important;
     padding-left: 0px !important;
   }
-  .copy-link{
+  .copy-link {
     right: 46%;
     top: 65px;
   }
@@ -978,7 +979,7 @@ nav .nav-link:hover {
   .claim-btn-block {
     width: 90%;
   }
-  .profile-section .nav-pills{
+  .profile-section .nav-pills {
     padding-right: 5px !important;
     padding-left: 5px !important;
     display: flex;
