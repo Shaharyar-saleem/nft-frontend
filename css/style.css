@@ -125,10 +125,17 @@ nav .nav-link:hover {
   color: white !important;
 }
 .dropdown-menu {
-  background-color: #022c41 !important;
-  padding: 15px !important;
-  width: 189px !important;
+  background-color: #192070 !important;
+  padding: 20px 20px !important;
+  width: 242px !important;
   border-radius: 4px !important;
+  right: 29px !important;
+  left: unset !important;
+  font-weight: 450;
+}
+#connected .show .dropdown-arrow{
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
 }
 .dropdown-toggle::after {
   position: absolute;
@@ -136,10 +143,17 @@ nav .nav-link:hover {
   left: 155px;
 }
 .online-icon {
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
-    brightness(102%) contrast(102%);
+  height: 45px;
+  width: 45px;
 }
-
+.dropdown-toggle::after{
+  display: none;
+}
+.dropdown-arrow {
+  position: absolute;
+  top: 28px;
+  right: 39px;
+}
 /* Navbar ends here */
 
 /* hero section starts here */
@@ -824,6 +838,9 @@ nav .nav-link:hover {
   .claim-btn-block {
     width: 65%;
   }
+  .dropdown-menu{
+    top: 65px;
+  }
 }
 
 /* for mobile */
@@ -984,5 +1001,11 @@ nav .nav-link:hover {
     padding-left: 5px !important;
     display: flex;
     justify-content: center;
+  }
+  .dropdown-arrow{
+    right: 15px;
+  }
+  .dropdown-menu{
+    right: 0px !important;
   }
 }
