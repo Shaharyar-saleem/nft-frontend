@@ -740,6 +740,87 @@ nav .nav-link:hover {
 }
 /****profile page ends here****/
 
+/****detail page starts here****/
+.detail-section{
+  padding-top: 3%;
+  padding-bottom: 3%;
+  height: auto;
+  margin: 6% auto;
+  width: 87%;
+}
+.detail-section-inner{
+  background-color: #082D91;
+}
+.twitter-icon{
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+  brightness(102%) contrast(102%);
+}
+.twitter-btn{
+  border: 2px solid white;
+  padding: 5px 19px;
+  border-radius: 50px;
+  margin-left: 5px;
+}
+.copy-btn{
+  border: 2px solid white;
+  padding: 5px 9px;
+  border-radius: 50px;
+  margin-right: 5px;
+}
+.properties-block{
+  padding: 25px 43px;
+}
+.properties-card {
+  border: 2px solid #164F76;
+  text-align: center;
+  color: white;
+  padding: 16px 20px;
+}
+.percentage{
+  color: #99A0BE;
+  font-size: 15px;
+}
+.detail-section-inner .left-border{
+  border-left: 2px solid #164F76;
+}
+.properties-heading {
+  color: #FFC378;
+  font-size: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.owner-details{
+  border-top: 2px solid #164F76;
+  border-bottom: 2px solid #164F76;
+  padding: 25px 43px 10px 43px;
+}
+.owner-detail-card{
+  border: 2px solid #164F76;
+  padding: 7px;
+  color: white;
+}
+.owner-txt{
+  color: #8F96B5;
+}
+.nft-details{
+  padding: 25px 43px;
+  color: white;
+}
+.detail-heading{
+  color: #FFC378;
+}
+.nft-price-btn {
+  color: white;
+  border: 1px solid #FF8437;
+  padding: 10px 42px;
+}
+.detail-note{
+  color: #B2AB8C;
+  font-size: 15px;
+  padding-top: 20px;
+}
+/****detail page ends here****/
+
 /**** Media queries ****/
 
 /* For tablet */
