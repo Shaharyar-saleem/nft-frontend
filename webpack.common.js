@@ -47,6 +47,10 @@ module.exports = {
           from: "css",
           to: "css",
         },
+        {
+          from: "profile.html",
+          to: "profile.html"
+        }
         // {
         //   context: path.resolve(__dirname, "dist"),
         //   from: "./*.html",\

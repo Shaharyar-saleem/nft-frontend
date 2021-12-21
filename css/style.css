@@ -644,6 +644,17 @@ nav .nav-link:hover {
   color: #6aa7c6;
   margin-top: 10px;
 }
+.presale-status {
+  background-image: url("../img/profile/presale-status-bg.svg");
+  background-position: center;
+  color: #67EAF9;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 10px 7px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 
 /*referral block*/
 .referral-block {

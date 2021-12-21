@@ -89,13 +89,13 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Roadmap</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Marketplace</a>
+              <a class="nav-link is-disabled" href="#">Marketplace</a>
             </li>
           </ul>
           <ul class="ml-auto my-auto">
@@ -156,16 +156,25 @@
               width="100px"
             />
             <p class="profile-address mt-3"><span id="shortAddress"></span></p>
-            <p class="punks-numbers">0 Total Degens</p>
-            <p class="punks-percentage">
-              The more Degen Punks you hold the larger your percentage of sale.
+            <p class="punks-numbers">0 Total Fuzion Punks</p>
+            <div class="presale-status">
+              <div class="media p-2">
+                <img src="./img/icons/minting-icon.svg" alt="minting icon" width="30px"/>
+                <div class="media-body">
+                  <p class="mb-0">You have been whitelisted for the presale for 50% off!</p>
+                </div>
+              </div>
+            </div>
+            <p class="punks-percentage pt-2">
+              The more Fuzion Punks you hold the larger your percentage of sale.
             </p>
             <div class="input-group mt-3">
               <input
                 type="text"
                 class="form-control"
-                placeholder="0x8f706e0af99b6581d…"
                 aria-describedby="basic-addon1"
+                id="fullAddress"
+                readonly
               />
               <span class="input-group-text">
                 <a href="">
@@ -432,7 +441,7 @@
                     </div>
 
                     <!--detail Modal -->
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal fade mt-3" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -548,8 +557,6 @@
                                         <p>BSC</p>
                                       </div>
                                     </div>
-                                    <a href="" class="nft-price-btn">19.69 BNB</a>
-                                    <p class="detail-note mb-0">Click here to view information about Market Rewards and Fees</p>
                                   </div>
                                 </div>
                               </div>
@@ -560,7 +567,7 @@
                     </div>
                   </div>
                 </div>
-                <!--                        reward tab content-->
+                <!--reward tab content-->
                 <div
                   class="tab-pane fade px-5"
                   id="pills-reward"
@@ -574,12 +581,11 @@
                       <button class="claim-btn">CLAIM REWARDS</button>
                     </div>
                     <p class="reward-note mb-0">
-                      30% Current Holder Rewards and 5% Original Minter<br />
-                      Royalties from sale price of Fuzion NFTs.
+                      14% Reflections to NFT Holders
                     </p>
                   </div>
                 </div>
-                <!--                        referral tab content-->
+                <!--referral tab content-->
                 <div
                   class="tab-pane fade px-5"
                   id="pills-referral"
