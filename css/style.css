@@ -37,14 +37,25 @@ h3 {
   left: 0;
   z-index: 1030;
 }
-.connected-button {
+.connect-btn-home {
   border: 1.5px solid #ffe1bc;
   background-color: #ff8437;
   font-weight: 600;
   text-align: center !important;
+  padding: 8px 20px;
 }
-.connected-button:hover {
+.connect-btn-home:hover {
   color: white !important;
+  background-color: transparent;
+}
+.connect-btn{
+  border: 1.5px solid #1095F5;
+  padding: 8px 20px;
+  font-weight: 600;
+  text-align: center !important;
+}
+.connect-btn:hover{
+  color: #1095F5 !important;
   background-color: transparent;
 }
 .section-heading {

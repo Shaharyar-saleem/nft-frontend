@@ -102,12 +102,11 @@
             <div id="prepare">
               <li class="nav-item">
                 <a
-                  class="nav-link primary-button mt-3"
+                  class="connect-btn mt-2"
                   id="btn-connect"
                   onclick="connectAccount()"
                   type="button"
-                  >Connect wallet</a
-                >
+                  >Connect wallet</a>
               </li>
             </div>
             <div id="connected" style="display: none">
@@ -161,7 +160,7 @@
               alt="profile-dp"
               width="100px"
             />
-            <p class="profile-address mt-3"><span id="shortAddress"></span></p>
+            <p class="profile-address mt-3"><span class="shortAddress">0xa3Aab1bDF6C86...</span></p>
             <p class="punks-numbers">0 Total Fuzion Punks</p>
             <div class="presale-status">
               <div class="media p-2">
@@ -183,9 +182,9 @@
             <div class="input-group mt-3">
               <input
                 type="text"
-                class="form-control"
+                class="form-control fullAddress"
                 aria-describedby="basic-addon1"
-                id="fullAddress"
+                value="0x8f706e0af99b6581d…"
                 readonly
               />
               <span class="input-group-text">

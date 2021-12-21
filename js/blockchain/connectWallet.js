@@ -114,12 +114,9 @@ async function initContract() {
 async function getShortAddressCheckNetworkErrorCopyLink() {
   if (user.address != undefined) {
     let p2 = user.address.slice(42 - 5);
-    $("#shortAddress")[0].innerHTML = `${user.address.slice(0, 4)}...${p2}`;
+    // document.getElementsByClassName("shortAddress")[0].innerText = `${user.address.slice(0, 4)}...${p2}`;
     // $("#fullAddress")[0].innerText = `${user.address.slice(0,19)}...` ;
-    document.getElementById("fullAddress").value = `${user.address.slice(
-      0,
-      19
-    )}...`;
+    // document.getElementsByClassName("fullAddress")[0].value = `${user.address.slice(0, 19)}...`;
     const web3 = new Web3(Web3.givenProvider);
     const chainId = await web3.eth.getChainId();
 
