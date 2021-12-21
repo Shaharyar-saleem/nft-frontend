@@ -133,7 +133,7 @@ nav .nav-link:hover {
   left: unset !important;
   font-weight: 450;
 }
-#connected .show .dropdown-arrow{
+#connected .show .dropdown-arrow {
   transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
 }
@@ -146,7 +146,7 @@ nav .nav-link:hover {
   height: 45px;
   width: 45px;
 }
-.dropdown-toggle::after{
+.dropdown-toggle::after {
   display: none;
 }
 .dropdown-arrow {
@@ -647,7 +647,7 @@ nav .nav-link:hover {
 .presale-status {
   background-image: url("../img/profile/presale-status-bg.svg");
   background-position: center;
-  color: #67EAF9;
+  color: #67eaf9;
   font-weight: 500;
   font-size: 14px;
   padding: 10px 7px;
@@ -756,13 +756,13 @@ nav .nav-link:hover {
   max-width: 80% !important;
   margin: 0 auto;
 }
-.profile-section .modal-body{
+.profile-section .modal-body {
   padding: 0px !important;
 }
-.profile-section .modal-content{
+.profile-section .modal-content {
   background-color: transparent !important;
 }
-.profile-section .modal-content .close{
+.profile-section .modal-content .close {
   position: absolute;
   top: 0px;
   right: 9px;
@@ -771,81 +771,81 @@ nav .nav-link:hover {
   font-weight: 300;
   font-size: 35px;
 }
-.detail-section{
+.detail-section {
   padding-top: 3%;
   padding-bottom: 3%;
   height: auto;
   margin: 6% auto;
   width: 87%;
 }
-.detail-section-inner{
-  background-color: #082D91;
+.detail-section-inner {
+  background-color: #082d91;
 }
-.twitter-icon{
+.twitter-icon {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
-  brightness(102%) contrast(102%);
+    brightness(102%) contrast(102%);
 }
-.twitter-btn{
+.twitter-btn {
   border: 2px solid white;
   padding: 5px 19px;
   border-radius: 50px;
   margin-left: 5px;
 }
-.copy-btn{
+.copy-btn {
   border: 2px solid white;
   padding: 5px 9px;
   border-radius: 50px;
   margin-right: 5px;
 }
-.properties-block{
+.properties-block {
   padding: 25px 43px;
 }
 .properties-card {
-  border: 2px solid #164F76;
+  border: 2px solid #164f76;
   text-align: center;
   color: white;
   padding: 16px 20px;
 }
-.percentage{
-  color: #99A0BE;
+.percentage {
+  color: #99a0be;
   font-size: 15px;
 }
-.detail-section-inner .left-border{
-  border-left: 2px solid #164F76;
+.detail-section-inner .left-border {
+  border-left: 2px solid #164f76;
 }
 .properties-heading {
-  color: #FFC378;
+  color: #ffc378;
   font-size: 15px;
   letter-spacing: 3px;
   text-transform: uppercase;
 }
-.owner-details{
-  border-top: 2px solid #164F76;
-  border-bottom: 2px solid #164F76;
+.owner-details {
+  border-top: 2px solid #164f76;
+  border-bottom: 2px solid #164f76;
   padding: 25px 43px 10px 43px;
 }
-.owner-detail-card{
-  border: 2px solid #164F76;
+.owner-detail-card {
+  border: 2px solid #164f76;
   padding: 7px;
   color: white;
 }
-.owner-txt{
-  color: #8F96B5;
+.owner-txt {
+  color: #8f96b5;
 }
-.nft-details{
+.nft-details {
   padding: 25px 43px;
   color: white;
 }
-.detail-heading{
-  color: #FFC378;
+.detail-heading {
+  color: #ffc378;
 }
 .nft-price-btn {
   color: white;
-  border: 1px solid #FF8437;
+  border: 1px solid #ff8437;
   padding: 10px 42px;
 }
-.detail-note{
-  color: #B2AB8C;
+.detail-note {
+  color: #b2ab8c;
   font-size: 15px;
   padding-top: 20px;
 }
@@ -952,7 +952,7 @@ nav .nav-link:hover {
   .claim-btn-block {
     width: 65%;
   }
-  .dropdown-menu{
+  .dropdown-menu {
     top: 65px;
   }
   .profile-section .modal-dialog {
@@ -1123,16 +1123,16 @@ nav .nav-link:hover {
     display: flex;
     justify-content: center;
   }
-  .dropdown-arrow{
+  .dropdown-arrow {
     right: 15px;
   }
-  .dropdown-menu{
+  .dropdown-menu {
     right: 0px !important;
   }
-  .owner-details{
+  .owner-details {
     padding-top: 0px;
   }
-  .owner-detail-card{
+  .owner-detail-card {
     margin-top: 20px;
   }
 }
