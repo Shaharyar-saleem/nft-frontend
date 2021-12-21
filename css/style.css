@@ -740,7 +740,26 @@ nav .nav-link:hover {
 }
 /****profile page ends here****/
 
-/****detail page starts here****/
+/****detail modal starts here****/
+.profile-section .modal-dialog {
+  max-width: 80% !important;
+  margin: 0 auto;
+}
+.profile-section .modal-body{
+  padding: 0px !important;
+}
+.profile-section .modal-content{
+  background-color: transparent !important;
+}
+.profile-section .modal-content .close{
+  position: absolute;
+  top: 0px;
+  right: 9px;
+  z-index: 1000000;
+  color: white;
+  font-weight: 300;
+  font-size: 35px;
+}
 .detail-section{
   padding-top: 3%;
   padding-bottom: 3%;
@@ -819,7 +838,10 @@ nav .nav-link:hover {
   font-size: 15px;
   padding-top: 20px;
 }
-/****detail page ends here****/
+.modal-open .modal {
+  padding-left: 0px !important;
+}
+/****detail modal ends here****/
 
 /**** Media queries ****/
 
@@ -921,6 +943,13 @@ nav .nav-link:hover {
   }
   .dropdown-menu{
     top: 65px;
+  }
+  .profile-section .modal-dialog {
+    max-width: 95% !important;
+    margin: 0 auto !important;
+  }
+  .modal-open .modal {
+    padding-left: 0px !important;
   }
 }
 
@@ -1088,5 +1117,11 @@ nav .nav-link:hover {
   }
   .dropdown-menu{
     right: 0px !important;
+  }
+  .owner-details{
+    padding-top: 0px;
+  }
+  .owner-detail-card{
+    margin-top: 20px;
   }
 }
