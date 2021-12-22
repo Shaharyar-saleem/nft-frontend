@@ -165,6 +165,9 @@ nav .nav-link:hover {
   top: 28px;
   right: 39px;
 }
+.navbar .dropdown-menu{
+  font-weight: 350 !important;
+}
 /* Navbar ends here */
 
 /* hero section starts here */
