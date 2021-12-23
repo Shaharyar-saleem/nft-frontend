@@ -1,3 +1,4 @@
+const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 const nftContract = "0x3504de9e61fdff2fc70f5cc8a6d1ee493434c1aa"; //this is the dummy contract
 const RPC_URL = {
   56: "https://bsc-dataseed.binance.org/",
@@ -5,6 +6,7 @@ const RPC_URL = {
 };
 
 module.exports = {
+  ZERO_ADDRESS,
   RPC_URL,
   nftContract,
 };

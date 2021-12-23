@@ -216,6 +216,7 @@ nav .nav-link:hover {
   margin: 0 auto;
   text-align: center;
   color: white !important;
+  font-weight: 500;
 }
 .mint-modal-inner ::placeholder {
   color: #67eaf9;
