@@ -48,14 +48,14 @@ h3 {
   color: white !important;
   background-color: transparent;
 }
-.connect-btn{
-  border: 1.5px solid #1095F5;
+.connect-btn {
+  border: 1.5px solid #1095f5;
   padding: 8px 20px;
   font-weight: 350;
   text-align: center !important;
 }
-.connect-btn:hover{
-  color: #1095F5 !important;
+.connect-btn:hover {
+  color: #1095f5 !important;
   background-color: transparent;
 }
 .section-heading {
@@ -161,7 +161,7 @@ nav .nav-link:hover {
 .dropdown-toggle::after {
   display: none;
 }
-.navbar .dropdown{
+.navbar .dropdown {
   font-weight: 350 !important;
 }
 .dropdown-arrow {
@@ -169,10 +169,10 @@ nav .nav-link:hover {
   top: 28px;
   right: 39px;
 }
-.navbar .dropdown-menu{
+.navbar .dropdown-menu {
   font-weight: 350 !important;
 }
-.navbar-expand-lg .navbar-nav .nav-link{
+.navbar-expand-lg .navbar-nav .nav-link {
   font-weight: 350;
 }
 /* Navbar ends here */
@@ -207,46 +207,49 @@ nav .nav-link:hover {
   font-size: 14px;
   text-align: center;
 }
-.mint-modal .modal-content{
-  background: #082D91 !important;
+.mint-modal .modal-content {
+  background: #082d91 !important;
   padding: 35px;
 }
-.mint-modal-inner{
+.mint-modal-inner {
   width: 60%;
   margin: 0 auto;
   text-align: center;
   color: white !important;
 }
-.start-minting-btn{
-  background: #AE5A25;
+.mint-modal-inner ::placeholder {
+  color: #67eaf9;
+}
+.start-minting-btn {
+  background: #ae5a25;
   margin-top: 16px;
   width: 100%;
   height: 42px;
-  border: 2px solid #FF8437;
+  border: 2px solid #ff8437;
   font-size: 14px;
   color: white;
 }
 .hero-section .close {
-  color: #5E76B7;
+  color: #5e76b7;
   position: absolute;
   right: 13px;
   top: 7px;
   font-weight: 300;
   font-size: 30px;
 }
-.minting-input{
+.minting-input {
   background: #113996;
   border: none;
   height: 42px;
   width: 100%;
-  color: #67EAF9;
+  color: #67eaf9;
   padding-left: 10px;
 }
-.max-mint-btn{
+.max-mint-btn {
   position: absolute;
   right: 10px;
   top: 10px;
-  color: #FF8437 !important;
+  color: #ff8437 !important;
   font-size: 14px;
 }
 .hero-section input::-webkit-outer-spin-button,
@@ -254,7 +257,7 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.hero-section input[type=number] {
+.hero-section input[type="number"] {
   -moz-appearance: textfield;
 }
 /* hero section ends here */
@@ -1033,13 +1036,13 @@ input::-webkit-inner-spin-button {
   .modal-open .modal {
     padding-left: 0px !important;
   }
-  .connect-btn-home{
+  .connect-btn-home {
     float: right;
   }
-  .connect-btn{
+  .connect-btn {
     float: right;
   }
-  .presale-status{
+  .presale-status {
     background-size: cover;
   }
 }
@@ -1215,10 +1218,10 @@ input::-webkit-inner-spin-button {
   .owner-detail-card {
     margin-top: 20px;
   }
-  .presale-status{
+  .presale-status {
     background-size: cover;
   }
-  .mint-modal-inner{
+  .mint-modal-inner {
     width: 100%;
   }
 }
