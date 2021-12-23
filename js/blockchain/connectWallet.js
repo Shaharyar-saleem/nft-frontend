@@ -163,7 +163,7 @@ if (
 }
 
 function redirect() {
-  location.href = "https://metamask.io/", "_blank";
+  window.open("https://metamask.io/", "_blank");
 }
 
 window.disconnect = disconnect;
