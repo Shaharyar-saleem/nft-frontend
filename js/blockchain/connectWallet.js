@@ -152,7 +152,19 @@ function disconnect() {
   document.querySelector("#connected").style.display = "none";
 }
 
-window.connectAccount = connectAccount;
+//metamask check
+if (typeof window.ethereum == "undefined" || typeof window.web3 == "undefined") {
+  window.connectAccount = redirect;
+}
+else{
+  window.connectAccount = connectAccount;
+}
+
+function redirect() {
+  location.href = "https://metamask.io/";
+}
+
+
 window.disconnect = disconnect;
 
 module.exports = {
