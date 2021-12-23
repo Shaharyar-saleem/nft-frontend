@@ -40,7 +40,7 @@ h3 {
 .connect-btn-home {
   border: 1.5px solid #ffe1bc;
   background-color: #ff8437;
-  font-weight: 600;
+  font-weight: 350;
   text-align: center !important;
   padding: 8px 20px;
 }
@@ -51,7 +51,7 @@ h3 {
 .connect-btn{
   border: 1.5px solid #1095F5;
   padding: 8px 20px;
-  font-weight: 600;
+  font-weight: 350;
   text-align: center !important;
 }
 .connect-btn:hover{
@@ -172,6 +172,9 @@ nav .nav-link:hover {
 .navbar .dropdown-menu{
   font-weight: 350 !important;
 }
+.navbar-expand-lg .navbar-nav .nav-link{
+  font-weight: 350;
+}
 /* Navbar ends here */
 
 /* hero section starts here */
@@ -203,6 +206,56 @@ nav .nav-link:hover {
   color: #67eaf9;
   font-size: 14px;
   text-align: center;
+}
+.mint-modal .modal-content{
+  background: #082D91 !important;
+  padding: 35px;
+}
+.mint-modal-inner{
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  color: white !important;
+}
+.start-minting-btn{
+  background: #AE5A25;
+  margin-top: 16px;
+  width: 100%;
+  height: 42px;
+  border: 2px solid #FF8437;
+  font-size: 14px;
+  color: white;
+}
+.hero-section .close {
+  color: #5E76B7;
+  position: absolute;
+  right: 13px;
+  top: 7px;
+  font-weight: 300;
+  font-size: 30px;
+}
+.minting-input{
+  background: #113996;
+  border: none;
+  height: 42px;
+  width: 100%;
+  color: #67EAF9;
+  padding-left: 10px;
+}
+.max-mint-btn{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: #FF8437 !important;
+  font-size: 14px;
+}
+.hero-section input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.hero-section input[type=number] {
+  -moz-appearance: textfield;
 }
 /* hero section ends here */
 
@@ -980,6 +1033,15 @@ nav .nav-link:hover {
   .modal-open .modal {
     padding-left: 0px !important;
   }
+  .connect-btn-home{
+    float: right;
+  }
+  .connect-btn{
+    float: right;
+  }
+  .presale-status{
+    background-size: cover;
+  }
 }
 
 /* for mobile */
@@ -1152,5 +1214,11 @@ nav .nav-link:hover {
   }
   .owner-detail-card {
     margin-top: 20px;
+  }
+  .presale-status{
+    background-size: cover;
+  }
+  .mint-modal-inner{
+    width: 100%;
   }
 }
