@@ -4,6 +4,11 @@ const RPC_URL = {
   56: "https://bsc-dataseed.binance.org/",
   97: "https://speedy-nodes-nyc.moralis.io/191f728d3f6293802638d203/bsc/testnet",
 };
+
+const PUNK_ADDRESS = {
+  80001:'0x6B34580Ac38728722b32C37106f030Bb0A1E3bcC'
+}
+
 const REFERRAL_COOKIE_NAME = "FuzionPunkReferral"
 const REFERRAL_QUERY_PARAM = "ref"
 module.exports = {
