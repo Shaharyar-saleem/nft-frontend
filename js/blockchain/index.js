@@ -5,5 +5,5 @@ const minting = require("./minting");
 module.exports = {
   connectWallet,
   constants,
-  minting
+  minting,
 };

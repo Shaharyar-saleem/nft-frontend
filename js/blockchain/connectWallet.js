@@ -114,16 +114,17 @@ async function initContract() {
 async function getShortAddressCheckNetworkErrorCopyLink() {
   if (user.address != undefined) {
     let p2 = user.address.slice(42 - 5);
-    const shortAddressElement = document.getElementsByClassName("shortAddress")[0];
+    const shortAddressElement =
+      document.getElementsByClassName("shortAddress")[0];
     const mediumAddress = document.getElementById("mediumAddress");
     const fullAddress = document.getElementById("fullAddress");
-    if (shortAddressElement){
+    if (shortAddressElement) {
       shortAddressElement.innerText = `${user.address.slice(0, 4)}...${p2}`;
     }
-    if (mediumAddress){
+    if (mediumAddress) {
       mediumAddress.value = `${user.address.slice(0, 19)}...`;
     }
-    if (fullAddress){
+    if (fullAddress) {
       fullAddress.value = user.address;
     }
     // document.getElementsByClassName("shortAddress")[0].innerText = `${user.address.slice(0, 4)}...${p2}`;

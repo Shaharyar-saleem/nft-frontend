@@ -106,7 +106,8 @@
                   id="btn-connect"
                   onclick="connectAccount()"
                   type="button"
-                  >Connect wallet</a>
+                  >Connect wallet</a
+                >
               </li>
             </div>
             <div id="connected" style="display: none">
@@ -190,9 +191,14 @@
                 value=""
                 readonly
               />
-              <input type="text" id="fullAddress" style="display: none">
+              <input type="text" id="fullAddress" style="display: none" />
               <span class="input-group-text">
-                <a id="copyBtn" onclick="copyAddress()" data-toggle="tooltip" data-original-title="Copy to clipboard">
+                <a
+                  id="copyBtn"
+                  onclick="copyAddress()"
+                  data-toggle="tooltip"
+                  data-original-title="Copy to clipboard"
+                >
                   <img
                     src="./img/icons/copy-icon.svg"
                     alt="copy-icon"
@@ -691,11 +697,19 @@
                             <p class="mb-0">
                               <span id="userReferralLink"></span>
                             </p>
-                            <a class="copy-link" onclick="copyReferralLink()"
-                               data-toggle="tooltip"
-                               data-original-title="Copy to clipboard">
-                              Copy</a>
-                            <input type="text" id="referralLink" style="display: none">
+                            <a
+                              class="copy-link"
+                              onclick="copyReferralLink()"
+                              data-toggle="tooltip"
+                              data-original-title="Copy to clipboard"
+                            >
+                              Copy</a
+                            >
+                            <input
+                              type="text"
+                              id="referralLink"
+                              style="display: none"
+                            />
                           </div>
                         </div>
                       </div>
@@ -845,9 +859,9 @@
     ></script>
     <!-- custom js -->
     <script src="./nft.bundle.js"></script>
-<!--    tooltip display-->
+    <!--    tooltip display-->
     <script>
-      $(document).ready(function(){
+      $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
       });
     </script>
