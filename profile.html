@@ -106,8 +106,7 @@
                   id="btn-connect"
                   onclick="connectAccount()"
                   type="button"
-                  >Connect wallet</a
-                >
+                  >Connect wallet</a>
               </li>
             </div>
             <div id="connected" style="display: none">
@@ -162,7 +161,7 @@
               width="100px"
             />
             <p class="profile-address mt-3">
-              <span class="shortAddress">0xa3Aab1bDF6C86...</span>
+              <span class="shortAddress"></span>
             </p>
             <p class="punks-numbers">0 Total Fuzion Punks</p>
             <div class="presale-status">
@@ -187,11 +186,13 @@
                 type="text"
                 class="form-control fullAddress"
                 aria-describedby="basic-addon1"
-                value="0x8f706e0af99b6581d…"
+                id="mediumAddress"
+                value=""
                 readonly
               />
+              <input type="text" id="fullAddress" style="display: none">
               <span class="input-group-text">
-                <a href="">
+                <a id="copyBtn" onclick="copyAddress()" data-toggle="tooltip" data-original-title="Copy to clipboard">
                   <img
                     src="./img/icons/copy-icon.svg"
                     alt="copy-icon"
@@ -688,9 +689,13 @@
                           <h5>Your Referral Link</h5>
                           <div class="user-referral-link position-relative">
                             <p class="mb-0">
-                              https://nft.fuzion.team/ref?XXXXXXXXXX
+                              <span id="userReferralLink"></span>
                             </p>
-                            <a href="#" class="copy-link">Copy</a>
+                            <a class="copy-link" onclick="copyReferralLink()"
+                               data-toggle="tooltip"
+                               data-original-title="Copy to clipboard">
+                              Copy</a>
+                            <input type="text" id="referralLink" style="display: none">
                           </div>
                         </div>
                       </div>
@@ -840,5 +845,11 @@
     ></script>
     <!-- custom js -->
     <script src="./nft.bundle.js"></script>
+<!--    tooltip display-->
+    <script>
+      $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
   </body>
 </html>
