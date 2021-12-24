@@ -21,13 +21,9 @@ async function userReferralLink(){
     const referralLink = `https://nft.fuzion.team/?ref=${icapAddress}`;
     const defaultReferralLink = `https://nft.fuzion.team/?ref=${ZERO_ADDRESS}`;
     const referralElement = document.getElementById("userReferralLink");
-    if (referralElement && userAddress != undefined){
+    if (referralElement){
         referralElement.innerText = referralLink;
         document.getElementById("referralLink").value = referralLink;
-    }
-    else if(referralElement && userAddress == undefined){
-        referralElement.innerText = defaultReferralLink;
-        document.getElementById("referralLink").value = defaultReferralLink;
     }
     return referralLink;
 }
