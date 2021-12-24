@@ -1,17 +1,25 @@
-const {ZERO_ADDRESS} = require("./blockchain/constants");
+const {ZERO_ADDRESS, REFERRAL_QUERY_PARAM, REFERRAL_COOKIE_NAME} = require("./blockchain/constants");
 const {providerHelper} = require("./blockchain/helper/index");
 const signer = providerHelper.getSigner();
 
-const params = new URLSearchParams(window.location.search);
-if (params.has('ref')){
-    setRefCookie("ref", params.get('ref'), 30);
+userReferralLink();
+getRef()
+$('[data-toggle="tooltip"]').click(function () {
+    $(this).tooltip("hide").attr("data-original-title", "Copied").tooltip("show");
+});
+
+function getRef(){
+    const params = new URLSearchParams(window.location.search);
+    if (params.has(REFERRAL_QUERY_PARAM)){
+        setCookie(REFERRAL_COOKIE_NAME, params.get(REFERRAL_QUERY_PARAM), 30);
+    }
 }
 
-function setRefCookie(cname,cvalue,exdays) {
+function setCookie(name, value, expiryInDays) {
     const date = new Date();
-    date.setTime(date.getTime() + (exdays*24*60*60*1000));
+    date.setTime(date.getTime() + (expiryInDays*24*60*60*1000));
     let expires = "expires=" + date.toGMTString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
 
 async function userReferralLink(){
@@ -19,7 +27,7 @@ async function userReferralLink(){
     const addressString = userAddress.toString();
     const icapAddress = addressString.toUpperCase();
     const referralLink = `https://nft.fuzion.team/?ref=${icapAddress}`;
-    const defaultReferralLink = `https://nft.fuzion.team/?ref=${ZERO_ADDRESS}`;
+    // const defaultReferralLink = `https://nft.fuzion.team/?ref=${ZERO_ADDRESS}`;
     const referralElement = document.getElementById("userReferralLink");
     if (referralElement){
         referralElement.innerText = referralLink;
@@ -35,14 +43,17 @@ function copyReferralLink() {
     navigator.clipboard.writeText(copyText.value);
 }
 
-$('[data-toggle="tooltip"]').click(function () {
-    $(this).tooltip("hide").attr("data-original-title", "Copied").tooltip("show");
-});
+function getReferral(){
+    // let ref;
 
-userReferralLink();
+    // grab the referral cookie value
+
+    // return convertToIcap(ref) || ZERO_ADDRESS;
+}
+
 window.copyReferralLink = copyReferralLink;
-
 module.exports = {
     userReferralLink,
     copyReferralLink,
+    getRef,
 }
