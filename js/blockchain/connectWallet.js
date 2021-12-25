@@ -3,6 +3,7 @@ const abi = require("./abi/nft");
 const { getBnbBalance } = require("./bnbBalance");
 // const { providerHelper } = require("./helper");
 // const signer = providerHelper.getSigner();
+const {test} = require("./contracts/punk");
 const nftContract = constants.nftContract;
 
 const Web3Modal = window.Web3Modal.default;
@@ -61,6 +62,8 @@ async function connectAccount() {
     initContract();
     // function for get bnb Balance
     await getBnbBalance();
+    // function from punk contract
+    await test(user.address);
   } catch (error) {
     console.log("Could not connect to wallet", error);
     return;
@@ -85,6 +88,8 @@ async function userLoginAttempt() {
       await initContract();
       // function for get bnb Balance
       await getBnbBalance();
+      // function from punk contract
+      await test(user.address);
     } catch (error) {
       console.error(error);
     }

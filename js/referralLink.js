@@ -8,6 +8,7 @@ const signer = providerHelper.getSigner();
 
 userReferralLink();
 getRef();
+getReferral();
 $('[data-toggle="tooltip"]').click(function () {
   $(this).tooltip("hide").attr("data-original-title", "Copied").tooltip("show");
 });
@@ -73,9 +74,21 @@ function copyReferralLink() {
 }
 
 function getReferral() {
-  // let ref;
-  // grab the referral cookie value
-  // return convertToIcap(ref) || ZERO_ADDRESS;
+  let ref = getCookie();
+  return convertFromIcap(ref) || ZERO_ADDRESS;
+}
+
+function getCookie(name= REFERRAL_COOKIE_NAME){
+  let cookie;
+  let cookieArr = document.cookie.split(";");
+  for(let i = 0; i < cookieArr.length; i++) {
+    let cookiePair = cookieArr[i].split("=");
+    if(name == cookiePair[0].trim()) {
+      // Decode the cookie value and return
+      cookie = decodeURIComponent(cookiePair[1]);
+    }
+  }
+  return cookie;
 }
 
 window.copyReferralLink = copyReferralLink;
@@ -83,4 +96,5 @@ module.exports = {
   userReferralLink,
   copyReferralLink,
   getRef,
+  getReferral,
 };

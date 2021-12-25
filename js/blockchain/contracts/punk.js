@@ -67,3 +67,7 @@ async function test(userAddress) {
   presaleIsActive = await punk.presaleIsActive();
   console.log("presaleIsActive:", presaleIsActive.toString());
 }
+
+module.exports = {
+  test,
+}
