@@ -3,12 +3,6 @@ const span = document.getElementsByClassName("close")[0];
 const closeTransactionModal = document.getElementById("closeTransactionModal");
 const transactionModal = document.getElementById("transactionModal");
 
-btn1.onclick = function () {
-    modal.style.display = "block";
-};
-btn2.onclick = function () {
-    modal.style.display = "block";
-};
 span.onclick = function () {
     modal.style.display = "none";
 };
