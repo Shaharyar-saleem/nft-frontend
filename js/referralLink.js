@@ -8,7 +8,7 @@ const signer = providerHelper.getSigner();
 
 userReferralLink();
 getRef();
-getReferral();
+
 $('[data-toggle="tooltip"]').click(function () {
   $(this).tooltip("hide").attr("data-original-title", "Copied").tooltip("show");
 });
