@@ -827,7 +827,7 @@ input::-webkit-inner-spin-button {
 
 /*transaction modal starts here*/
 .transaction-content {
-  background-color: #082D91;
+  background-color: #082d91;
   padding: 30px;
 }
 .transaction-content .close {

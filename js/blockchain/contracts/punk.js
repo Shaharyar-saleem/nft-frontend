@@ -70,4 +70,4 @@ async function test(userAddress) {
 
 module.exports = {
   test,
-}
+};

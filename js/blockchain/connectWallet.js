@@ -3,7 +3,7 @@ const abi = require("./abi/nft");
 const { getBnbBalance } = require("./bnbBalance");
 // const { providerHelper } = require("./helper");
 // const signer = providerHelper.getSigner();
-const {test} = require("./contracts/punk");
+const { test } = require("./contracts/punk");
 const nftContract = constants.nftContract;
 
 const Web3Modal = window.Web3Modal.default;
