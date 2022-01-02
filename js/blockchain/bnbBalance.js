@@ -1,10 +1,9 @@
 const { providerHelper } = require("./helper");
 const { ethers } = require("ethers");
-const signer = providerHelper.getSigner();
-const provider = providerHelper.getProvider();
+const { getProvider } = providerHelper;
 
-async function getBnbBalance() {
-  let userAddress = await signer.getAddress();
+async function getBnbBalance(userAddress) {
+  const provider = getProvider();
   let bnbBalance = await provider.getBalance(userAddress);
   let userBnbBalance = ethers.utils.formatUnits(bnbBalance, 18);
   const bnbBalanceElement = document.getElementsByClassName("bnbBalance");

@@ -182,15 +182,19 @@
               >
             </div>
             <div class="minting-block">
-              <p class="my-2">
+              <div class="media">
                 <img
+                  class="mr-1 mt-4"
                   src="./img/icons/minting-icon.svg"
-                  alt="minting icon"
-                  width="30px"
-                /><span class="pl-2 mt-4 minting-status"
-                  >Minting Will Be Live Soon!</span
-                >
-              </p>
+                  alt="Minting icon"
+                />
+                <div class="media-body">
+                  <p class="minting-status mb-0 pt-3"></p>
+                  <p>
+                    Fuzion CryptoPunks minted: <span class="punksSupply"></span>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-md-6 d-flex justify-content-center">
@@ -224,15 +228,15 @@
             </button>
             <div class="modal-body">
               <div class="mint-modal-inner">
-                <p>
-                  How many Fuzion Punks do you<br />
-                  want to mint?
-                </p>
+                <p>How many Fuzion CryptoPunks do you want to mint?</p>
                 <div class="position-relative">
                   <input type="number" placeholder="1" class="minting-input" />
                   <a onclick="maxMintPunks()" class="max-mint-btn">MAX</a>
                 </div>
-                <button class="start-minting-btn">START MINTING</button>
+                <button class="start-minting-btn"></button>
+                <p class="pt-2 fw-400">
+                  Fuzion CryptoPunks Minted: <span class="punksSupply"></span>
+                </p>
               </div>
             </div>
           </div>
@@ -298,7 +302,8 @@
                     </p>
                     <ul class="block-content-list">
                       <li>14% to NFT Holders</li>
-                      <li>10% to referrals (if no referral exists then will be
+                      <li>
+                        10% to referrals (if no referral exists then will be
                         split between 5 & 6)
                       </li>
                       <li>4% to PAZ holders</li>
@@ -792,15 +797,19 @@
           </div>
           <div class="col-md-12 d-flex justify-content-center">
             <div class="minting-block">
-              <p class="my-2">
+              <div class="media">
                 <img
+                  class="mr-1 mt-4"
                   src="./img/icons/minting-icon.svg"
-                  alt="minting icon"
-                  width="30px"
-                /><span class="pl-2 mt-4 minting-status"
-                  >Minting Will Be Live Soon!</span
-                >
-              </p>
+                  alt="Minting icon"
+                />
+                <div class="media-body">
+                  <p class="minting-status mb-0 pt-3"></p>
+                  <p>
+                    Fuzion CryptoPunks minted: <span class="punksSupply"></span>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -926,9 +935,22 @@
           </div>
         </div>
         <div class="row pt-5">
+          <div class="col-md-12 d-flex justify-content-center">
+            <a href="https://tokens.fuzion.team/" target="_blank">
+              <img
+                src="./img/footer/fuzion-seal-logo.svg"
+                alt="fuzion seal logo"
+                width="170px"
+                class="hover-magnify"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="row pt-5">
           <div class="col-md-12">
             <p class="text-center footer-txt">
-              ©2021 FuzionChain. All rights reserved.
+              ©<span class="currentYear"></span> FuzionChain. All rights
+              reserved.
             </p>
           </div>
         </div>

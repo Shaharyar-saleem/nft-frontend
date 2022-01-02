@@ -105,6 +105,9 @@ h3 {
 .color-black {
   color: #0e0b4c !important;
 }
+.fw-400 {
+  font-weight: 400;
+}
 /**** Global css ends here ****/
 
 /****home page starts here****/
@@ -194,18 +197,19 @@ nav .nav-link:hover {
   background: #ff8337;
 }
 .hero-section .minting-block {
-  background-image: url(../img/home/hero/minting-bg.svg);
+  background-image: url("../img/home/hero/minting-bg.svg");
   background-position: center;
   background-repeat: no-repeat;
   margin-top: 10px;
-  width: 232px;
+  width: 260px;
   padding: 10px;
-  margin-left: 88px;
+  margin-left: 61px;
 }
 .minting-block p {
-  color: #67eaf9;
+  color: white !important;
   font-size: 14px;
   text-align: center;
+  font-weight: 500;
 }
 .mint-modal .modal-content {
   background: #082d91 !important;
@@ -219,7 +223,7 @@ nav .nav-link:hover {
   font-weight: 500;
 }
 .mint-modal-inner ::placeholder {
-  color: #67eaf9;
+  color: #67eaf970;
 }
 .start-minting-btn {
   background: #ae5a25;
@@ -237,6 +241,10 @@ nav .nav-link:hover {
   top: 7px;
   font-weight: 300;
   font-size: 30px;
+}
+.punksSupply {
+  color: #00ddff;
+  font-weight: 500;
 }
 .minting-input {
   background: #113996;
@@ -548,6 +556,9 @@ input::-webkit-inner-spin-button {
   z-index: -1000;
   background-size: 125%;
   background-repeat: no-repeat;
+}
+.hover-magnify:hover {
+  transform: scale(1.1);
 }
 /*.footer-section::before {*/
 /*  content: "";*/
@@ -1345,5 +1356,9 @@ svg .cls-1 {
   }
   .mint-modal-inner {
     width: 100%;
+  }
+  .hero-section .minting-block {
+    margin-top: 0px;
+    margin-left: 19px;
   }
 }

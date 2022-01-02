@@ -4,9 +4,9 @@ const {
   REFERRAL_COOKIE_NAME,
 } = require("./blockchain/constants");
 const { providerHelper } = require("./blockchain/helper/index");
-const signer = providerHelper.getSigner();
+const { getProvider, getSigner } = providerHelper;
+let userAddress;
 
-userReferralLink();
 getRef();
 
 $('[data-toggle="tooltip"]').click(function () {
@@ -42,6 +42,7 @@ function isValidAddress(address) {
  * @returns string
  */
 function convertFromIcap(address) {
+  console.log("convertFromIcap:", address);
   return isValidAddress(address) ? ethers.utils.getAddress(address) : null;
 }
 
@@ -55,15 +56,50 @@ function convertToIcap(address) {
 }
 
 async function userReferralLink() {
-  const userAddress = await signer.getAddress();
-  const icapAddress = convertToIcap(userAddress);
-  const referralLink = `https://nft.fuzion.team/?ref=${icapAddress}`;
+  let referralLink;
+  const signer = await getSigner();
+  userAddress = await signer.getAddress();
   const referralElement = document.getElementById("userReferralLink");
+  const copyLinkElement = document.getElementsByClassName("copy-link");
+  if (userAddress) {
+    const icapAddress = convertToIcap(userAddress);
+    referralLink = `https://fuzion.team/?ref=${icapAddress}`;
+  } else {
+    referralLink = "Connect wallet for referral link";
+    if (copyLinkElement[0]) {
+      copyLinkElement[0].style.display = "none";
+      copyLinkElement[0].style.display = "none";
+    }
+  }
+
   if (referralElement) {
     referralElement.innerText = referralLink;
     document.getElementById("referralLink").value = referralLink;
   }
   return referralLink;
+}
+
+async function userReferralCommissions() {
+  const referralCommissionElement =
+    document.getElementById("referralCommission");
+  if (userAddress != null && referralCommissionElement) {
+    referralCommissionElement.innerText = "0.000 BNB";
+  } else {
+    if (referralCommissionElement) {
+      referralCommissionElement.innerText = "-";
+    }
+  }
+}
+
+async function userTotalReferral() {
+  const totalReferralElement = document.getElementById("totalReferral");
+  if (userAddress != null && totalReferralElement) {
+    totalReferralElement.innerText = `0`;
+  } else {
+    if (totalReferralElement) {
+      totalReferralElement.innerText = "-";
+    }
+  }
 }
 
 function copyReferralLink() {
@@ -92,8 +128,11 @@ function getCookie(name = REFERRAL_COOKIE_NAME) {
 }
 
 window.copyReferralLink = copyReferralLink;
+
 module.exports = {
   userReferralLink,
+  userTotalReferral,
+  userReferralCommissions,
   copyReferralLink,
   getRef,
   getReferral,
