@@ -1,5 +1,5 @@
 const ethers = require("ethers");
-const { CHAIN_ID, PUNK_ADDRESS } = require("../constants");
+const { CHAIN_ID, PUNK_ADDRESS, MAX_PUNKS, MAX_PRESALE_PUNKS } = require("../constants");
 const { providerHelper } = require("../helper");
 
 let punk,
@@ -13,7 +13,10 @@ let punk,
   presaleComplete,
   presaleIsActive,
   isWhiteListed,
-  presaleSupply;
+  presaleSupply,
+  confirmMetamaskModal,
+  claimProcessingModal,
+  claimedSuccessfulModal;
 
 const abi = [
   "function totalSupply() public view returns(uint256)",
@@ -77,7 +80,6 @@ async function punkSaleStatus() {
   const mintStatusElement = document.getElementsByClassName("minting-status");
   const mintBtnElement = document.getElementsByClassName("start-minting-btn");
   const punksSupplyElement = document.getElementsByClassName("punksSupply");
-  console.log("element status:", mintStatusElement[0]);
   if (presaleIsActive) {
     if (mintStatusElement[0] || mintStatusElement[1]) {
       mintStatusElement[0].innerText = "Presale Minting Live";
@@ -90,9 +92,9 @@ async function punkSaleStatus() {
       punksSupplyElement[2]
     ) {
       mintBtnElement[0].innerText = "Mint Presale";
-      punksSupplyElement[0].innerText = presaleSupply.toString();
-      punksSupplyElement[1].innerText = presaleSupply.toString();
-      punksSupplyElement[2].innerText = presaleSupply.toString();
+      punksSupplyElement[0].innerText = `${presaleSupply.toString()}/${MAX_PRESALE_PUNKS}`;
+      punksSupplyElement[1].innerText = `${presaleSupply.toString()}/${MAX_PRESALE_PUNKS}`;
+      punksSupplyElement[2].innerText = `${presaleSupply.toString()}/${MAX_PRESALE_PUNKS}`;
     }
   } else if (presaleComplete) {
     if (mintStatusElement[0] || mintStatusElement[1]) {
@@ -111,9 +113,9 @@ async function punkSaleStatus() {
       punksSupplyElement[2]
     ) {
       mintBtnElement[0].innerText = "Start Minting";
-      punksSupplyElement[0].innerText = totalSupply.toString();
-      punksSupplyElement[1].innerText = totalSupply.toString();
-      punksSupplyElement[2].innerText = totalSupply.toString();
+      punksSupplyElement[0].innerText = `${totalSupply.toString()}/${MAX_PUNKS}`;
+      punksSupplyElement[1].innerText = `${totalSupply.toString()}/${MAX_PUNKS}`;
+      punksSupplyElement[2].innerText = `${totalSupply.toString()}/${MAX_PUNKS}`;
     }
   }
 }
@@ -122,7 +124,6 @@ async function punkSaleStatus() {
 async function getUserPunkData(userAddress) {
   // isWhitelisted
   // const signer = await providerHelper.getSigner();
-  console.log("userAddress:", userAddress);
   isWhiteListed = await punk.whitelist(userAddress);
   const presaleStatusElement =
     document.getElementsByClassName("presale-status");
@@ -134,6 +135,57 @@ async function getUserPunkData(userAddress) {
 async function getMaxPurchaseAmount() {
   return presaleIsActive ? maxPresalePurchase : maxPunkPurchase;
 }
+
+async function mintFuzionPunk(){
+  await getPunkContract();
+  const provider = await providerHelper.getProvider();
+  const signer = await providerHelper.getSigner();
+  const mintNumberElement = document.getElementById("mintNumber");
+  const numberToMint = mintNumberElement.value;
+  confirmMetamaskModal = document.getElementById("confirmationModal");
+  claimProcessingModal = document.getElementById("processingModal");
+  claimedSuccessfulModal = document.getElementById("successfullModal");
+  const mintModalElement = document.getElementsByClassName("mint-modal");
+  try {
+    mintModalElement[0].style.display = "none";
+    confirmMetamaskModal.style.display = "block";
+    let presaleMintReceipt;
+    if (presaleIsActive){
+      presaleMintReceipt = await (await punk.connect(signer).mintPresale(numberToMint, {value: punkPriceDiscounted.mul(numberToMint), gasLimit: 1000000}));
+    }
+    else if (saleIsActive){
+      presaleMintReceipt = await (await punk.connect(signer).mint(numberToMint, {value: punkPrice.mul(numberToMint), gasLimit: 1000000}));
+    }
+    const mintPunkSubmitted = await presaleMintReceipt;
+    if (mintPunkSubmitted.confirmations === 0){
+      confirmMetamaskModal.style.display = "none";
+      claimProcessingModal.style.display = "block";
+      document.getElementById("processingTxt").innerText =
+          "Minting In Process";
+      const processingLink = document.getElementById("processing-transaction");
+      // processingLink.href = `https://bscscan.com/tx/${mintPunkSubmitted.hash}`; //bsc scan mainnet
+      processingLink.href = `https://mumbai.polygonscan.com/tx/${mintPunkSubmitted.hash}`; //mumbai polygon testnet
+    }
+    const mintPunkSuccessfull = await presaleMintReceipt.wait();
+    if (mintPunkSuccessfull){
+      confirmMetamaskModal.style.display = "none";
+      claimProcessingModal.style.display = "none";
+      claimedSuccessfulModal.style.display = "block";
+      document.getElementById("successTxt").innerText = "Minted Successfully";
+      const transactionLink = document.getElementById("transaction-link");
+      // transactionLink.href = `https://bscscan.com/tx/${mintPunkSubmitted.hash}`; //bsc scan mainnet
+      transactionLink.href = `https://mumbai.polygonscan.com/tx/${mintPunkSubmitted.hash}`; //mumbai polygon testnet
+    }
+  }
+  catch (error){
+    console.log(error);
+    if (error.code === 4001) {
+      confirmMetamaskModal.style.display = "none";
+    }
+  }
+
+}
+
 
 // async function test(userAddress) {
 //   totalSupply = await punk.totalSupply();
@@ -167,6 +219,8 @@ async function getMaxPurchaseAmount() {
 //   console.log("presaleIsActive:", presaleIsActive.toString());
 // }
 
+window.mintFuzionPunk = mintFuzionPunk;
+
 module.exports = {
   punk,
   punkPrice,
@@ -184,4 +238,5 @@ module.exports = {
   punkSaleStatus,
   totalSupply,
   presaleSupply,
+  mintFuzionPunk,
 };

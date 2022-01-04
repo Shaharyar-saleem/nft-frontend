@@ -177,9 +177,8 @@
               <a
                 data-toggle="modal"
                 data-target="#exampleModalCenter"
-                class="mint-btn"
-                >MINT YOUR NFT</a
-              >
+                class="mint-btn mintNftBtn is-disabled"
+                >MINT YOUR NFT</a>
             </div>
             <div class="minting-block">
               <div class="media">
@@ -213,7 +212,6 @@
         id="exampleModalCenter"
         tabindex="-1"
         role="dialog"
-        aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true"
       >
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -230,10 +228,10 @@
               <div class="mint-modal-inner">
                 <p>How many Fuzion CryptoPunks do you want to mint?</p>
                 <div class="position-relative">
-                  <input type="number" placeholder="1" class="minting-input" />
+                  <input type="number" placeholder="1" class="minting-input" id="mintNumber" />
                   <a onclick="maxMintPunks()" class="max-mint-btn">MAX</a>
                 </div>
-                <button class="start-minting-btn"></button>
+                <button class="start-minting-btn" onclick="mintFuzionPunk()"></button>
                 <p class="pt-2 fw-400">
                   Fuzion CryptoPunks Minted: <span class="punksSupply"></span>
                 </p>
@@ -639,7 +637,8 @@
                     <h1 class="step-heading">CHAINED</h1>
                   </div>
                   <div class="step-body">
-                    <p>Coming soon..</p>
+                    <p>All Fuzion NFTs can be used as digital avatar’s in the Fuzion Universe (Metaverse).  Unlike many other NFTs out there, Stage 2 of Fuzion NFTs aka Chained will have both the metadata and art of Fuzion Anime Punks stored on the blockchain.  Fuzion Chained solves many problems with the existing IPFS storage protocol that most NFTs use.  Fuzion development team is always thinking ahead about the safety and security of its community.  For many NFTs, if the IPFS systems were to shut down, hundreds of millions of dollars worth of assets could equally get wiped out in a matter of seconds.  Stage 2 Chained aims to solve this predicament.  Even if IPFS systems were to fail or shut down, all Fuzion NFTs would still be made available to all their owners because it will be stored on the actual blockchain.</p>
+                    <p class="pr-4">Just like Originals, no Fuzion Chained NFTs can be identical. If you try to create a Fuzion Chained Anime Punk that has the exact same traits as Anime Punk Originals, the contract will deny it.  Stage 2 of the Fuzion NFTs is a revolutionary approach to making sure your ownership to your NFTs are yours forever on the blockchain.</p>
                   </div>
                 </div>
               </div>
@@ -660,7 +659,9 @@
                     <h1 class="step-heading">EVOLUTION</h1>
                   </div>
                   <div class="step-body">
-                    <p>Coming soon..</p>
+                    <p>The tragedy in most crypto projects is not in failure, but rather in complacency; not in our doing too much, but rather in our doing too little.  The Fuzion Team is not out to prove anything, but sets out to improve in everything.  Our goal is to continually evolve into something of greater value and use.  That’s where Stage 3, Fuzion Evolution comes into play.</p>
+                    <p class="pr-4">Gearing up for the Fuzion Universe (Metaverse) the Evolution Stage seeks to expand into the 3D world.  Since the Fuzion Universe will exist in a 3 dimensional space, the Fuzion Anime Punks will also progress into a 3D avatars.  Furthermore, owners of the Fuzion Stage 01 Originals will have direct access in the presale minting process to mint their 3D equivalent.  In Stage 01 Originals, we’re introduced to 3/4 body type NFTs.  In Stage 02, we’re introduced to full body NFTs and with Stage 03 Evolution, the NFTs fully mature into full body 3D Anime Punks that also have the ability to move and become animated.</p>
+                    <p class="pr-4">In Evolution, we’ll see more options to build on top of your avatar to truly represent who you are.  Additional creative options and attributes will be available to add to the head, face, mouth, arms, hands, body, legs and feet.  Players will also be able to add specific movements and poses to create a more exceptional experience.</p>
                   </div>
                 </div>
               </div>
@@ -780,9 +781,8 @@
               <a
                 data-toggle="modal"
                 data-target="#exampleModalCenter"
-                class="form-control explore-btn-inner"
-                >MINT YOUR NFT</a
-              >
+                class="form-control explore-btn-inner mintNftBtn is-disabled"
+                >MINT YOUR NFT</a>
 
               <div class="input-group-prepend">
                 <div class="input-group-text">
@@ -856,6 +856,150 @@
       </div>
     </section>
     <!-- join community section ends here -->
+
+    <!-- metamask confirmation modal starts here -->
+    <div
+            class="modal"
+            tabindex="-1"
+            role="dialog"
+            id="confirmationModal"
+            style="display: none"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content transaction-content">
+<!--          <button-->
+<!--                  type="button"-->
+<!--                  class="close"-->
+<!--                  id="closeConfirmationModal"-->
+<!--                  data-dismiss="modal"-->
+<!--                  aria-label="Close"-->
+<!--                  onclick="closeConfirmationModal()"-->
+<!--          >-->
+<!--            <span aria-hidden="true">&times;</span>-->
+<!--          </button>-->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="modal-body text-center">
+            <img
+                    src="./img/icons/Spinner-icon.svg"
+                    alt="spinner"
+                    width="140px"
+            />
+            <p class="text-center">
+              Waiting for confirmation from your<br>
+              wallet
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- metamask confirmation modal ends here -->
+
+    <!-- transaction submitted modal starts here -->
+    <div
+            class="modal"
+            tabindex="-1"
+            role="dialog"
+            id="processingModal"
+            style="display: none"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content transaction-content">
+          <button
+                  type="button"
+                  class="close"
+                  id="closeTransactionSubmitted"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                  onclick="closeProcessingModal()"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="modal-body text-center">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="107"
+                    height="97.124"
+                    viewBox="0 0 107 97.124"
+            >
+              <g
+                      id="Group_1"
+                      data-name="Group 1"
+                      transform="translate(0 -0.001)"
+              >
+                <path
+                        id="cloud"
+                        class="cloud"
+                        stroke="white"
+                        data-name="Fill 1"
+                        d="M83.361,72H23.639A23.529,23.529,0,0,1,16.1,26.146,27.727,27.727,0,0,1,18.562,16.3a28.361,28.361,0,0,1,5.78-8.347A26.9,26.9,0,0,1,43.547,0h.005a26.8,26.8,0,0,1,14,3.825,27.838,27.838,0,0,1,9.36,9.325,19.147,19.147,0,0,1,6.415-1.107,18.4,18.4,0,0,1,9.448,2.582c5.192,3.112,8.494,8.824,9.059,15.673a19.354,19.354,0,0,1,6.224,2.974,20.922,20.922,0,0,1,4.784,4.808A22.165,22.165,0,0,1,107,50.9a20,20,0,0,1-6.667,14.938A25.033,25.033,0,0,1,83.361,72ZM43.551,5a22.2,22.2,0,0,0-15.884,6.632,23.072,23.072,0,0,0-6.734,16.308,2.471,2.471,0,0,1-1.866,2.441A18.588,18.588,0,0,0,23.654,67H83.346C94.329,67,102,60.371,102,50.88c0-7.854-5.65-14.952-12.864-16.159a2.477,2.477,0,0,1-2.059-2.441c0-5.995-2.443-10.756-6.879-13.407a13.766,13.766,0,0,0-13.135-.5,2.493,2.493,0,0,1-1.108.26,2.487,2.487,0,0,1-2.234-1.384A22.368,22.368,0,0,0,43.552,5Z"
+                        fill="#ff000000"
+                />
+                <path
+                        id="arrow"
+                        class="arrow"
+                        data-name="Fill 1"
+                        d="M0,18.27l3.719,3.719L15.657,10.051V63.125h5.25V10.051L32.845,21.989l3.719-3.719L18.283,0Z"
+                        transform="translate(34 34)"
+                        stroke="white"
+                        fill="#ff000000"
+                />
+              </g>
+            </svg>
+            <p class="text-center pt-3 mb-5"><span id="processingTxt"></span></p>
+            <a id="processing-transaction" target="_blank" class="explorer-btn"
+            >Go to Explorer
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- transaction submitted modal ends here -->
+
+    <!-- Transaction confirmed modal starts here -->
+    <div
+            class="modal"
+            tabindex="-1"
+            role="dialog"
+            id="successfullModal"
+            style="display: none"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content transaction-content">
+          <button
+                  type="button"
+                  class="close"
+                  id="closeSuccessModal"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                  onclick="closeClaimedModal()"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="modal-body text-center">
+            <svg
+                    id="checkmark-svg"
+                    class="run-animation circle-svg"
+                    data-name="Layer 1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 193.3 193.3"
+            >
+              <circle class="cls-1 circle" cx="96.65" cy="96.65" r="94.15" />
+              <polyline
+                      class="cls-1 checkmark"
+                      points="46.9 101.4 76.9 131.4 146.4 61.9"
+              />
+            </svg>
+            <p class="text-center pt-4 pb-3"><span id="successTxt"></span></p>
+            <a id="transaction-link" target="_blank" class="explorer-btn"
+            >Go to Explorer
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Transaction confirmed modal ends here -->
 
     <!-- footer section starts here -->
     <section class="footer-section">

@@ -98,6 +98,7 @@ h3 {
 }
 .is-disabled {
   cursor: not-allowed !important;
+  pointer-events: none !important;
 }
 .color-white {
   color: white !important;
@@ -107,6 +108,9 @@ h3 {
 }
 .fw-400 {
   font-weight: 400;
+}
+.close:focus{
+  outline: none !important;
 }
 /**** Global css ends here ****/
 
@@ -201,9 +205,9 @@ nav .nav-link:hover {
   background-position: center;
   background-repeat: no-repeat;
   margin-top: 10px;
-  width: 260px;
+  width: 300px;
   padding: 10px;
-  margin-left: 61px;
+  margin-left: 21px;
 }
 .minting-block p {
   color: white !important;
@@ -268,6 +272,12 @@ input::-webkit-inner-spin-button {
 }
 .hero-section input[type="number"] {
   -moz-appearance: textfield;
+}
+.hero-section .is-disabled {
+  pointer-events: none !important;
+  cursor: not-allowed !important;
+  border: 1px solid #ffffff87 !important;
+  color: #ffffff7a !important;
 }
 /* hero section ends here */
 
@@ -406,7 +416,7 @@ input::-webkit-inner-spin-button {
   background-image: url("../img/home/roadmap/roadmap-bg.svg");
   background-position: bottom;
   background-repeat: no-repeat;
-  height: 570px;
+  min-height: 570px;
   background-size: cover;
 }
 .roadmap-step-header {
@@ -420,10 +430,11 @@ input::-webkit-inner-spin-button {
   font-weight: 450;
 }
 .step-body {
-  padding: 57px;
+  padding: 30px 41px 0px 27px;
   color: white;
   border-top: 2px solid #435fb6;
   width: 99.2%;
+  overflow-y: scroll;
 }
 .roadmap-step-block {
   width: 90%;
@@ -462,7 +473,7 @@ input::-webkit-inner-spin-button {
   background-position: center;
   background-repeat: no-repeat;
   margin-top: 10px;
-  width: 250px;
+  width: 300px;
   padding: 10px;
 }
 .step-card {
@@ -1113,12 +1124,14 @@ svg .cls-1 {
   }
   .roadmap-step-block {
     margin-top: 30px;
+    height: auto;
+    width: 100%;
+  }
+  .step-body{
+    overflow: visible;
   }
   .boy-img {
     display: none;
-  }
-  .roadmap-step-block {
-    width: 100%;
   }
   .step-card-2 p {
     padding-top: 0px !important;
@@ -1210,6 +1223,7 @@ svg .cls-1 {
   .roadmap-step-block {
     width: 100%;
     margin-top: 25px;
+    height: auto;
   }
   .rocket-img {
     display: none;

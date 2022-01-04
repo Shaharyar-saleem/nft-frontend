@@ -1,5 +1,3 @@
-const { nftContract } = require("./constants");
-const abi = require("./abi/nft");
 const { getBnbBalance } = require("./bnbBalance");
 const {
   userReferralLink,
@@ -12,9 +10,8 @@ const {
   punkSaleStatus,
 } = require("../blockchain/contracts/punk");
 const { providerHelper } = require("./helper");
-const { getProvider, getSigner, getWeb3Provider } = providerHelper;
 const ethers = require("ethers");
-
+const { getProvider, getSigner, getWeb3Provider } = providerHelper;
 const Web3Modal = window.Web3Modal.default;
 const WalletConnectProvider = window.WalletConnectProvider.default;
 const evmChains = window.evmChains;
@@ -22,8 +19,6 @@ const evmChains = window.evmChains;
 let status;
 let web3Modal;
 let isConnected;
-let mainContract = undefined;
-let bscScan = "https://bscscan.com/address/" + nftContract;
 let user = {
   address: undefined,
 };
@@ -31,15 +26,27 @@ let user = {
 metamaskCheck();
 
 async function init() {
-  // connectWallet.initWeb3Modal();
   initWeb3Modal();
   const connectionStatus = localStorage.getItem("connectStatus");
-  if (connectionStatus == "connected") {
-    await userLoginAttempt();
-  }
+  const mintNftBtn = document.getElementsByClassName("mintNftBtn");
+  user.address = localStorage.getItem("userAddress");
   // functions from punk.js file
   await getPunkConstants();
   await punkSaleStatus();
+  if (connectionStatus === "connected") {
+    // await userLoginAttempt();
+    document.querySelector("#prepare").style.display = "none";
+    document.querySelector("#connected").style.display = "block";
+    if (mintNftBtn[0] || mintNftBtn[1]){
+      mintNftBtn[0].classList.remove('is-disabled');
+      mintNftBtn[1].classList.remove('is-disabled');
+    }
+    // function for get bnb Balance
+    await getBnbBalance(user.address);
+    // function from punk contract
+    await getUserPunkData(user.address);
+
+  }
 
   // function from helper for get current year
 }
@@ -79,21 +86,26 @@ async function connectAccount() {
   const connection = await connect();
   const provider = await providerHelper.getWeb3Provider(connection);
   const signer = await provider.getSigner();
-  localStorage.setItem("connectStatus", "connected");
   user.address = await signer.getAddress();
+  localStorage.setItem("connectStatus", "connected");
+  localStorage.setItem("userAddress", user.address);
+  localStorage.setItem("signer2", signer);
+  const mintNftBtn = document.getElementsByClassName("mintNftBtn");
   if (user.address) {
     // function for get bnb Balance
     await getBnbBalance(user.address);
     // function from punk contract
     await getUserPunkData(user.address);
+    if (mintNftBtn[0] || mintNftBtn[1]){
+      mintNftBtn[0].classList.remove('is-disabled');
+      mintNftBtn[1].classList.remove('is-disabled');
+    }
   }
 
   // functions from punk.js file
   // todo: i commented this out because it makes no sense to call these again
   // todo: you need to figure out what is a real constant and only call it during init
   // todo: and what you actually want to call after you have the user
-  // await getPunkConstants();
-  // await punkSaleStatus();
 
   // functions from referralLink.js file
   await userReferralLink();
@@ -119,7 +131,6 @@ async function userLoginAttempt() {
 }
 
 async function getShortAddressCheckNetworkErrorCopyLink() {
-  if (user.address) {
     let p2 = user.address.slice(42 - 5);
     const shortAddressElement =
       document.getElementsByClassName("shortAddress")[0];
@@ -136,10 +147,10 @@ async function getShortAddressCheckNetworkErrorCopyLink() {
     }
     document.querySelector("#prepare").style.display = "none";
     document.querySelector("#connected").style.display = "block";
-  } else {
-    document.querySelector("#prepare").style.display = "block";
-    document.querySelector("#connected").style.display = "none";
-  }
+  // else {
+  //   document.querySelector("#prepare").style.display = "block";
+  //   document.querySelector("#connected").style.display = "none";
+  // }
 }
 
 // trigger when disconnect btn pressed

@@ -4,6 +4,7 @@ const {
   REFERRAL_COOKIE_NAME,
 } = require("./blockchain/constants");
 const { providerHelper } = require("./blockchain/helper/index");
+const {ethers} = require("ethers");
 const { getProvider, getSigner } = providerHelper;
 let userAddress;
 
@@ -42,7 +43,6 @@ function isValidAddress(address) {
  * @returns string
  */
 function convertFromIcap(address) {
-  console.log("convertFromIcap:", address);
   return isValidAddress(address) ? ethers.utils.getAddress(address) : null;
 }
 
@@ -67,7 +67,6 @@ async function userReferralLink() {
   } else {
     referralLink = "Connect wallet for referral link";
     if (copyLinkElement[0]) {
-      copyLinkElement[0].style.display = "none";
       copyLinkElement[0].style.display = "none";
     }
   }

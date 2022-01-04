@@ -24,7 +24,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@types/jquery": "^3.5.10",
+    "@types/jquery": "^3.5.11",
     "assert": "^2.0.0",
     "ethers": "^5.5.2",
     "path-browserify": "^1.0.1",
