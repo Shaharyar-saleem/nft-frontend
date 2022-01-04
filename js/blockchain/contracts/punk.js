@@ -140,6 +140,7 @@ async function mintFuzionPunk(){
   await getPunkContract();
   const provider = await providerHelper.getProvider();
   const signer = await providerHelper.getSigner();
+  console.log("mintFuzionPunk signer:", signer);
   const mintNumberElement = document.getElementById("mintNumber");
   const numberToMint = mintNumberElement.value;
   confirmMetamaskModal = document.getElementById("confirmationModal");
@@ -151,10 +152,10 @@ async function mintFuzionPunk(){
     confirmMetamaskModal.style.display = "block";
     let presaleMintReceipt;
     if (presaleIsActive){
-      presaleMintReceipt = await (await punk.connect(signer).mintPresale(numberToMint, {value: punkPriceDiscounted.mul(numberToMint), gasLimit: 1000000}));
+      presaleMintReceipt = await (await punk.connect(signer).mintPresale(numberToMint, {value: punkPriceDiscounted.mul(numberToMint), gasLimit: 2000000}));
     }
     else if (saleIsActive){
-      presaleMintReceipt = await (await punk.connect(signer).mint(numberToMint, {value: punkPrice.mul(numberToMint), gasLimit: 1000000}));
+      presaleMintReceipt = await (await punk.connect(signer).mint(numberToMint, {value: punkPrice.mul(numberToMint), gasLimit: 2000000}));
     }
     const mintPunkSubmitted = await presaleMintReceipt;
     if (mintPunkSubmitted.confirmations === 0){

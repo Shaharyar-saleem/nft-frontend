@@ -27,6 +27,9 @@ metamaskCheck();
 
 async function init() {
   initWeb3Modal();
+
+  const signer = await providerHelper.getSigner();
+
   const connectionStatus = localStorage.getItem("connectStatus");
   const mintNftBtn = document.getElementsByClassName("mintNftBtn");
   user.address = localStorage.getItem("userAddress");
@@ -34,7 +37,7 @@ async function init() {
   await getPunkConstants();
   await punkSaleStatus();
   if (connectionStatus === "connected") {
-    // await userLoginAttempt();
+    await userLoginAttempt();
     document.querySelector("#prepare").style.display = "none";
     document.querySelector("#connected").style.display = "block";
     if (mintNftBtn[0] || mintNftBtn[1]){
@@ -45,7 +48,7 @@ async function init() {
     await getBnbBalance(user.address);
     // function from punk contract
     await getUserPunkData(user.address);
-
+    console.log("init signer:", signer)
   }
 
   // function from helper for get current year
@@ -89,7 +92,6 @@ async function connectAccount() {
   user.address = await signer.getAddress();
   localStorage.setItem("connectStatus", "connected");
   localStorage.setItem("userAddress", user.address);
-  localStorage.setItem("signer2", signer);
   const mintNftBtn = document.getElementsByClassName("mintNftBtn");
   if (user.address) {
     // function for get bnb Balance
@@ -121,7 +123,8 @@ async function userLoginAttempt() {
   await window.addEventListener("load", async function () {
     status = localStorage.getItem("connectStatus");
     try {
-      if (status !== "connected") {
+      if (status === "connected") {
+        console.log(11);
         await connectAccount();
       }
     } catch (error) {
