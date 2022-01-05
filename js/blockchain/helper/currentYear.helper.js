@@ -1,4 +1,3 @@
-
 getCurrentYear();
 function getCurrentYear() {
   const currentYearElement = document.getElementsByClassName("currentYear");

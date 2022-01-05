@@ -38,9 +38,9 @@ async function init() {
     await userLoginAttempt();
     document.querySelector("#prepare").style.display = "none";
     document.querySelector("#connected").style.display = "block";
-    if (mintNftBtn[0] || mintNftBtn[1]){
-      mintNftBtn[0].classList.remove('is-disabled');
-      mintNftBtn[1].classList.remove('is-disabled');
+    if (mintNftBtn[0] || mintNftBtn[1]) {
+      mintNftBtn[0].classList.remove("is-disabled");
+      mintNftBtn[1].classList.remove("is-disabled");
     }
     // function for get bnb Balance
     await getBnbBalance(user.address);
@@ -97,9 +97,9 @@ async function connectAccount() {
     // function from punk contract
     await getUserPunkData(user.address);
     await getOwnedTokens(user.address);
-    if (mintNftBtn[0] || mintNftBtn[1]){
-      mintNftBtn[0].classList.remove('is-disabled');
-      mintNftBtn[1].classList.remove('is-disabled');
+    if (mintNftBtn[0] || mintNftBtn[1]) {
+      mintNftBtn[0].classList.remove("is-disabled");
+      mintNftBtn[1].classList.remove("is-disabled");
     }
   }
   // functions from referralLink.js file
@@ -127,7 +127,7 @@ async function userLoginAttempt() {
 async function getShortAddressCheckNetworkErrorCopyLink() {
   let p2 = user.address.slice(42 - 5);
   const shortAddressElement =
-      document.getElementsByClassName("shortAddress")[0];
+    document.getElementsByClassName("shortAddress")[0];
   const mediumAddress = document.getElementById("mediumAddress");
   const fullAddress = document.getElementById("fullAddress");
   if (shortAddressElement) {
@@ -160,8 +160,8 @@ function disconnect() {
 function metamaskCheck() {
   //metamask check
   if (
-      typeof window.ethereum == "undefined" ||
-      typeof window.web3 == "undefined"
+    typeof window.ethereum == "undefined" ||
+    typeof window.web3 == "undefined"
   ) {
     window.connectAccount = redirect;
   } else {

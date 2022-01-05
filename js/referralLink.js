@@ -4,7 +4,7 @@ const {
   REFERRAL_COOKIE_NAME,
 } = require("./blockchain/constants");
 const { providerHelper } = require("./blockchain/helper/index");
-const {ethers} = require("ethers");
+const { ethers } = require("ethers");
 const { getProvider, getSigner } = providerHelper;
 let userAddress;
 
