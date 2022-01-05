@@ -5,7 +5,6 @@ async function maxMintPunks() {
     await getMaxPurchaseAmount();
 }
 
-
 window.maxMintPunks = maxMintPunks;
 
 module.exports = {

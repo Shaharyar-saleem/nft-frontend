@@ -8,6 +8,7 @@ const RPC_URL = {
 
 const PUNK_ADDRESS = {
   80001: "0xd873a1463fcc9327B72AF3CF73906f74a35074D4",
+  56: "",
 };
 
 // bsc 56

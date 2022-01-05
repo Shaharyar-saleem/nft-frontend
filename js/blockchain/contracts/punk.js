@@ -86,37 +86,35 @@ async function punkSaleStatus() {
       mintStatusElement[0].innerText = "Presale Minting Live";
       mintStatusElement[1].innerText = "Presale Minting Live";
     }
-    if (
-      mintBtnElement[0] ||
-      punksSupplyElement[0] ||
-      punksSupplyElement[1] ||
-      punksSupplyElement[2]
-    ) {
+    if (mintBtnElement[0] || punksSupplyElement[0] || punksSupplyElement[1] || punksSupplyElement[2]) {
       mintBtnElement[0].innerText = "Mint Presale";
-      punksSupplyElement[0].innerText = `${presaleSupply.toString()}/${MAX_PRESALE_PUNKS}`;
-      punksSupplyElement[1].innerText = `${presaleSupply.toString()}/${MAX_PRESALE_PUNKS}`;
-      punksSupplyElement[2].innerText = `${presaleSupply.toString()}/${MAX_PRESALE_PUNKS}`;
+      punksSupplyElement[0].innerText = `Fuzion CryptoPunks Minted: ${presaleSupply.toString()}/${MAX_PRESALE_PUNKS}`;
+      punksSupplyElement[1].innerText = `Fuzion CryptoPunks Minted: ${presaleSupply.toString()}/${MAX_PRESALE_PUNKS}`;
+      punksSupplyElement[2].innerText = `Fuzion CryptoPunks Minted: ${presaleSupply.toString()}/${MAX_PRESALE_PUNKS}`;
     }
-  } else if (presaleComplete) {
-    if (mintStatusElement[0] || mintStatusElement[1]) {
-      mintStatusElement[0].innerText = "Minting Will Be Live Soon";
-      mintStatusElement[1].innerText = "Minting Will Be Live Soon";
-    }
-  } else if (saleIsActive) {
+  }
+  // else if (presaleComplete) {
+  //   if (mintStatusElement[0] || mintStatusElement[1]) {
+  //     mintStatusElement[0].innerText = "Minting Will Be Live Soon";
+  //     mintStatusElement[1].innerText = "Minting Will Be Live Soon";
+  //   }
+  // }
+  else if (saleIsActive) {
     if (mintStatusElement[0] || mintStatusElement[1]) {
       mintStatusElement[0].innerText = "Minting Live";
       mintStatusElement[1].innerText = "Minting Live";
     }
-    if (
-      mintBtnElement[0] ||
-      punksSupplyElement[0] ||
-      punksSupplyElement[1] ||
-      punksSupplyElement[2]
-    ) {
+    if (mintBtnElement[0] || punksSupplyElement[0] || punksSupplyElement[1] || punksSupplyElement[2]) {
       mintBtnElement[0].innerText = "Start Minting";
       punksSupplyElement[0].innerText = `${totalSupply.toString()}/${MAX_PUNKS}`;
       punksSupplyElement[1].innerText = `${totalSupply.toString()}/${MAX_PUNKS}`;
       punksSupplyElement[2].innerText = `${totalSupply.toString()}/${MAX_PUNKS}`;
+    }
+  }
+  else{
+    if (mintStatusElement[0] || mintStatusElement[1]) {
+      mintStatusElement[0].innerText = "Minting Will Be Live Soon";
+      mintStatusElement[1].innerText = "Minting Will Be Live Soon";
     }
   }
 }

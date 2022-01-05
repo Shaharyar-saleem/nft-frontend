@@ -28,9 +28,8 @@ metamaskCheck();
 
 async function init() {
   initWeb3Modal();
-  // const signer = await providerHelper.getSigner();
   const connectionStatus = localStorage.getItem("connectStatus");
-  const mintNftBtn = document.getElementsByClassName("start-minting-btn");
+  const mintNftBtn = document.getElementsByClassName("mintNftBtn");
   user.address = localStorage.getItem("userAddress");
   // functions from punk.js file
   await getPunkConstants();
@@ -39,15 +38,15 @@ async function init() {
     await userLoginAttempt();
     document.querySelector("#prepare").style.display = "none";
     document.querySelector("#connected").style.display = "block";
-    if (mintNftBtn[0]){
+    if (mintNftBtn[0] || mintNftBtn[1]){
       mintNftBtn[0].classList.remove('is-disabled');
+      mintNftBtn[1].classList.remove('is-disabled');
     }
     // function for get bnb Balance
     await getBnbBalance(user.address);
     // function from punk contract
     await getUserPunkData(user.address);
     await getOwnedTokens(user.address);
-    console.log("init signer:", signer)
   }
 
   // function from helper for get current year
@@ -91,28 +90,22 @@ async function connectAccount() {
   user.address = await signer.getAddress();
   localStorage.setItem("connectStatus", "connected");
   localStorage.setItem("userAddress", user.address);
-  const mintNftBtn = document.getElementsByClassName("start-minting-btn");
+  const mintNftBtn = document.getElementsByClassName("mintNftBtn");
   if (user.address) {
     // function for get bnb Balance
     await getBnbBalance(user.address);
     // function from punk contract
     await getUserPunkData(user.address);
     await getOwnedTokens(user.address);
-    if (mintNftBtn[0]){
+    if (mintNftBtn[0] || mintNftBtn[1]){
       mintNftBtn[0].classList.remove('is-disabled');
+      mintNftBtn[1].classList.remove('is-disabled');
     }
   }
-
-  // functions from punk.js file
-  // todo: i commented this out because it makes no sense to call these again
-  // todo: you need to figure out what is a real constant and only call it during init
-  // todo: and what you actually want to call after you have the user
-
   // functions from referralLink.js file
   await userReferralLink();
   await userReferralCommissions();
   await userTotalReferral();
-
   await getShortAddressCheckNetworkErrorCopyLink();
 }
 
@@ -123,7 +116,6 @@ async function userLoginAttempt() {
     status = localStorage.getItem("connectStatus");
     try {
       if (status === "connected") {
-        console.log(11);
         await connectAccount();
       }
     } catch (error) {
