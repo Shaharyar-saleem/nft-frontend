@@ -5,9 +5,10 @@ const {
   userTotalReferral,
 } = require("../referralLink");
 const {
-  getPunkConstants,
   getUserPunkData,
   punkSaleStatus,
+  getOwnedTokens,
+  getPunkConstants,
 } = require("../blockchain/contracts/punk");
 const { providerHelper } = require("./helper");
 const ethers = require("ethers");
@@ -34,18 +35,18 @@ async function init() {
   await getPunkConstants();
   await punkSaleStatus();
   if (connectionStatus === "connected") {
-    // await userLoginAttempt();
+    await userLoginAttempt();
     document.querySelector("#prepare").style.display = "none";
     document.querySelector("#connected").style.display = "block";
-    if (mintNftBtn[0] || mintNftBtn[1]){
-      mintNftBtn[0].classList.remove('is-disabled');
-      mintNftBtn[1].classList.remove('is-disabled');
+    if (mintNftBtn[0] || mintNftBtn[1]) {
+      mintNftBtn[0].classList.remove("is-disabled");
+      mintNftBtn[1].classList.remove("is-disabled");
     }
     // function for get bnb Balance
     await getBnbBalance(user.address);
     // function from punk contract
     await getUserPunkData(user.address);
-
+    await getOwnedTokens(user.address);
   }
 
   // function from helper for get current year
@@ -89,29 +90,22 @@ async function connectAccount() {
   user.address = await signer.getAddress();
   localStorage.setItem("connectStatus", "connected");
   localStorage.setItem("userAddress", user.address);
-  localStorage.setItem("signer2", signer);
   const mintNftBtn = document.getElementsByClassName("mintNftBtn");
   if (user.address) {
     // function for get bnb Balance
     await getBnbBalance(user.address);
     // function from punk contract
     await getUserPunkData(user.address);
-    if (mintNftBtn[0] || mintNftBtn[1]){
-      mintNftBtn[0].classList.remove('is-disabled');
-      mintNftBtn[1].classList.remove('is-disabled');
+    await getOwnedTokens(user.address);
+    if (mintNftBtn[0] || mintNftBtn[1]) {
+      mintNftBtn[0].classList.remove("is-disabled");
+      mintNftBtn[1].classList.remove("is-disabled");
     }
   }
-
-  // functions from punk.js file
-  // todo: i commented this out because it makes no sense to call these again
-  // todo: you need to figure out what is a real constant and only call it during init
-  // todo: and what you actually want to call after you have the user
-
   // functions from referralLink.js file
   await userReferralLink();
   await userReferralCommissions();
   await userTotalReferral();
-
   await getShortAddressCheckNetworkErrorCopyLink();
 }
 
@@ -121,7 +115,7 @@ async function userLoginAttempt() {
   await window.addEventListener("load", async function () {
     status = localStorage.getItem("connectStatus");
     try {
-      if (status !== "connected") {
+      if (status === "connected") {
         await connectAccount();
       }
     } catch (error) {
@@ -131,22 +125,22 @@ async function userLoginAttempt() {
 }
 
 async function getShortAddressCheckNetworkErrorCopyLink() {
-    let p2 = user.address.slice(42 - 5);
-    const shortAddressElement =
-      document.getElementsByClassName("shortAddress")[0];
-    const mediumAddress = document.getElementById("mediumAddress");
-    const fullAddress = document.getElementById("fullAddress");
-    if (shortAddressElement) {
-      shortAddressElement.innerText = `${user.address.slice(0, 4)}...${p2}`;
-    }
-    if (mediumAddress) {
-      mediumAddress.value = `${user.address.slice(0, 19)}...`;
-    }
-    if (fullAddress) {
-      fullAddress.value = user.address;
-    }
-    document.querySelector("#prepare").style.display = "none";
-    document.querySelector("#connected").style.display = "block";
+  let p2 = user.address.slice(42 - 5);
+  const shortAddressElement =
+    document.getElementsByClassName("shortAddress")[0];
+  const mediumAddress = document.getElementById("mediumAddress");
+  const fullAddress = document.getElementById("fullAddress");
+  if (shortAddressElement) {
+    shortAddressElement.innerText = `${user.address.slice(0, 4)}...${p2}`;
+  }
+  if (mediumAddress) {
+    mediumAddress.value = `${user.address.slice(0, 19)}...`;
+  }
+  if (fullAddress) {
+    fullAddress.value = user.address;
+  }
+  document.querySelector("#prepare").style.display = "none";
+  document.querySelector("#connected").style.display = "block";
   // else {
   //   document.querySelector("#prepare").style.display = "block";
   //   document.querySelector("#connected").style.display = "none";

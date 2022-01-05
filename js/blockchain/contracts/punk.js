@@ -1,5 +1,10 @@
 const ethers = require("ethers");
-const { CHAIN_ID, PUNK_ADDRESS, MAX_PUNKS, MAX_PRESALE_PUNKS } = require("../constants");
+const {
+  CHAIN_ID,
+  PUNK_ADDRESS,
+  MAX_PUNKS,
+  MAX_PRESALE_PUNKS,
+} = require("../constants");
 const { providerHelper } = require("../helper");
 
 let punk,
@@ -35,6 +40,8 @@ const abi = [
   "function mintPresale(uint numberOfTokens) external payable",
   "function claimRewards() public",
   "function presaleSupply() public view returns (uint256)",
+  "function balanceOf(address owner) public view returns (uint256)",
+  "function tokenOfOwnerByIndex(address owner, uint256 index) public view returns (uint256)",
 ];
 
 async function getPunkContract(chainId = CHAIN_ID) {
@@ -57,7 +64,6 @@ async function getPunkConstants() {
   promises.push(punk.saleIsActive());
   promises.push(punk.totalSupply());
   promises.push(punk.presaleSupply());
-
   [
     punkPrice,
     punkPriceDiscounted,
@@ -92,16 +98,18 @@ async function punkSaleStatus() {
       punksSupplyElement[2]
     ) {
       mintBtnElement[0].innerText = "Mint Presale";
-      punksSupplyElement[0].innerText = `${presaleSupply.toString()}/${MAX_PRESALE_PUNKS}`;
-      punksSupplyElement[1].innerText = `${presaleSupply.toString()}/${MAX_PRESALE_PUNKS}`;
-      punksSupplyElement[2].innerText = `${presaleSupply.toString()}/${MAX_PRESALE_PUNKS}`;
+      punksSupplyElement[0].innerText = `Fuzion CryptoPunks Minted: ${presaleSupply.toString()}/${MAX_PRESALE_PUNKS}`;
+      punksSupplyElement[1].innerText = `Fuzion CryptoPunks Minted: ${presaleSupply.toString()}/${MAX_PRESALE_PUNKS}`;
+      punksSupplyElement[2].innerText = `Fuzion CryptoPunks Minted: ${presaleSupply.toString()}/${MAX_PRESALE_PUNKS}`;
     }
-  } else if (presaleComplete) {
-    if (mintStatusElement[0] || mintStatusElement[1]) {
-      mintStatusElement[0].innerText = "Minting Will Be Live Soon";
-      mintStatusElement[1].innerText = "Minting Will Be Live Soon";
-    }
-  } else if (saleIsActive) {
+  }
+  // else if (presaleComplete) {
+  //   if (mintStatusElement[0] || mintStatusElement[1]) {
+  //     mintStatusElement[0].innerText = "Minting Will Be Live Soon";
+  //     mintStatusElement[1].innerText = "Minting Will Be Live Soon";
+  //   }
+  // }
+  else if (saleIsActive) {
     if (mintStatusElement[0] || mintStatusElement[1]) {
       mintStatusElement[0].innerText = "Minting Live";
       mintStatusElement[1].innerText = "Minting Live";
@@ -116,6 +124,11 @@ async function punkSaleStatus() {
       punksSupplyElement[0].innerText = `${totalSupply.toString()}/${MAX_PUNKS}`;
       punksSupplyElement[1].innerText = `${totalSupply.toString()}/${MAX_PUNKS}`;
       punksSupplyElement[2].innerText = `${totalSupply.toString()}/${MAX_PUNKS}`;
+    }
+  } else {
+    if (mintStatusElement[0] || mintStatusElement[1]) {
+      mintStatusElement[0].innerText = "Minting Will Be Live Soon";
+      mintStatusElement[1].innerText = "Minting Will Be Live Soon";
     }
   }
 }
@@ -136,7 +149,7 @@ async function getMaxPurchaseAmount() {
   return presaleIsActive ? maxPresalePurchase : maxPunkPurchase;
 }
 
-async function mintFuzionPunk(){
+async function mintFuzionPunk() {
   await getPunkContract();
   const provider = await providerHelper.getProvider();
   const signer = await providerHelper.getSigner();
@@ -150,24 +163,32 @@ async function mintFuzionPunk(){
     mintModalElement[0].style.display = "none";
     confirmMetamaskModal.style.display = "block";
     let presaleMintReceipt;
-    if (presaleIsActive){
-      presaleMintReceipt = await (await punk.connect(signer).mintPresale(numberToMint, {value: punkPriceDiscounted.mul(numberToMint), gasLimit: 1000000}));
-    }
-    else if (saleIsActive){
-      presaleMintReceipt = await (await punk.connect(signer).mint(numberToMint, {value: punkPrice.mul(numberToMint), gasLimit: 1000000}));
+    if (presaleIsActive) {
+      presaleMintReceipt = await await punk
+        .connect(signer)
+        .mintPresale(numberToMint, {
+          value: punkPriceDiscounted.mul(numberToMint),
+          gasLimit: 2000000,
+        });
+    } else if (saleIsActive) {
+      presaleMintReceipt = await await punk
+        .connect(signer)
+        .mint(numberToMint, {
+          value: punkPrice.mul(numberToMint),
+          gasLimit: 2000000,
+        });
     }
     const mintPunkSubmitted = await presaleMintReceipt;
-    if (mintPunkSubmitted.confirmations === 0){
+    if (mintPunkSubmitted.confirmations === 0) {
       confirmMetamaskModal.style.display = "none";
       claimProcessingModal.style.display = "block";
-      document.getElementById("processingTxt").innerText =
-          "Minting In Process";
+      document.getElementById("processingTxt").innerText = "Minting In Process";
       const processingLink = document.getElementById("processing-transaction");
       // processingLink.href = `https://bscscan.com/tx/${mintPunkSubmitted.hash}`; //bsc scan mainnet
       processingLink.href = `https://mumbai.polygonscan.com/tx/${mintPunkSubmitted.hash}`; //mumbai polygon testnet
     }
     const mintPunkSuccessfull = await presaleMintReceipt.wait();
-    if (mintPunkSuccessfull){
+    if (mintPunkSuccessfull) {
       confirmMetamaskModal.style.display = "none";
       claimProcessingModal.style.display = "none";
       claimedSuccessfulModal.style.display = "block";
@@ -176,16 +197,77 @@ async function mintFuzionPunk(){
       // transactionLink.href = `https://bscscan.com/tx/${mintPunkSubmitted.hash}`; //bsc scan mainnet
       transactionLink.href = `https://mumbai.polygonscan.com/tx/${mintPunkSubmitted.hash}`; //mumbai polygon testnet
     }
-  }
-  catch (error){
+  } catch (error) {
     console.log(error);
     if (error.code === 4001) {
       confirmMetamaskModal.style.display = "none";
     }
   }
-
 }
 
+async function getOwnedTokens(address) {
+  const totalPunksElement = document.getElementById("totalFuzionPunks");
+  const balance = await punk.balanceOf(address);
+  if (totalPunksElement) {
+    totalPunksElement.innerText = `${balance.toString()} Total Fuzion Punks`;
+  }
+  const promises = [];
+  for (let i = 0; i < balance; i++) {
+    promises.push(punk.tokenOfOwnerByIndex(address, i));
+  }
+  const tokens = await Promise.all(promises);
+
+  // create a token element starts here
+  const container = document.getElementById("tokenData");
+  tokens.forEach((token, idx) => {
+    let url = `https://fuzionpunks.s3.us-east-2.amazonaws.com/images/${token.toString()}.png`;
+    // Construct card content
+    const content = `
+     <div class="col-lg-4 col-md-6">
+      <div class="portfolio-card position-relative">
+           <div class="portfolio-card-tag">
+               <p class="rank-txt mb-0 pr-3 pl-2">RANK 3</p>
+                <p class="mb-0 ranking-status">LEGENDARY</p>
+           </div>
+           <div class="text-center">
+           <img
+            src="${url}"
+            alt="NFT"
+            class="portfolio-nft"
+            />
+            <p class="mb-0 mt-3">Degen Punk #7480</p>
+            <p class="owner-address pt-2">0x0D933E6…</p>
+            </div>
+            <div class="portfolio-card-footer">
+              <div class="row no-gutters">
+                  <div class="col-6">
+                      <p>Current Price</p>
+                  </div>
+                  <div class="col-6">
+                      <p class="float-right">
+                       <img
+                         src="./img/profile/portfolio/binance-logo.png"
+                         alt="eth icon"
+                         width="25px"
+                         /><span class="pl-2 color-white">333.30</span>
+                        </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+      </div>
+  `;
+    container.innerHTML += content;
+  });
+  // create element ends here
+
+  return tokens;
+}
+
+async function getReflectionBalance() {
+  const reflectionBalance = await punk.getReflectionBalances();
+  console.log("reflection balance of the user:", reflectionBalance.toString());
+}
 
 // async function test(userAddress) {
 //   totalSupply = await punk.totalSupply();
@@ -239,4 +321,6 @@ module.exports = {
   totalSupply,
   presaleSupply,
   mintFuzionPunk,
+  getOwnedTokens,
+  getReflectionBalance,
 };

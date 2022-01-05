@@ -109,8 +109,27 @@ h3 {
 .fw-400 {
   font-weight: 400;
 }
-.close:focus{
+.close:focus {
   outline: none !important;
+}
+.disable-content {
+  position: relative;
+}
+.disable-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #0d1748;
+  opacity: 0.6;
+}
+.connectWarning {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 300;
+  letter-spacing: 4px;
 }
 /**** Global css ends here ****/
 
@@ -434,7 +453,6 @@ input::-webkit-inner-spin-button {
   color: white;
   border-top: 2px solid #435fb6;
   width: 99.2%;
-  overflow-y: scroll;
 }
 .roadmap-step-block {
   width: 90%;
@@ -682,6 +700,7 @@ input::-webkit-inner-spin-button {
 }
 .punks-numbers {
   color: #ffc378;
+  font-weight: 600;
 }
 .profile-section .form-control {
   border: 1px solid #6a5e51 !important;
@@ -1127,7 +1146,7 @@ svg .cls-1 {
     height: auto;
     width: 100%;
   }
-  .step-body{
+  .step-body {
     overflow: visible;
   }
   .boy-img {

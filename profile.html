@@ -164,7 +164,7 @@
             <p class="profile-address mt-3">
               <span class="shortAddress"></span>
             </p>
-            <p class="punks-numbers">0 Total Fuzion Punks</p>
+            <p class="punks-numbers"><span id="totalFuzionPunks"></span></p>
             <div class="presale-status" style="display: none">
               <div class="media p-2">
                 <img
@@ -251,215 +251,82 @@
               </ul>
               <hr />
               <div class="tab-content" id="pills-tabContent">
-                <!--                        portfolio tab content-->
+                <!--portfolio tab content-->
                 <div
                   class="tab-pane fade show active px-5 pb-5"
                   id="pills-portfolio"
                   role="tabpanel"
                   aria-labelledby="pills-portfolio-tab"
                 >
-                  <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                      <a data-toggle="modal" data-target="#exampleModalCenter">
-                        <div class="portfolio-card position-relative">
-                          <div class="portfolio-card-tag">
-                            <p class="rank-txt mb-0 pr-3 pl-2">RANK 3</p>
-                            <p class="mb-0 ranking-status">LEGENDARY</p>
-                          </div>
-                          <div class="text-center">
-                            <img
-                              src="./img/profile/portfolio/nft/ape.svg"
-                              alt="ape svg"
-                              class="portfolio-nft"
-                            />
-                            <p class="mb-0 mt-3">Degen Punk #7480</p>
-                            <p class="owner-address pt-2">0x0D933E6…</p>
-                          </div>
-                          <div class="portfolio-card-footer">
-                            <div class="row no-gutters">
-                              <div class="col-6">
-                                <p>Current Price</p>
-                              </div>
-                              <div class="col-6">
-                                <p class="float-right">
-                                  <img
-                                    src="./img/profile/portfolio/binance-logo.png"
-                                    alt="eth icon"
-                                    width="25px"
-                                  /><span class="pl-2 color-white">333.30</span>
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                      <div class="portfolio-card position-relative">
-                        <div class="portfolio-card-tag">
-                          <p class="rank-txt mb-0 pr-3 pl-2">RANK 3</p>
-                          <p class="mb-0 ranking-status">LEGENDARY</p>
-                        </div>
-                        <div class="text-center">
-                          <img
-                            src="./img/profile/portfolio/nft/ape.svg"
-                            alt="ape svg"
-                            class="portfolio-nft"
-                          />
-                          <p class="mb-0 mt-3">Degen Punk #7480</p>
-                          <p class="owner-address pt-2">0x0D933E6…</p>
-                        </div>
-                        <div class="portfolio-card-footer">
-                          <div class="row no-gutters">
-                            <div class="col-6">
-                              <p>Current Price</p>
-                            </div>
-                            <div class="col-6">
-                              <p class="float-right">
-                                <img
-                                  src="./img/profile/portfolio/binance-logo.png"
-                                  alt="eth icon"
-                                  width="25px"
-                                /><span class="pl-2 color-white">333.30</span>
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                      <div class="portfolio-card position-relative">
-                        <div class="portfolio-card-tag">
-                          <p class="rank-txt mb-0 pr-3 pl-2">RANK 3</p>
-                          <p class="mb-0 ranking-status">LEGENDARY</p>
-                        </div>
-                        <div class="text-center">
-                          <img
-                            src="./img/profile/portfolio/nft/female.svg"
-                            alt="ape svg"
-                            class="portfolio-nft"
-                          />
-                          <p class="mb-0 mt-3">Degen Punk #7480</p>
-                          <p class="owner-address pt-2">0x0D933E6…</p>
-                        </div>
-                        <div class="portfolio-card-footer">
-                          <div class="row no-gutters">
-                            <div class="col-6">
-                              <p>Current Price</p>
-                            </div>
-                            <div class="col-6">
-                              <p class="float-right">
-                                <img
-                                  src="./img/profile/portfolio/binance-logo.png"
-                                  alt="eth icon"
-                                  width="25px"
-                                /><span class="pl-2 color-white">333.30</span>
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                      <div class="portfolio-card position-relative">
-                        <div class="portfolio-card-tag">
-                          <p class="rank-txt mb-0 pr-3 pl-2">RANK 3</p>
-                          <p class="mb-0 ranking-status">LEGENDARY</p>
-                        </div>
-                        <div class="text-center">
-                          <img
-                            src="./img/profile/portfolio/nft/ape.svg"
-                            alt="ape svg"
-                            class="portfolio-nft"
-                          />
-                          <p class="mb-0 mt-3">Degen Punk #7480</p>
-                          <p class="owner-address pt-2">0x0D933E6…</p>
-                        </div>
-                        <div class="portfolio-card-footer">
-                          <div class="row no-gutters">
-                            <div class="col-6">
-                              <p>Current Price</p>
-                            </div>
-                            <div class="col-6">
-                              <p class="float-right">
-                                <img
-                                  src="./img/profile/portfolio/binance-logo.png"
-                                  alt="eth icon"
-                                  width="25px"
-                                /><span class="pl-2 color-white">333.30</span>
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                      <div class="portfolio-card position-relative">
-                        <div class="portfolio-card-tag">
-                          <p class="rank-txt mb-0 pr-3 pl-2">RANK 3</p>
-                          <p class="mb-0 ranking-status">LEGENDARY</p>
-                        </div>
-                        <div class="text-center">
-                          <img
-                            src="./img/profile/portfolio/nft/zombie.svg"
-                            alt="ape svg"
-                            class="portfolio-nft"
-                          />
-                          <p class="mb-0 mt-3">Degen Punk #7480</p>
-                          <p class="owner-address pt-2">0x0D933E6…</p>
-                        </div>
-                        <div class="portfolio-card-footer">
-                          <div class="row no-gutters">
-                            <div class="col-6">
-                              <p>Current Price</p>
-                            </div>
-                            <div class="col-6">
-                              <p class="float-right">
-                                <img
-                                  src="./img/profile/portfolio/binance-logo.png"
-                                  alt="eth icon"
-                                  width="25px"
-                                /><span class="pl-2 color-white">333.30</span>
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                      <div class="portfolio-card position-relative">
-                        <div class="portfolio-card-tag">
-                          <p class="rank-txt mb-0 pr-3 pl-2">RANK 3</p>
-                          <p class="mb-0 ranking-status">LEGENDARY</p>
-                        </div>
-                        <div class="text-center">
-                          <img
-                            src="./img/profile/portfolio/nft/ape.svg"
-                            alt="ape svg"
-                            class="portfolio-nft"
-                          />
-                          <p class="mb-0 mt-3">Degen Punk #7480</p>
-                          <p class="owner-address pt-2">0x0D933E6…</p>
-                        </div>
-                        <div class="portfolio-card-footer">
-                          <div class="row no-gutters">
-                            <div class="col-6">
-                              <p>Current Price</p>
-                            </div>
-                            <div class="col-6">
-                              <p class="float-right">
-                                <img
-                                  src="./img/profile/portfolio/binance-logo.png"
-                                  alt="eth icon"
-                                  width="25px"
-                                /><span class="pl-2 color-white">333.30</span>
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  <div class="row" id="tokenData">
+                    <!--                    <div class="col-lg-4 col-md-6">-->
+                    <!--                      <a data-toggle="modal" data-target="#exampleModalCenter">-->
+                    <!--                        <div class="portfolio-card position-relative">-->
+                    <!--                          <div class="portfolio-card-tag">-->
+                    <!--                            <p class="rank-txt mb-0 pr-3 pl-2">RANK 3</p>-->
+                    <!--                            <p class="mb-0 ranking-status">LEGENDARY</p>-->
+                    <!--                          </div>-->
+                    <!--                          <div class="text-center">-->
+                    <!--                            <img-->
+                    <!--                              src="./img/profile/portfolio/nft/ape.svg"-->
+                    <!--                              alt="ape svg"-->
+                    <!--                              class="portfolio-nft"-->
+                    <!--                            />-->
+                    <!--                            <p class="mb-0 mt-3">Degen Punk #7480</p>-->
+                    <!--                            <p class="owner-address pt-2">0x0D933E6…</p>-->
+                    <!--                          </div>-->
+                    <!--                          <div class="portfolio-card-footer">-->
+                    <!--                            <div class="row no-gutters">-->
+                    <!--                              <div class="col-6">-->
+                    <!--                                <p>Current Price</p>-->
+                    <!--                              </div>-->
+                    <!--                              <div class="col-6">-->
+                    <!--                                <p class="float-right">-->
+                    <!--                                  <img-->
+                    <!--                                    src="./img/profile/portfolio/binance-logo.png"-->
+                    <!--                                    alt="eth icon"-->
+                    <!--                                    width="25px"-->
+                    <!--                                  /><span class="pl-2 color-white">333.30</span>-->
+                    <!--                                </p>-->
+                    <!--                              </div>-->
+                    <!--                            </div>-->
+                    <!--                          </div>-->
+                    <!--                        </div>-->
+                    <!--                      </a>-->
+                    <!--                    </div>-->
+                    <!--                    <div class="col-lg-4 col-md-6">-->
+                    <!--                      <div class="portfolio-card position-relative">-->
+                    <!--                        <div class="portfolio-card-tag">-->
+                    <!--                          <p class="rank-txt mb-0 pr-3 pl-2">RANK 3</p>-->
+                    <!--                          <p class="mb-0 ranking-status">LEGENDARY</p>-->
+                    <!--                        </div>-->
+                    <!--                        <div class="text-center">-->
+                    <!--                          <img-->
+                    <!--                            src="./img/profile/portfolio/nft/ape.svg"-->
+                    <!--                            alt="ape svg"-->
+                    <!--                            class="portfolio-nft"-->
+                    <!--                          />-->
+                    <!--                          <p class="mb-0 mt-3">Degen Punk #7480</p>-->
+                    <!--                          <p class="owner-address pt-2">0x0D933E6…</p>-->
+                    <!--                        </div>-->
+                    <!--                        <div class="portfolio-card-footer">-->
+                    <!--                          <div class="row no-gutters">-->
+                    <!--                            <div class="col-6">-->
+                    <!--                              <p>Current Price</p>-->
+                    <!--                            </div>-->
+                    <!--                            <div class="col-6">-->
+                    <!--                              <p class="float-right">-->
+                    <!--                                <img-->
+                    <!--                                  src="./img/profile/portfolio/binance-logo.png"-->
+                    <!--                                  alt="eth icon"-->
+                    <!--                                  width="25px"-->
+                    <!--                                /><span class="pl-2 color-white">333.30</span>-->
+                    <!--                              </p>-->
+                    <!--                            </div>-->
+                    <!--                          </div>-->
+                    <!--                        </div>-->
+                    <!--                      </div>-->
+                    <!--                    </div>-->
 
                     <!--detail Modal starts here-->
                     <div
