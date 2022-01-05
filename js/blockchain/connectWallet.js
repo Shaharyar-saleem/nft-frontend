@@ -5,9 +5,10 @@ const {
   userTotalReferral,
 } = require("../referralLink");
 const {
-  getPunkConstants,
   getUserPunkData,
   punkSaleStatus,
+  getOwnedTokens,
+  getPunkConstants,
 } = require("../blockchain/contracts/punk");
 const { providerHelper } = require("./helper");
 const ethers = require("ethers");
@@ -27,11 +28,9 @@ metamaskCheck();
 
 async function init() {
   initWeb3Modal();
-
-  const signer = await providerHelper.getSigner();
-
+  // const signer = await providerHelper.getSigner();
   const connectionStatus = localStorage.getItem("connectStatus");
-  const mintNftBtn = document.getElementsByClassName("mintNftBtn");
+  const mintNftBtn = document.getElementsByClassName("start-minting-btn");
   user.address = localStorage.getItem("userAddress");
   // functions from punk.js file
   await getPunkConstants();
@@ -40,14 +39,14 @@ async function init() {
     await userLoginAttempt();
     document.querySelector("#prepare").style.display = "none";
     document.querySelector("#connected").style.display = "block";
-    if (mintNftBtn[0] || mintNftBtn[1]){
+    if (mintNftBtn[0]){
       mintNftBtn[0].classList.remove('is-disabled');
-      mintNftBtn[1].classList.remove('is-disabled');
     }
     // function for get bnb Balance
     await getBnbBalance(user.address);
     // function from punk contract
     await getUserPunkData(user.address);
+    await getOwnedTokens(user.address);
     console.log("init signer:", signer)
   }
 
@@ -92,15 +91,15 @@ async function connectAccount() {
   user.address = await signer.getAddress();
   localStorage.setItem("connectStatus", "connected");
   localStorage.setItem("userAddress", user.address);
-  const mintNftBtn = document.getElementsByClassName("mintNftBtn");
+  const mintNftBtn = document.getElementsByClassName("start-minting-btn");
   if (user.address) {
     // function for get bnb Balance
     await getBnbBalance(user.address);
     // function from punk contract
     await getUserPunkData(user.address);
-    if (mintNftBtn[0] || mintNftBtn[1]){
+    await getOwnedTokens(user.address);
+    if (mintNftBtn[0]){
       mintNftBtn[0].classList.remove('is-disabled');
-      mintNftBtn[1].classList.remove('is-disabled');
     }
   }
 
@@ -134,22 +133,22 @@ async function userLoginAttempt() {
 }
 
 async function getShortAddressCheckNetworkErrorCopyLink() {
-    let p2 = user.address.slice(42 - 5);
-    const shortAddressElement =
+  let p2 = user.address.slice(42 - 5);
+  const shortAddressElement =
       document.getElementsByClassName("shortAddress")[0];
-    const mediumAddress = document.getElementById("mediumAddress");
-    const fullAddress = document.getElementById("fullAddress");
-    if (shortAddressElement) {
-      shortAddressElement.innerText = `${user.address.slice(0, 4)}...${p2}`;
-    }
-    if (mediumAddress) {
-      mediumAddress.value = `${user.address.slice(0, 19)}...`;
-    }
-    if (fullAddress) {
-      fullAddress.value = user.address;
-    }
-    document.querySelector("#prepare").style.display = "none";
-    document.querySelector("#connected").style.display = "block";
+  const mediumAddress = document.getElementById("mediumAddress");
+  const fullAddress = document.getElementById("fullAddress");
+  if (shortAddressElement) {
+    shortAddressElement.innerText = `${user.address.slice(0, 4)}...${p2}`;
+  }
+  if (mediumAddress) {
+    mediumAddress.value = `${user.address.slice(0, 19)}...`;
+  }
+  if (fullAddress) {
+    fullAddress.value = user.address;
+  }
+  document.querySelector("#prepare").style.display = "none";
+  document.querySelector("#connected").style.display = "block";
   // else {
   //   document.querySelector("#prepare").style.display = "block";
   //   document.querySelector("#connected").style.display = "none";
@@ -169,8 +168,8 @@ function disconnect() {
 function metamaskCheck() {
   //metamask check
   if (
-    typeof window.ethereum == "undefined" ||
-    typeof window.web3 == "undefined"
+      typeof window.ethereum == "undefined" ||
+      typeof window.web3 == "undefined"
   ) {
     window.connectAccount = redirect;
   } else {

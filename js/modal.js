@@ -7,7 +7,6 @@ const modal = document.getElementsByClassName("modal");
 
 function closeConfirmationModal(){
     console.log(1);
-    $('#confirmationModal').modal('hide');
     $('.modal-backdrop').remove();
     confirmMetamaskModal.style.display = "none";
 }

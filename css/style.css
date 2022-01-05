@@ -112,6 +112,25 @@ h3 {
 .close:focus{
   outline: none !important;
 }
+.disable-content{
+  position: relative;
+}
+.disable-content::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #0d1748;
+  opacity: 0.6;
+}
+.connectWarning{
+  text-align: center;
+  font-size: 35px;
+  font-weight: 300;
+  letter-spacing: 4px;
+}
 /**** Global css ends here ****/
 
 /****home page starts here****/
@@ -681,6 +700,7 @@ input::-webkit-inner-spin-button {
 }
 .punks-numbers {
   color: #ffc378;
+  font-weight: 600;
 }
 .profile-section .form-control {
   border: 1px solid #6a5e51 !important;

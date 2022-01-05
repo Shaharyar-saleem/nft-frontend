@@ -35,6 +35,8 @@ const abi = [
   "function mintPresale(uint numberOfTokens) external payable",
   "function claimRewards() public",
   "function presaleSupply() public view returns (uint256)",
+  "function balanceOf(address owner) public view returns (uint256)",
+  "function tokenOfOwnerByIndex(address owner, uint256 index) public view returns (uint256)",
 ];
 
 async function getPunkContract(chainId = CHAIN_ID) {
@@ -57,7 +59,6 @@ async function getPunkConstants() {
   promises.push(punk.saleIsActive());
   promises.push(punk.totalSupply());
   promises.push(punk.presaleSupply());
-
   [
     punkPrice,
     punkPriceDiscounted,
@@ -140,7 +141,6 @@ async function mintFuzionPunk(){
   await getPunkContract();
   const provider = await providerHelper.getProvider();
   const signer = await providerHelper.getSigner();
-  console.log("mintFuzionPunk signer:", signer);
   const mintNumberElement = document.getElementById("mintNumber");
   const numberToMint = mintNumberElement.value;
   confirmMetamaskModal = document.getElementById("confirmationModal");
@@ -187,6 +187,69 @@ async function mintFuzionPunk(){
 
 }
 
+async function getOwnedTokens(address){
+  const totalPunksElement = document.getElementById("totalFuzionPunks");
+  const balance = await punk.balanceOf(address)
+  if (totalPunksElement){
+    totalPunksElement.innerText = `${balance.toString()} Total Fuzion Punks`;
+  }
+  const promises = []
+  for(let i=0;i<balance;i++){
+    promises.push(punk.tokenOfOwnerByIndex(address, i));
+  }
+  const tokens = await Promise.all(promises);
+
+  // create a token element starts here
+  const container = document.getElementById('tokenData');
+  tokens.forEach((token, idx) => {
+    let url = `https://fuzionpunks.s3.us-east-2.amazonaws.com/images/${token.toString()}.png`;
+    // Construct card content
+    const content = `
+     <div class="col-lg-4 col-md-6">
+      <div class="portfolio-card position-relative">
+           <div class="portfolio-card-tag">
+               <p class="rank-txt mb-0 pr-3 pl-2">RANK 3</p>
+                <p class="mb-0 ranking-status">LEGENDARY</p>
+           </div>
+           <div class="text-center">
+           <img
+            src="${url}"
+            alt="NFT"
+            class="portfolio-nft"
+            />
+            <p class="mb-0 mt-3">Degen Punk #7480</p>
+            <p class="owner-address pt-2">0x0D933E6…</p>
+            </div>
+            <div class="portfolio-card-footer">
+              <div class="row no-gutters">
+                  <div class="col-6">
+                      <p>Current Price</p>
+                  </div>
+                  <div class="col-6">
+                      <p class="float-right">
+                       <img
+                         src="./img/profile/portfolio/binance-logo.png"
+                         alt="eth icon"
+                         width="25px"
+                         /><span class="pl-2 color-white">333.30</span>
+                        </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+      </div>
+  `;
+    container.innerHTML += content;
+  })
+  // create element ends here
+
+  return tokens;
+}
+
+async function getReflectionBalance(){
+  const reflectionBalance = await punk.getReflectionBalances();
+  console.log("reflection balance of the user:", reflectionBalance.toString());
+}
 
 // async function test(userAddress) {
 //   totalSupply = await punk.totalSupply();
@@ -240,4 +303,6 @@ module.exports = {
   totalSupply,
   presaleSupply,
   mintFuzionPunk,
+  getOwnedTokens,
+  getReflectionBalance,
 };
