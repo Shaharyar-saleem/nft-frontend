@@ -6,6 +6,7 @@ const {
   MAX_PRESALE_PUNKS,
 } = require("../constants");
 const { providerHelper } = require("../helper");
+const {getReferral} = require("../../referralLink");
 
 let punk,
   totalSupply,
@@ -83,54 +84,39 @@ async function getPunkConstants() {
 
 async function punkSaleStatus() {
   // Punk sale Status
+  presaleIsActive = parseInt(presaleIsActive);
+  saleIsActive = parseInt(saleIsActive);
   const mintStatusElement = document.getElementsByClassName("minting-status");
   const mintBtnElement = document.getElementsByClassName("start-minting-btn");
   const punksSupplyElement = document.getElementsByClassName("punksSupply");
   if (presaleIsActive) {
-    if (mintStatusElement[0] || mintStatusElement[1]) {
+    console.log("presale is active here", presaleIsActive);
+    if (mintStatusElement[0]) {
       mintStatusElement[0].innerText = "Presale Minting Live";
       mintStatusElement[1].innerText = "Presale Minting Live";
     }
-    if (
-      mintBtnElement[0] ||
-      punksSupplyElement[0] ||
-      punksSupplyElement[1] ||
-      punksSupplyElement[2]
-    ) {
+    if (mintBtnElement[0] || punksSupplyElement[0]) {
       mintBtnElement[0].innerText = "Mint Presale";
       punksSupplyElement[0].innerText = `Fuzion CryptoPunks Minted: ${presaleSupply.toString()}/${MAX_PRESALE_PUNKS}`;
       punksSupplyElement[1].innerText = `Fuzion CryptoPunks Minted: ${presaleSupply.toString()}/${MAX_PRESALE_PUNKS}`;
       punksSupplyElement[2].innerText = `Fuzion CryptoPunks Minted: ${presaleSupply.toString()}/${MAX_PRESALE_PUNKS}`;
     }
   }
-  // else if (presaleComplete) {
-  //   if (mintStatusElement[0] || mintStatusElement[1]) {
-  //     mintStatusElement[0].innerText = "Minting Will Be Live Soon";
-  //     mintStatusElement[1].innerText = "Minting Will Be Live Soon";
-  //   }
-  // }
   else if (saleIsActive) {
+    console.log("saleIsActive:", saleIsActive);
     if (mintStatusElement[0] || mintStatusElement[1]) {
       mintStatusElement[0].innerText = "Minting Live";
       mintStatusElement[1].innerText = "Minting Live";
     }
-    if (
-      mintBtnElement[0] ||
-      punksSupplyElement[0] ||
-      punksSupplyElement[1] ||
-      punksSupplyElement[2]
-    ) {
+    if (mintBtnElement[0] || punksSupplyElement[0]) {
       mintBtnElement[0].innerText = "Start Minting";
-      punksSupplyElement[0].innerText = `${totalSupply.toString()}/${MAX_PUNKS}`;
-      punksSupplyElement[1].innerText = `${totalSupply.toString()}/${MAX_PUNKS}`;
-      punksSupplyElement[2].innerText = `${totalSupply.toString()}/${MAX_PUNKS}`;
-    }
-  } else {
-    if (mintStatusElement[0] || mintStatusElement[1]) {
-      mintStatusElement[0].innerText = "Minting Will Be Live Soon";
-      mintStatusElement[1].innerText = "Minting Will Be Live Soon";
+      punksSupplyElement[0].innerText = `Fuzion CryptoPunks Minted: ${totalSupply.toString()}/${MAX_PUNKS}`;
+      punksSupplyElement[1].innerText = `Fuzion CryptoPunks Minted: ${totalSupply.toString()}/${MAX_PUNKS}`;
+      punksSupplyElement[2].innerText = `Fuzion CryptoPunks Minted: ${totalSupply.toString()}/${MAX_PUNKS}`;
     }
   }
+
+
 }
 
 // call on wallet connect
@@ -146,11 +132,51 @@ async function getUserPunkData(userAddress) {
 }
 
 async function getMaxPurchaseAmount() {
+  presaleIsActive = parseInt(presaleIsActive);
   return presaleIsActive ? maxPresalePurchase : maxPunkPurchase;
 }
 
+function setMaxAndMinPunk(){
+  let maxPunkNumber;
+  let mintPunkNumber;
+  const punkInput = document.getElementById("mintNumber");
+  const mintNftBtn = document.getElementsByClassName("start-minting-btn");
+  const invalidFeedbackElement = document.getElementsByClassName("invalid-feedback");
+  if (presaleIsActive){
+     maxPunkNumber = parseInt(maxPresalePurchase.toString());
+     mintPunkNumber = parseInt(punkInput.value);
+    if (mintPunkNumber > maxPunkNumber || mintPunkNumber < 1 || punkInput.value === ""){
+      punkInput.classList.add("is-invalid");
+      document.getElementsByClassName("invalid-feedback")[0].style.display = "block";
+      mintNftBtn[0].classList.add("is-disabled");
+      invalidFeedbackElement[0].innerText = `value must be between 1-${maxPresalePurchase.toString()}`
+    }
+    else{
+      punkInput.classList.remove("is-invalid");
+      document.getElementsByClassName("invalid-feedback")[0].style.display = "none";
+      mintNftBtn[0].classList.remove("is-disabled");
+    }
+  }
+
+  else if(saleIsActive){
+    const maxPunkNumber = parseInt(maxPunkPurchase.toString());
+    const mintPunkNumber = parseInt(punkInput.value);
+    if (mintPunkNumber > maxPunkNumber || mintPunkNumber < 1 || punkInput.value === ""){
+      punkInput.classList.add("is-invalid");
+      document.getElementsByClassName("invalid-feedback")[0].style.display = "block";
+      mintNftBtn[0].classList.add("is-disabled");
+      invalidFeedbackElement[0].innerText = `value must be between 1-${maxPunkPurchase.toString()}`
+    }
+    else{
+      punkInput.classList.remove("is-invalid");
+      document.getElementsByClassName("invalid-feedback")[0].style.display = "none";
+      mintNftBtn[0].classList.remove("is-disabled");
+    }
+  }
+}
+
 async function mintFuzionPunk() {
-  await getPunkContract();
+  // await getPunkContract();
   const provider = await providerHelper.getProvider();
   const signer = await providerHelper.getSigner();
   const mintNumberElement = document.getElementById("mintNumber");
@@ -158,25 +184,22 @@ async function mintFuzionPunk() {
   confirmMetamaskModal = document.getElementById("confirmationModal");
   claimProcessingModal = document.getElementById("processingModal");
   claimedSuccessfulModal = document.getElementById("successfullModal");
-  const mintModalElement = document.getElementsByClassName("mint-modal");
   try {
-    mintModalElement[0].style.display = "none";
+    $("#exampleModalCenter").modal('hide');
     confirmMetamaskModal.style.display = "block";
     let presaleMintReceipt;
     if (presaleIsActive) {
-      presaleMintReceipt = await await punk
-        .connect(signer)
-        .mintPresale(numberToMint, {
-          value: punkPriceDiscounted.mul(numberToMint),
-          gasLimit: 2000000,
-        });
-    } else if (saleIsActive) {
-      presaleMintReceipt = await await punk
-        .connect(signer)
-        .mint(numberToMint, {
-          value: punkPrice.mul(numberToMint),
-          gasLimit: 2000000,
-        });
+      presaleMintReceipt = await punk.connect(signer).mintPresale(numberToMint, {
+        value: punkPriceDiscounted.mul(numberToMint),
+        gasLimit: 2000000,
+      });
+    }
+    else if (saleIsActive) {
+      const refAddress = getReferral();
+      presaleMintReceipt = await punk.connect(signer).mint(numberToMint, refAddress, {
+        value: punkPrice.mul(numberToMint),
+        gasLimit: 2000000,
+      });
     }
     const mintPunkSubmitted = await presaleMintReceipt;
     if (mintPunkSubmitted.confirmations === 0) {
@@ -219,10 +242,11 @@ async function getOwnedTokens(address) {
 
   // create a token element starts here
   const container = document.getElementById("tokenData");
-  tokens.forEach((token, idx) => {
-    let url = `https://fuzionpunks.s3.us-east-2.amazonaws.com/images/${token.toString()}.png`;
-    // Construct card content
-    const content = `
+  if (container){
+    tokens.forEach((token, idx) => {
+      let url = `https://fuzionpunks.s3.us-east-2.amazonaws.com/images/${token.toString()}.png`;
+      // Construct card content
+      const content = `
      <div class="col-lg-4 col-md-6">
       <div class="portfolio-card position-relative">
            <div class="portfolio-card-tag">
@@ -257,16 +281,61 @@ async function getOwnedTokens(address) {
                       </div>
       </div>
   `;
-    container.innerHTML += content;
-  });
-  // create element ends here
+      container.innerHTML += content;
+    });
+    // create element ends here
+  }
 
   return tokens;
 }
 
 async function getReflectionBalance() {
-  const reflectionBalance = await punk.getReflectionBalances();
-  console.log("reflection balance of the user:", reflectionBalance.toString());
+  const rewardElement = document.getElementsByClassName("reward-amount");
+  const signer = await providerHelper.getSigner();
+  console.log("signer in getReflectionBalance fuction:", signer);
+  reflectionBalance = await punk.connect(signer).getReflectionBalances();
+  console.log("reflectionBalance:", ethers.utils.formatUnits(reflectionBalance, 18));
+  if(rewardElement[0]){rewardElement[0].innerText = `${ethers.utils.formatUnits(reflectionBalance, 18)} BNB`;}
+  return reflectionBalance;
+}
+
+async function claimReflectionBalance(){
+  let rewardClaimReceipt;
+// await getPunkContract();
+  const signer = await providerHelper.getSigner();
+  confirmMetamaskModal = document.getElementById("confirmationModal");
+  claimProcessingModal = document.getElementById("processingModal");
+  claimedSuccessfulModal = document.getElementById("successfullModal");
+  try {
+    confirmMetamaskModal.style.display = "block";
+    rewardClaimReceipt = await punk.connect(signer).claimRewards();
+    const claimRewardSubmitted = await rewardClaimReceipt;
+    if (claimRewardSubmitted.confirmations === 0){
+      confirmMetamaskModal.style.display = "none";
+      claimProcessingModal.style.display = "block";
+      document.getElementById("processingTxt").innerText = "Claim Reward In Process";
+      const processingLink = document.getElementById("processing-transaction");
+      // processingLink.href = `https://bscscan.com/tx/${mintPunkSubmitted.hash}`; //bsc scan mainnet
+      processingLink.href = `https://mumbai.polygonscan.com/tx/${claimRewardSubmitted.hash}`; //mumbai polygon testnet
+    }
+    const claimedRewardSuccessfull = await rewardClaimReceipt.wait();
+    if (claimedRewardSuccessfull){
+      confirmMetamaskModal.style.display = "none";
+      claimProcessingModal.style.display = "none";
+      claimedSuccessfulModal.style.display = "block";
+      document.getElementById("successTxt").innerText = "Reward Claimed Successfully";
+      const transactionLink = document.getElementById("transaction-link");
+      // transactionLink.href = `https://bscscan.com/tx/${mintPunkSubmitted.hash}`; //bsc scan mainnet
+      transactionLink.href = `https://mumbai.polygonscan.com/tx/${claimRewardSubmitted.hash}`; //mumbai polygon testnet
+    }
+  }
+  catch (error){
+    console.log(error)
+    if (error.code === 4001){
+      confirmMetamaskModal.style.display = "none";
+    }
+  }
+
 }
 
 // async function test(userAddress) {
@@ -302,6 +371,9 @@ async function getReflectionBalance() {
 // }
 
 window.mintFuzionPunk = mintFuzionPunk;
+window.setMaxAndMinPunk = setMaxAndMinPunk;
+window.claimReflectionBalance = claimReflectionBalance;
+
 
 module.exports = {
   punk,
@@ -312,6 +384,7 @@ module.exports = {
   presaleIsActive,
   presaleComplete,
   saleIsActive,
+  reflectionBalance,
   getPunkConstants,
   getUserPunkData,
   getPunkContract,
@@ -323,4 +396,6 @@ module.exports = {
   mintFuzionPunk,
   getOwnedTokens,
   getReflectionBalance,
+  setMaxAndMinPunk,
+  claimReflectionBalance,
 };

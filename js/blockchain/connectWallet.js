@@ -9,6 +9,7 @@ const {
   punkSaleStatus,
   getOwnedTokens,
   getPunkConstants,
+  getReflectionBalance,
 } = require("../blockchain/contracts/punk");
 const { providerHelper } = require("./helper");
 const ethers = require("ethers");
@@ -29,7 +30,7 @@ metamaskCheck();
 async function init() {
   initWeb3Modal();
   const connectionStatus = localStorage.getItem("connectStatus");
-  const mintNftBtn = document.getElementsByClassName("mintNftBtn");
+  const mintNftBtn = document.getElementsByClassName("start-minting-btn");
   user.address = localStorage.getItem("userAddress");
   // functions from punk.js file
   await getPunkConstants();
@@ -38,9 +39,9 @@ async function init() {
     await userLoginAttempt();
     document.querySelector("#prepare").style.display = "none";
     document.querySelector("#connected").style.display = "block";
-    if (mintNftBtn[0] || mintNftBtn[1]) {
+    if (mintNftBtn[0]) {
       mintNftBtn[0].classList.remove("is-disabled");
-      mintNftBtn[1].classList.remove("is-disabled");
+      document.getElementsByClassName("connectWarning")[0].style.display = "none";
     }
     // function for get bnb Balance
     await getBnbBalance(user.address);
@@ -90,16 +91,17 @@ async function connectAccount() {
   user.address = await signer.getAddress();
   localStorage.setItem("connectStatus", "connected");
   localStorage.setItem("userAddress", user.address);
-  const mintNftBtn = document.getElementsByClassName("mintNftBtn");
+  const mintNftBtn = document.getElementsByClassName("start-minting-btn");
   if (user.address) {
     // function for get bnb Balance
     await getBnbBalance(user.address);
     // function from punk contract
     await getUserPunkData(user.address);
     await getOwnedTokens(user.address);
-    if (mintNftBtn[0] || mintNftBtn[1]) {
+    await getReflectionBalance();
+    if (mintNftBtn[0]) {
       mintNftBtn[0].classList.remove("is-disabled");
-      mintNftBtn[1].classList.remove("is-disabled");
+      document.getElementsByClassName("connectWarning")[0].style.display = "none";
     }
   }
   // functions from referralLink.js file
@@ -155,6 +157,8 @@ function disconnect() {
   // Set the UI back to the initial state
   document.querySelector("#prepare").style.display = "block";
   document.querySelector("#connected").style.display = "none";
+  document.getElementsByClassName("start-minting-btn")[0].classList.add("is-disable");
+  document.getElementsByClassName("connectWarning")[0].style.display = "block";
 }
 
 function metamaskCheck() {

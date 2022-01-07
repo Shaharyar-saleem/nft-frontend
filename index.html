@@ -177,9 +177,8 @@
               <a
                 data-toggle="modal"
                 data-target="#exampleModalCenter"
-                class="mint-btn is-disabled"
-                >MINT YOUR NFT</a
-              >
+                class="mint-btn"
+                >MINT YOUR NFT</a>
             </div>
             <div class="minting-block">
               <div class="media">
@@ -234,13 +233,19 @@
                     placeholder="1"
                     class="minting-input"
                     id="mintNumber"
+                    onchange="setMaxAndMinPunk()"
                   />
+                  <div class="invalid-feedback" style="display:none;">
+                  </div>
                   <a onclick="maxMintPunks()" class="max-mint-btn">MAX</a>
                 </div>
                 <button
-                  class="start-minting-btn"
+                  class="start-minting-btn is-disabled"
                   onclick="mintFuzionPunk()"
                 ></button>
+                <p class="text-center mb-0 pt-2">
+                  <span class="connectWarning">* Connect Wallet for Minting</span>
+                </p>
                 <p class="pt-2 fw-400">
                   <span class="punksSupply"></span>
                 </p>
@@ -834,9 +839,8 @@
               <a
                 data-toggle="modal"
                 data-target="#exampleModalCenter"
-                class="form-control explore-btn-inner is-disabled"
-                >MINT YOUR NFT</a
-              >
+                class="form-control explore-btn-inner"
+                >MINT YOUR NFT</a>
 
               <div class="input-group-prepend">
                 <div class="input-group-text">
@@ -921,21 +925,12 @@
     >
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content transaction-content">
-          <!--          <button-->
-          <!--                  type="button"-->
-          <!--                  class="close"-->
-          <!--                  id="closeConfirmationModal"-->
-          <!--                  data-dismiss="modal"-->
-          <!--                  aria-label="Close"-->
-          <!--                  onclick="closeConfirmationModal()"-->
-          <!--          >-->
-          <!--            <span aria-hidden="true">&times;</span>-->
-          <!--          </button>-->
           <button
             type="button"
             class="close"
             data-dismiss="modal"
             aria-label="Close"
+            onclick="closeConfirmationModal()"
           >
             <span aria-hidden="true">&times;</span>
           </button>

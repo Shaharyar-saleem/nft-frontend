@@ -6,19 +6,16 @@ const claimedSuccessfulModal = document.getElementById("successfullModal");
 const modal = document.getElementsByClassName("modal");
 
 function closeConfirmationModal() {
-  console.log(1);
   $(".modal-backdrop").remove();
   confirmMetamaskModal.style.display = "none";
 }
 
 function closeProcessingModal() {
-  console.log(2);
   $(".modal-backdrop").remove();
   claimProcessingModal.style.display = "none";
 }
 
 function closeClaimedModal() {
-  console.log(3);
   $(".modal-backdrop").remove();
   claimedSuccessfulModal.style.display = "none";
 }
