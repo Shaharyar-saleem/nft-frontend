@@ -18,6 +18,7 @@ const MAX_PUNKS = 10000;
 const MAX_PRESALE_PUNKS = 1000;
 const REFERRAL_COOKIE_NAME = "FuzionPunkReferral";
 const REFERRAL_QUERY_PARAM = "ref";
+const BASE_GAS_FEE = 300000;
 
 module.exports = {
   ZERO_ADDRESS,
@@ -28,4 +29,5 @@ module.exports = {
   MAX_PUNKS,
   MAX_PRESALE_PUNKS,
   CHAIN_ID,
+  BASE_GAS_FEE,
 };
