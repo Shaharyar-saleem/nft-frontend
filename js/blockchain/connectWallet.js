@@ -1,8 +1,6 @@
 const { getBnbBalance } = require("./bnbBalance");
 const {
-  userReferralLink,
-  userReferralCommissions,
-  userTotalReferral,
+  userReferralLink
 } = require("../referralLink");
 const {
   getUserPunkData,
@@ -10,6 +8,8 @@ const {
   getOwnedTokens,
   getPunkConstants,
   getReflectionBalance,
+  userReferralCommissions,
+  userTotalReferral,
 } = require("../blockchain/contracts/punk");
 const { providerHelper } = require("./helper");
 const ethers = require("ethers");
@@ -106,8 +106,8 @@ async function connectAccount() {
   }
   // functions from referralLink.js file
   await userReferralLink();
-  await userReferralCommissions();
-  await userTotalReferral();
+  await userReferralCommissions(user.address);
+  await userTotalReferral(user.address);
   await getShortAddressCheckNetworkErrorCopyLink();
 }
 

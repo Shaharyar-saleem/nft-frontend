@@ -1,3 +1,4 @@
+const {BigNumber} = require("ethers");
 const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 const RPC_URL = {
   56: "https://bsc-dataseed.binance.org/",
@@ -7,13 +8,13 @@ const RPC_URL = {
 };
 
 const PUNK_ADDRESS = {
-  80001: "0xd873a1463fcc9327B72AF3CF73906f74a35074D4",
+  80001: "0x33beCfc69dED1e3Aa1Ff0d805F38017b84d58EaC",
   56: "",
 };
 
 // bsc 56
 // mumbai 80001
-const CHAIN_ID = 56;
+const CHAIN_ID = 80001;
 const MAX_PUNKS = 10000;
 const MAX_PRESALE_PUNKS = 1000;
 const REFERRAL_COOKIE_NAME = "FuzionPunkReferral";

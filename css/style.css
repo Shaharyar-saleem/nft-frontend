@@ -96,7 +96,7 @@ h3 {
   border-bottom: 2px solid #ff8337;
   border-left: none;
 }
-.is-disabled {
+.is-disable{
   cursor: not-allowed !important;
   pointer-events: none !important;
 }
@@ -306,7 +306,7 @@ input::-webkit-inner-spin-button {
 .hero-section input[type="number"] {
   -moz-appearance: textfield;
 }
-.hero-section .is-disabled {
+.hero-section .is-disable {
   pointer-events: none !important;
   cursor: not-allowed !important;
   border: 1px solid #ffffff87 !important;
