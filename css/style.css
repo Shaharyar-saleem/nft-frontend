@@ -787,6 +787,10 @@ input::-webkit-inner-spin-button {
 }
 
 /*referral block*/
+.connect-wallet-txt{
+  padding-top: 12% !important;
+  padding-bottom: 6% !important;
+}
 .referral-block {
   padding: 24px 14px;
   width: 100%;
