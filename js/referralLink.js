@@ -78,29 +78,6 @@ async function userReferralLink() {
   return referralLink;
 }
 
-async function userReferralCommissions() {
-  const referralCommissionElement =
-    document.getElementById("referralCommission");
-  if (userAddress != null && referralCommissionElement) {
-    referralCommissionElement.innerText = "0.000 BNB";
-  } else {
-    if (referralCommissionElement) {
-      referralCommissionElement.innerText = "-";
-    }
-  }
-}
-
-async function userTotalReferral() {
-  const totalReferralElement = document.getElementById("totalReferral");
-  if (userAddress != null && totalReferralElement) {
-    totalReferralElement.innerText = `0`;
-  } else {
-    if (totalReferralElement) {
-      totalReferralElement.innerText = "-";
-    }
-  }
-}
-
 function copyReferralLink() {
   const copyText = document.getElementById("referralLink");
   copyText.select();
@@ -130,8 +107,6 @@ window.copyReferralLink = copyReferralLink;
 
 module.exports = {
   userReferralLink,
-  userTotalReferral,
-  userReferralCommissions,
   copyReferralLink,
   getRef,
   getReferral,

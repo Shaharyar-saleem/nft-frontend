@@ -1,8 +1,6 @@
 const { getBnbBalance } = require("./bnbBalance");
 const {
-  userReferralLink,
-  userReferralCommissions,
-  userTotalReferral,
+  userReferralLink
 } = require("../referralLink");
 const {
   getUserPunkData,
@@ -10,6 +8,8 @@ const {
   getOwnedTokens,
   getPunkConstants,
   getReflectionBalance,
+  userReferralCommissions,
+  userTotalReferral,
 } = require("../blockchain/contracts/punk");
 const { providerHelper } = require("./helper");
 const ethers = require("ethers");
@@ -20,7 +20,6 @@ const evmChains = window.evmChains;
 
 let status;
 let web3Modal;
-let isConnected;
 let user = {
   address: undefined,
 };
@@ -36,6 +35,7 @@ async function init() {
   await getPunkConstants();
   await punkSaleStatus();
   if (connectionStatus === "connected") {
+    await connectAccount();
     await userLoginAttempt();
     document.querySelector("#prepare").style.display = "none";
     document.querySelector("#connected").style.display = "block";
@@ -106,14 +106,13 @@ async function connectAccount() {
   }
   // functions from referralLink.js file
   await userReferralLink();
-  await userReferralCommissions();
-  await userTotalReferral();
+  await userReferralCommissions(user.address);
+  await userTotalReferral(user.address);
   await getShortAddressCheckNetworkErrorCopyLink();
 }
 
 // checks if user is already connected
 async function userLoginAttempt() {
-  isConnected = false;
   await window.addEventListener("load", async function () {
     status = localStorage.getItem("connectStatus");
     try {
@@ -152,7 +151,6 @@ async function getShortAddressCheckNetworkErrorCopyLink() {
 // trigger when disconnect btn pressed
 function disconnect() {
   localStorage.clear();
-  isConnected = false;
   user.address = undefined;
   // Set the UI back to the initial state
   document.querySelector("#prepare").style.display = "block";
