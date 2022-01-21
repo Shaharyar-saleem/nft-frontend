@@ -188,7 +188,7 @@
                 class="form-control fullAddress"
                 aria-describedby="basic-addon1"
                 id="mediumAddress"
-                value=""
+                value="---"
                 readonly
               />
               <input type="text" id="fullAddress" style="display: none" />
@@ -258,77 +258,8 @@
                   role="tabpanel"
                   aria-labelledby="pills-portfolio-tab"
                 >
+                  <h3 class="text-center pt-4 connect-wallet-txt">Connect your wallet.</h3>
                   <div class="row" id="tokenData">
-                    <!--                    <div class="col-lg-4 col-md-6">-->
-                    <!--                      <a data-toggle="modal" data-target="#exampleModalCenter">-->
-                    <!--                        <div class="portfolio-card position-relative">-->
-                    <!--                          <div class="portfolio-card-tag">-->
-                    <!--                            <p class="rank-txt mb-0 pr-3 pl-2">RANK 3</p>-->
-                    <!--                            <p class="mb-0 ranking-status">LEGENDARY</p>-->
-                    <!--                          </div>-->
-                    <!--                          <div class="text-center">-->
-                    <!--                            <img-->
-                    <!--                              src="./img/profile/portfolio/nft/ape.svg"-->
-                    <!--                              alt="ape svg"-->
-                    <!--                              class="portfolio-nft"-->
-                    <!--                            />-->
-                    <!--                            <p class="mb-0 mt-3">Degen Punk #7480</p>-->
-                    <!--                            <p class="owner-address pt-2">0x0D933E6…</p>-->
-                    <!--                          </div>-->
-                    <!--                          <div class="portfolio-card-footer">-->
-                    <!--                            <div class="row no-gutters">-->
-                    <!--                              <div class="col-6">-->
-                    <!--                                <p>Current Price</p>-->
-                    <!--                              </div>-->
-                    <!--                              <div class="col-6">-->
-                    <!--                                <p class="float-right">-->
-                    <!--                                  <img-->
-                    <!--                                    src="./img/profile/portfolio/binance-logo.png"-->
-                    <!--                                    alt="eth icon"-->
-                    <!--                                    width="25px"-->
-                    <!--                                  /><span class="pl-2 color-white">333.30</span>-->
-                    <!--                                </p>-->
-                    <!--                              </div>-->
-                    <!--                            </div>-->
-                    <!--                          </div>-->
-                    <!--                        </div>-->
-                    <!--                      </a>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="col-lg-4 col-md-6">-->
-                    <!--                      <div class="portfolio-card position-relative">-->
-                    <!--                        <div class="portfolio-card-tag">-->
-                    <!--                          <p class="rank-txt mb-0 pr-3 pl-2">RANK 3</p>-->
-                    <!--                          <p class="mb-0 ranking-status">LEGENDARY</p>-->
-                    <!--                        </div>-->
-                    <!--                        <div class="text-center">-->
-                    <!--                          <img-->
-                    <!--                            src="./img/profile/portfolio/nft/ape.svg"-->
-                    <!--                            alt="ape svg"-->
-                    <!--                            class="portfolio-nft"-->
-                    <!--                          />-->
-                    <!--                          <p class="mb-0 mt-3">Degen Punk #7480</p>-->
-                    <!--                          <p class="owner-address pt-2">0x0D933E6…</p>-->
-                    <!--                        </div>-->
-                    <!--                        <div class="portfolio-card-footer">-->
-                    <!--                          <div class="row no-gutters">-->
-                    <!--                            <div class="col-6">-->
-                    <!--                              <p>Current Price</p>-->
-                    <!--                            </div>-->
-                    <!--                            <div class="col-6">-->
-                    <!--                              <p class="float-right">-->
-                    <!--                                <img-->
-                    <!--                                  src="./img/profile/portfolio/binance-logo.png"-->
-                    <!--                                  alt="eth icon"-->
-                    <!--                                  width="25px"-->
-                    <!--                                /><span class="pl-2 color-white">333.30</span>-->
-                    <!--                              </p>-->
-                    <!--                            </div>-->
-                    <!--                          </div>-->
-                    <!--                        </div>-->
-                    <!--                      </div>-->
-                    <!--                    </div>-->
-
-                    <!--detail Modal starts here-->
                     <div
                       class="modal fade mt-3"
                       id="exampleModalCenter"
@@ -517,7 +448,7 @@
                 >
                   <div class="rewards-block text-center">
                     <p class="reward-heading">Your Available Rewards</p>
-                    <div class="reward-amount"></div>
+                    <div class="reward-amount">-</div>
                     <div class="claim-btn-block">
                       <button class="claim-btn" onclick="claimReflectionBalance()">CLAIM REWARDS</button>
                     </div>
@@ -544,7 +475,7 @@
                           <h5 class="mb-0">Total Referrals</h5>
                         </div>
                         <div class="referral-card-body">
-                          <p class="mb-0"><span id="totalReferral"></span></p>
+                          <p class="mb-0"><span id="totalReferral">-</span></p>
                         </div>
                       </div>
                       <div class="col-md-6 mt-4">
@@ -553,7 +484,7 @@
                         </div>
                         <div class="referral-card-body">
                           <p class="mb-0">
-                            <span id="referralCommission"></span>
+                            <span id="referralCommission">-</span>
                           </p>
                         </div>
                       </div>
@@ -564,7 +495,7 @@
                           <h5>Your Referral Link</h5>
                           <div class="user-referral-link position-relative">
                             <p class="mb-0">
-                              <span id="userReferralLink"></span>
+                              <span id="userReferralLink">Connect your wallet for Referral Link</span>
                             </p>
                             <a
                               class="copy-link"
@@ -572,8 +503,7 @@
                               data-toggle="tooltip"
                               data-original-title="Copy to clipboard"
                             >
-                              Copy</a
-                            >
+                              Copy</a>
                             <input
                               type="text"
                               id="referralLink"

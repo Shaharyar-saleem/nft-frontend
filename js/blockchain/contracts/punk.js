@@ -95,7 +95,6 @@ async function punkSaleStatus() {
   const mintBtnElement = document.getElementsByClassName("start-minting-btn");
   const punksSupplyElement = document.getElementsByClassName("punksSupply");
   if (presaleIsActive) {
-    console.log("presale is active here", presaleIsActive);
     if (mintStatusElement[0]) {
       mintStatusElement[0].innerText = "Presale Minting Live";
       mintStatusElement[1].innerText = "Presale Minting Live";
@@ -108,7 +107,6 @@ async function punkSaleStatus() {
     }
   }
   else if (saleIsActive) {
-    console.log("saleIsActive:", saleIsActive);
     if (mintStatusElement[0] || mintStatusElement[1]) {
       mintStatusElement[0].innerText = "Minting Live";
       mintStatusElement[1].innerText = "Minting Live";
@@ -195,15 +193,15 @@ async function mintFuzionPunk() {
     if (presaleIsActive) {
       presaleMintReceipt = await punk.connect(signer).mintPresale(numberToMint, {
         value: punkPriceDiscounted.mul(numberToMint),
-        gasLimit: BASE_GAS_FEE,
+        gasLimit: (BASE_GAS_FEE * numberToMint),
       });
     }
     else if (saleIsActive) {
       const refAddress = getReferral();
-      console.log("This is the Base Gas fee:", BASE_GAS_FEE);
+      console.log("This is the Base Gas fee:", BASE_GAS_FEE * numberToMint);
       presaleMintReceipt = await punk.connect(signer).mint(numberToMint, refAddress, {
         value: punkPrice.mul(numberToMint),
-        gasLimit: BASE_GAS_FEE,
+        gasLimit: (BASE_GAS_FEE * numberToMint),
       });
     }
     const mintPunkSubmitted = await presaleMintReceipt;
@@ -247,6 +245,8 @@ async function getOwnedTokens(address) {
 
   // create a token element starts here
   const container = document.getElementById("tokenData");
+  const connectTxt = document.getElementsByClassName("connect-wallet-txt");
+  connectTxt[0].style.display = "none";
   if (container){
     tokens.forEach((token, idx) => {
       let url = `https://fuzionpunks.s3.us-east-2.amazonaws.com/images/${token.toString()}.png`;
@@ -353,7 +353,6 @@ async function userReferralCommissions(address){
 async function userTotalReferral(address){
   const totalRefferralElement = document.getElementById("totalReferral");
   if (totalRefferralElement){
-    console.log("user address:", address);
     const signer = await providerHelper.getSigner();
     totalReferral = await punk.connect(signer).referralNumbers(address);
     totalRefferralElement.innerText = `${totalReferral.toString()}`;

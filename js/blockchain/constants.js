@@ -1,4 +1,3 @@
-const {BigNumber} = require("ethers");
 const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
 const RPC_URL = {
   56: "https://bsc-dataseed.binance.org/",
