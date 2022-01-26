@@ -154,8 +154,10 @@
     </div>
     <div id="sidebar" class="sidebar">
       <a class="closebtn" onclick="closeNav()">×</a>
-      <a href="#">Home</a>
-      <a href="#">Marketplace</a>
+      <img src="./img/logos/nft-logo.svg" alt="nft logo" width="44px" class="pl-3 sidebar-logo">
+      <a href="#" class="sidebar-link">Home</a>
+      <a href="#" class="sidebar-link">Marketplace</a>
+      <a class="sidebar-connect-btn" onclick="connectAccount()" type="button">Connect Wallet</a>
     </div>
     <!-- sidebar ends here -->
     <!-- Navbar ends here -->
@@ -183,11 +185,14 @@
                   </div>
                 </div>
               </div>
+              <div class="mint-btn-block">
               <a
                 data-toggle="modal"
                 data-target="#exampleModalCenter"
                 class="mint-btn"
+                type="button"
                 >MINT YOUR NFT</a>
+              </div>
             </div>
             <div class="minting-block">
               <div class="media">
@@ -597,8 +602,7 @@
                 role="tab"
                 aria-controls="v-pills-home"
                 aria-selected="true"
-                ><span class="pr-2">01</span> Originals</a
-              >
+                ><span class="pr-2">01</span> Originals</a>
               <a
                 class="nav-link mt-4"
                 id="physical-part-tab"
@@ -607,8 +611,7 @@
                 role="tab"
                 aria-controls="v-pills-profile"
                 aria-selected="false"
-                ><span class="pr-2">02</span> CHAINED</a
-              >
+                ><span class="pr-2">02</span> CHAINED</a>
               <a
                 class="nav-link mt-4"
                 id="mekaverse-artists-tab"
@@ -617,8 +620,7 @@
                 role="tab"
                 aria-controls="v-pills-messages"
                 aria-selected="false"
-                ><span class="pr-2">03</span> EVOLUTION</a
-              >
+                ><span class="pr-2">03</span> EVOLUTION</a>
               <a
                 class="nav-link mt-4"
                 id="meka-multiverse-tab"
