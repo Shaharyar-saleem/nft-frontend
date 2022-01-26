@@ -39,7 +39,7 @@
     <!-- Custom css -->
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body>
+  <body id="main">
     <!-- Navbar starts here -->
     <nav class="navbar navbar-expand-lg fixed-top fixed-header">
       <div class="custom-container nav-row">
@@ -90,9 +90,6 @@
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Roadmap</a>
             </li>
             <li class="nav-item">
               <a class="nav-link is-disabled" href="#">Marketplace</a>
@@ -149,6 +146,18 @@
         </div>
       </div>
     </nav>
+     <!-- side bar starts here -->
+    <div class="sidebar-inner fixed-top" style="display: none">
+    <button class="openbtn" onclick="openNav()">☰</button>
+    <img src="./img/logos/nft-logo.svg" alt="nft logo" width="44px" class="pl-3">
+      <a class="mobile-connect-btn" id="btn-connect" onclick="connectAccount()" type="button">Connect wallet</a>
+    </div>
+    <div id="sidebar" class="sidebar">
+      <a class="closebtn" onclick="closeNav()">×</a>
+      <a href="#">Home</a>
+      <a href="#">Marketplace</a>
+    </div>
+    <!-- sidebar ends here -->
     <!-- Navbar ends here -->
 
     <!-- hero section starts here -->
@@ -161,7 +170,7 @@
               Fuzion NFTs:<br />
               Creativity At Work
             </h1>
-            <div class="d-flex mt-5">
+            <div class="hero-btn-row">
               <div class="input-group explore-btn">
                 <a href="#" class="form-control explore-btn-inner">Explore</a>
                 <div class="input-group-prepend">
@@ -411,6 +420,44 @@
                         well. The female hoodie was also updated to give her a
                         little red riding hood look.
                       </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feature-block mt-3">
+              <div class="row no-gutters h-100">
+                <div class="col-md-2">
+                  <div class="feature-block-icon d-flex justify-content-center h-100">
+                    <img
+                            src="./img/home/feature/marketplace-icon.svg"
+                            alt="Royalties icon"
+                            class="my-auto"
+                            height="80px"
+                            width="80px"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-10">
+                  <div class="feature-block-content">
+                    <h4 class="block-content-heading">
+                      Fuzion CryptoPunk Royalties
+                    </h4>
+                    <p class="mb-0">
+                      <span class="block-content-strip">Royalties: Fees from the Fuzion NFT Marketplace.</span>
+                    </p>
+                    <p class="mb-0">
+                      <span class="block-content-strip">The Listing and Delisting Fee is to prevent users from spamming the marketplace.</span>
+                    </p>
+                    <p>
+                      <span class="block-content-strip">These royalties are only possible on our native marketplace.</span>
+                    </p>
+                    <ul class="block-content-list">
+                      <li>7% reflections to all Original (Fuzion CryptoPunks)  Holders.
+                      </li>
+                      <li>7% royalties to the original minter.</li>
+                      <li>0.05 BNB Listing Fee reflected to all NFT Holders.</li>
+                      <li>0.05 BNB Delisting Fee reflected to all NFT Holders.</li>
                     </ul>
                   </div>
                 </div>
