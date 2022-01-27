@@ -953,13 +953,14 @@ input::-webkit-inner-spin-button {
   font-size: 12px;
   font-weight: 600;
 }
-.portfolio-card-tag .ranking-status {
+.ranking-status {
   border-right: 2px solid #299bd4;
   border-top: 2px solid #299bd4;
   border-bottom: 2px solid #299bd4;
   padding: 5px;
   font-size: 12px;
   font-weight: 600;
+  color: white;
 }
 .portfolio-nft {
   height: 175px;
@@ -1193,6 +1194,93 @@ svg .cls-1 {
 }
 /****detail modal ends here****/
 
+/******** marketplace page starts here ********/
+.marketplace-section{
+  padding-top: 10%;
+  padding-bottom: 10%;
+  height: auto;
+}
+.marketplace-heading{
+  color: #FFFFFF;
+  letter-spacing: 2px;
+}
+.found-items{
+  color: #8C93B2;
+}
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  top: 0px;
+  right: 0;
+}
+.search-icon{
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+.search-input{
+  background: #18266B !important;
+  border: none !important;
+  color: white;
+  padding: 11px;
+}
+::placeholder{
+  color: white !important;
+}
+.filters-section{
+  background: #060A35;
+  padding: 25px;
+  margin-top: 30px;
+}
+.filter-heading{
+  color: #9E9FA7;
+}
+.marketplace-section input[type='radio'] {
+  display: none;
+}
+.marketplace-section label {
+  padding: 2px 10px;
+  cursor: pointer;
+  display: block;
+}
+.marketplace-section label span {
+  position: relative;
+  line-height: 22px;
+  color: #B29D8C;
+}
+.marketplace-section label span:before,
+.marketplace-section label span:after {
+  content: '';
+}
+.marketplace-section label span:before {
+  border: 1px solid #222021;
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  display: inline-block;
+  /*vertical-align: top;*/
+}
+.marketplace-section label span:after {
+  background: #222021;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  transition: 300ms;
+  opacity: 0;
+}
+.marketplace-section label input:checked+span:after {
+  opacity: 1;
+}
+/******** marketplace page ends here ********/
 /**** Media queries ****/
 
 /* For tablet */

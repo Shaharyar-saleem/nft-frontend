@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- OG starts here -->
+    <meta property="og:site-name" content="Fuzion NFTs" />
+    <meta
+            property="og:title"
+            content="Fuzion NFTs - The next evolution of NFTs"
+    />
+    <meta
+            property="og:description"
+            content="Fuzion NFTs will come in 5 stages evolving and challenging the current status quo by progressing NFT technology, creating greater utility, originality and entertainment!"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+            property="og:image"
+            content="https://nft.fuzion.team/img/logos/nft-logo.png"
+    />
+    <meta property="og:url" content="https://nft.fuzion.team/" />
+    <title>Fuzion NFTs</title>
+    <link
+            rel="icon"
+            href="./img/logos/nft-logo.png"
+            type="image/gif"
+            sizes="16x16"
+    />
+
+    <!------- ALL LINKED CSS------->
+    <!-- Bootstrap 4 css CDN -->
+    <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
+    />
+    <!-- Custom css -->
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+<!-- Navbar starts here -->
+<nav class="navbar navbar-expand-lg fixed-top fixed-header">
+    <div class="custom-container nav-row">
+        <a class="navbar-brand pt-2" href="index.html">
+            <img src="./img/logos/nft-logo.svg" alt="NFT logo" />
+        </a>
+        <button
+                class="navbar-toggler float-right mt-3"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapsibleNavbar"
+        >
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    x="0px"
+                    y="0px"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 172 172"
+                    style="fill: #000000"
+            >
+                <g
+                        fill="none"
+                        fill-rule="nonzero"
+                        stroke="none"
+                        stroke-width="1"
+                        stroke-linecap="butt"
+                        stroke-linejoin="miter"
+                        stroke-miterlimit="10"
+                        stroke-dasharray=""
+                        stroke-dashoffset="0"
+                        font-family="none"
+                        font-weight="none"
+                        font-size="none"
+                        text-anchor="none"
+                        style="mix-blend-mode: normal"
+                >
+                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                    <g fill="#ffffff">
+                        <path
+                                d="M14.33333,35.83333v14.33333h143.33333v-14.33333zM14.33333,78.83333v14.33333h143.33333v-14.33333zM14.33333,121.83333v14.33333h143.33333v-14.33333z"
+                        ></path>
+                    </g>
+                </g>
+            </svg>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link is-disabled" href="#">Marketplace</a>
+                </li>
+            </ul>
+            <ul class="ml-auto my-auto">
+                <div id="prepare">
+                    <li class="nav-item">
+                        <a
+                                class="connect-btn mt-2"
+                                id="btn-connect"
+                                onclick="connectAccount()"
+                                type="button"
+                        >Connect wallet</a>
+                    </li>
+                </div>
+                <div id="connected" style="display: none">
+                    <li class="nav-item dropdown">
+                        <a
+                                class="nav-link connected-btn dropdown-toggle"
+                                type="button"
+                                data-toggle="dropdown"
+                        >
+                            <div class="media position-realtive">
+                                <img
+                                        src="./img/header/user-box.svg"
+                                        alt="online icon"
+                                        class="online-icon"
+                                />
+                                <div class="media-body pl-2">
+                                    Connected<br />
+                                    <p class="color-white mb-0">
+                                        <span class="bnbBalance"></span> BNB
+                                    </p>
+                                </div>
+                                <span
+                                ><img
+                                        src="./img/header/down-arrow.svg"
+                                        alt="down arrow"
+                                        class="dropdown-arrow"
+                                /></span>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!--                            <li class="pt-2"><a href="profile.html">Profile</a></li>-->
+                            <li>
+                                <a onclick="disconnect()">Disconnect Wallet</a>
+                            </li>
+                        </ul>
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Navbar ends here -->
+
+<!--marketplace section starts here-->
+<section class="marketplace-section">
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-md-9">
+                <h2 class="marketplace-heading">Marketplace Gallery</h2>
+                <p class="found-items">Filter matched 2033 items</p>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group has-search position-relative">
+                    <input type="text" class="form-control search-input" placeholder="Search">
+                    <span class="form-control-feedback">
+                        <img src="./img/icons/search-icon.svg" alt="search icon" class="search-icon">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="portfolio-card position-relative">
+                            <div class="portfolio-card-tag">
+                                <p class="rank-txt mb-0 pr-3 pl-2">RANK 3</p>
+                                <p class="mb-0 ranking-status">LEGENDARY</p>
+                            </div>
+                            <div class="text-center">
+                                <img src="./img/profile/portfolio/nft/male.svg" alt="NFT" class="portfolio-nft"/>
+                                <p class="mb-0 mt-3 color-white">Degen Punk #7480</p>
+                                <p class="owner-address pt-2">0x0D933E6…</p>
+                            </div>
+                            <div class="portfolio-card-footer">
+                                <div class="row no-gutters">
+                                    <div class="col-6">
+                                        <p>Current Price</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="float-right">
+                                            <img src="./img/profile/portfolio/binance-logo.png" alt="bnb icon" width="25px"/><span class="pl-2 color-white">333.30</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="portfolio-card position-relative">
+                            <div class="portfolio-card-tag">
+                                <p class="rank-txt mb-0 pr-3 pl-2">RANK 3</p>
+                                <p class="mb-0 ranking-status">LEGENDARY</p>
+                            </div>
+                            <div class="text-center">
+                                <img src="./img/profile/portfolio/nft/male.svg" alt="NFT" class="portfolio-nft"/>
+                                <p class="mb-0 mt-3 color-white">Degen Punk #7480</p>
+                                <p class="owner-address pt-2">0x0D933E6…</p>
+                            </div>
+                            <div class="portfolio-card-footer">
+                                <div class="row no-gutters">
+                                    <div class="col-6">
+                                        <p>Current Price</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="float-right">
+                                            <img src="./img/profile/portfolio/binance-logo.png" alt="bnb icon" width="25px"/><span class="pl-2 color-white">333.30</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="portfolio-card position-relative">
+                            <div class="portfolio-card-tag">
+                                <p class="rank-txt mb-0 pr-3 pl-2">RANK 3</p>
+                                <p class="mb-0 ranking-status">LEGENDARY</p>
+                            </div>
+                            <div class="text-center">
+                                <img src="./img/profile/portfolio/nft/male.svg" alt="NFT" class="portfolio-nft"/>
+                                <p class="mb-0 mt-3 color-white">Degen Punk #7480</p>
+                                <p class="owner-address pt-2">0x0D933E6…</p>
+                            </div>
+                            <div class="portfolio-card-footer">
+                                <div class="row no-gutters">
+                                    <div class="col-6">
+                                        <p>Current Price</p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p class="float-right">
+                                            <img src="./img/profile/portfolio/binance-logo.png" alt="bnb icon" width="25px"/><span class="pl-2 color-white">333.30</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="filters-section">
+                    <p class="filter-heading">Filters</p>
+                    <label>
+                        <input type="radio" name="radio">
+                        <span>EMAIL</span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="radio">
+                        <span>PHONE</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--marketplace section ends here-->
+
+<!-- metamask confirmation modal starts here -->
+<div
+        class="modal"
+        tabindex="-1"
+        role="dialog"
+        id="confirmationModal"
+        style="display: none"
+>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content transaction-content">
+            <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    onclick="closeConfirmationModal()"
+            >
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-body text-center">
+                <img
+                        src="./img/icons/Spinner-icon.svg"
+                        alt="spinner"
+                        width="140px"
+                />
+                <p class="text-center">
+                    Waiting for confirmation from your<br />
+                    wallet
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- metamask confirmation modal ends here -->
+
+<!-- transaction submitted modal starts here -->
+<div
+        class="modal"
+        tabindex="-1"
+        role="dialog"
+        id="processingModal"
+        style="display: none"
+>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content transaction-content">
+            <button
+                    type="button"
+                    class="close"
+                    id="closeTransactionSubmitted"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    onclick="closeProcessingModal()"
+            >
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-body text-center">
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="107"
+                        height="97.124"
+                        viewBox="0 0 107 97.124"
+                >
+                    <g
+                            id="Group_1"
+                            data-name="Group 1"
+                            transform="translate(0 -0.001)"
+                    >
+                        <path
+                                id="cloud"
+                                class="cloud"
+                                stroke="white"
+                                data-name="Fill 1"
+                                d="M83.361,72H23.639A23.529,23.529,0,0,1,16.1,26.146,27.727,27.727,0,0,1,18.562,16.3a28.361,28.361,0,0,1,5.78-8.347A26.9,26.9,0,0,1,43.547,0h.005a26.8,26.8,0,0,1,14,3.825,27.838,27.838,0,0,1,9.36,9.325,19.147,19.147,0,0,1,6.415-1.107,18.4,18.4,0,0,1,9.448,2.582c5.192,3.112,8.494,8.824,9.059,15.673a19.354,19.354,0,0,1,6.224,2.974,20.922,20.922,0,0,1,4.784,4.808A22.165,22.165,0,0,1,107,50.9a20,20,0,0,1-6.667,14.938A25.033,25.033,0,0,1,83.361,72ZM43.551,5a22.2,22.2,0,0,0-15.884,6.632,23.072,23.072,0,0,0-6.734,16.308,2.471,2.471,0,0,1-1.866,2.441A18.588,18.588,0,0,0,23.654,67H83.346C94.329,67,102,60.371,102,50.88c0-7.854-5.65-14.952-12.864-16.159a2.477,2.477,0,0,1-2.059-2.441c0-5.995-2.443-10.756-6.879-13.407a13.766,13.766,0,0,0-13.135-.5,2.493,2.493,0,0,1-1.108.26,2.487,2.487,0,0,1-2.234-1.384A22.368,22.368,0,0,0,43.552,5Z"
+                                fill="#ff000000"
+                        />
+                        <path
+                                id="arrow"
+                                class="arrow"
+                                data-name="Fill 1"
+                                d="M0,18.27l3.719,3.719L15.657,10.051V63.125h5.25V10.051L32.845,21.989l3.719-3.719L18.283,0Z"
+                                transform="translate(34 34)"
+                                stroke="white"
+                                fill="#ff000000"
+                        />
+                    </g>
+                </svg>
+                <p class="text-center pt-3 mb-5">
+                    <span id="processingTxt"></span>
+                </p>
+                <a id="processing-transaction" target="_blank" class="explorer-btn"
+                >Go to Explorer
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- transaction submitted modal ends here -->
+
+<!-- Transaction confirmed modal starts here -->
+<div
+        class="modal"
+        tabindex="-1"
+        role="dialog"
+        id="successfullModal"
+        style="display: none"
+>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content transaction-content">
+            <button
+                    type="button"
+                    class="close"
+                    id="closeSuccessModal"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                    onclick="closeClaimedModal()"
+            >
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-body text-center">
+                <svg
+                        id="checkmark-svg"
+                        class="run-animation circle-svg"
+                        data-name="Layer 1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 193.3 193.3"
+                >
+                    <circle class="cls-1 circle" cx="96.65" cy="96.65" r="94.15" />
+                    <polyline
+                            class="cls-1 checkmark"
+                            points="46.9 101.4 76.9 131.4 146.4 61.9"
+                    />
+                </svg>
+                <p class="text-center pt-4 pb-3"><span id="successTxt"></span></p>
+                <a id="transaction-link" target="_blank" class="explorer-btn"
+                >Go to Explorer
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Transaction confirmed modal ends here -->
+
+<!-- footer section starts here -->
+<section class="footer-section">
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-lg-6 col-md-4 footer-logo">
+                <img src="./img/logos/nft-logo.svg" alt="NFT logo" />
+            </div>
+            <div class="col-lg-6 col-md-8">
+                <ul class="pt-3 footer-links">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="#" class="is-disabled">TERMS & CONDITIONS</a></li>
+                    <li><a href="#" class="is-disabled">SMART CONTRACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr class="footer-border" />
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-lg-6 col-md-4">
+                <p class="footer-txt">10,000 unique punks who need owners.</p>
+            </div>
+            <div class="col-lg-6 col-md-8">
+                <ul class="social-icons-list">
+                    <li class="pr-2">
+                        <a href="">
+                            <img
+                                    src="./img/icons/mail-circle-icon.svg"
+                                    alt="mail icon"
+                                    class="social-icon"
+                                    width="45px"
+                            />
+                        </a>
+                    </li>
+                    <li class="pr-2">
+                        <a href="">
+                            <img
+                                    src="./img/icons/facebook-circle-icon.svg"
+                                    alt="facebook icon"
+                                    class="social-icon"
+                                    width="45px"
+                            />
+                        </a>
+                    </li>
+                    <li class="pr-2">
+                        <a href="">
+                            <img
+                                    src="./img/icons/twitter-circle-icon.svg"
+                                    alt="twitter icon"
+                                    class="social-icon"
+                                    width="45px"
+                            />
+                        </a>
+                    </li>
+                    <li class="pr-2">
+                        <a href="">
+                            <img
+                                    src="./img/icons/telegram-circle-icon.svg"
+                                    alt="telegram icon"
+                                    class="social-icon"
+                                    width="45px"
+                            />
+                        </a>
+                    </li>
+                    <li class="pr-2">
+                        <a href="">
+                            <img
+                                    src="./img/icons/ticktok-circle-icon.svg"
+                                    alt="ticktok icon"
+                                    class="social-icon"
+                                    width="45px"
+                            />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col-md-12">
+                <p class="text-center footer-txt">
+                    ©<span class="currentYear"></span> FuzionChain. All rights
+                    reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- footer section ends here -->
+
+<!------- ALL LINKED JS SCRIPTS ------->
+<script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+></script>
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"
+></script>
+<!-- Web3.js CDN -->
+<script
+        type="text/javascript"
+        src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"
+></script>
+<script
+        type="text/javascript"
+        src="https://unpkg.com/web3modal@1.9.0/dist/index.js"
+></script>
+<script
+        type="text/javascript"
+        src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"
+></script>
+<script
+        type="text/javascript"
+        src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"
+></script>
+<script
+        type="text/javascript"
+        src="https://unpkg.com/fortmatic@2.0.6/dist/fortmatic.js"
+></script>
+<!-- Ethers.js CDN -->
+<script
+        src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+        type="application/javascript"
+></script>
+<!-- custom js -->
+<script src="./nft.bundle.js"></script>
+<!--    tooltip display-->
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
+</body>
+</html>
