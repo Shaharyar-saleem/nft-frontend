@@ -5,6 +5,8 @@ require("./referralLink");
 require("./drawSvg");
 require("./modal");
 require("./sideBar");
+require("./nft/nftData");
+require("./playVideo");
 
 // Entry point
 $(function () {

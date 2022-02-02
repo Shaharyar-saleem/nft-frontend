@@ -270,18 +270,198 @@
                     <p class="filter-heading mt-3">Keywords</p>
                     <input type="text" class="keywords-input form-control">
                     <p class="filter-heading mt-3">Sort by:</p>
-                    <select name="" id="" class="form-control mt-3">
+                    <select name="" id="" class="form-control mt-3 sort-options">
                         <option value="">option 1</option>
                         <option value="">option 2</option>
                         <option value="">option 3</option>
                     </select>
-                    <button class="apply-filter-btn form-control mt-3">APPLY FILTERS</button>
+                    <button class="apply-filter-btn form-control mt-4">APPLY FILTERS</button>
                 </div>
             </div>
         </div>
     </div>
 </section>
 <!--marketplace section ends here-->
+
+<div class="row" id="tokenData">
+    <div
+            class="modal fade mt-3"
+            id="exampleModalCenter"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true"
+    >
+        <div
+                class="modal-dialog modal-dialog-centered"
+                role="document"
+        >
+            <div class="modal-content">
+                <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="modal-body">
+                    <div class="detail-section-inner">
+                        <div class="row no-gutters">
+                            <div class="col-lg-4 col-md-12">
+                                <h3 class="pt-4 text-center">
+                                    FU CryptoPunk #7480
+                                </h3>
+                                <div
+                                        class="d-flex justify-content-center mt-5"
+                                >
+                                    <img
+                                            src="./img/home/roadmap/boy.svg"
+                                            alt="boy img"
+                                    />
+                                </div>
+                                <ul
+                                        class="d-flex justify-content-center mt-5 pl-0"
+                                >
+                                    <li>
+                                        <a href="" class="copy-btn">
+                                            <img
+                                                    src="./img/icons/copy-icon.svg"
+                                                    alt="copy icon"
+                                                    class="copy-icon"
+                                            /></a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="twitter-btn">
+                                        <span
+                                        ><img
+                                                src="./img/icons/twitter.svg"
+                                                alt="twitter"
+                                                class="twitter-icon"
+                                        /></span>
+                                            tweet
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-8 col-md-12 left-border">
+                                <div class="properties-block">
+                                    <p class="properties-heading pt-4">
+                                        Properties
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-4 mt-3">
+                                            <div class="properties-card">
+                                                <p class="mb-0">BEARD</p>
+                                                <p class="mb-0">Normal Beard Black</p>
+                                                <p class="mb-0 percentage">2.89%</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mt-3">
+                                            <div class="properties-card">
+                                                <p class="mb-0">BEARD</p>
+                                                <p class="mb-0">Normal Beard Black</p>
+                                                <p class="mb-0 percentage">2.89%</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mt-3">
+                                            <div class="properties-card">
+                                                <p class="mb-0">BEARD</p>
+                                                <p class="mb-0">Normal Beard Black</p>
+                                                <p class="mb-0 percentage">2.89%</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mt-3">
+                                            <div class="properties-card">
+                                                <p class="mb-0">RANK</p>
+                                                <p class="mb-0">97</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mt-3">
+                                            <div class="properties-card">
+                                                <p class="mb-0">RARITY</p>
+                                                <p class="mb-0">Legendary</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owner-details">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="owner-detail-card">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <img
+                                                                src="./img/detail/owner-icon.svg"
+                                                                class="media-object"
+                                                                width="50px"
+                                                        />
+                                                    </div>
+                                                    <div class="media-body pl-3">
+                                                        <p class="mb-0 owner-txt">
+                                                            Owner
+                                                        </p>
+                                                        <p class="mb-0">0x0D933E6</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="owner-detail-card">
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <img
+                                                                src="./img/detail/owner-icon.svg"
+                                                                class="media-object"
+                                                                width="50px"
+                                                        />
+                                                    </div>
+                                                    <div class="media-body pl-3">
+                                                        <p class="mb-0 owner-txt">
+                                                            Collection
+                                                        </p>
+                                                        <p class="mb-0">DegenPunks</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="offset-md-4"></div>
+                                    </div>
+                                    <p class="mb-0 color-white pt-4">Details</p>
+                                </div>
+                                <div class="nft-details">
+                                    <div class="row mb-2">
+                                        <div class="col-lg-3 col-6">
+                                            <p class="detail-heading">
+                                                Contract Address
+                                            </p>
+                                            <p>0x8f706e0af99b6</p>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                            <p class="detail-heading">Toke ID</p>
+                                            <p>9945</p>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                            <p class="detail-heading">
+                                                Token Standard
+                                            </p>
+                                            <p>ERC-721</p>
+                                        </div>
+                                        <div class="col-lg-3 col-6">
+                                            <p class="detail-heading">Blockchain</p>
+                                            <p>BSC</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--detail modal ends here-->
+</div>
 
 <!-- metamask confirmation modal starts here -->
 <div

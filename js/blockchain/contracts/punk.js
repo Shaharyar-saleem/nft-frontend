@@ -48,6 +48,7 @@ const abi = [
   "function tokenOfOwnerByIndex(address owner, uint256 index) public view returns (uint256)",
   "function referralAmounts(address owner) public view returns (uint256)",
   "function referralNumbers(address owner) public view returns (uint256)",
+  "function transferFrom(address from, address to, uint256 tokenId) public",
 ];
 
 async function getPunkContract(chainId = CHAIN_ID) {

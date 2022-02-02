@@ -512,6 +512,9 @@ input::-webkit-inner-spin-button {
   padding-bottom: 4%;
   height: auto;
 }
+.alien-video{
+  width: 100%;
+}
 .roadmap-list a {
   color: #ffeedd !important;
   font-size: 14px;
@@ -1091,109 +1094,6 @@ svg .cls-1 {
 
 /****profile page ends here****/
 
-/****detail modal starts here****/
-.profile-section .modal-dialog {
-  max-width: 80% !important;
-  margin: 0 auto;
-}
-.profile-section .modal-body {
-  padding: 0px !important;
-}
-.profile-section .modal-content {
-  background-color: transparent !important;
-}
-.profile-section .modal-content .close {
-  position: absolute;
-  top: 0px;
-  right: 9px;
-  z-index: 1000000;
-  color: white;
-  font-weight: 300;
-  font-size: 35px;
-}
-.detail-section {
-  padding-top: 3%;
-  padding-bottom: 3%;
-  height: auto;
-  margin: 6% auto;
-  width: 87%;
-}
-.detail-section-inner {
-  background-color: #082d91;
-}
-.twitter-icon {
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
-    brightness(102%) contrast(102%);
-}
-.twitter-btn {
-  border: 2px solid white;
-  padding: 5px 19px;
-  border-radius: 50px;
-  margin-left: 5px;
-}
-.copy-btn {
-  border: 2px solid white;
-  padding: 5px 9px;
-  border-radius: 50px;
-  margin-right: 5px;
-}
-.properties-block {
-  padding: 25px 43px;
-}
-.properties-card {
-  border: 2px solid #164f76;
-  text-align: center;
-  color: white;
-  padding: 16px 20px;
-}
-.percentage {
-  color: #99a0be;
-  font-size: 15px;
-}
-.detail-section-inner .left-border {
-  border-left: 2px solid #164f76;
-}
-.properties-heading {
-  color: #ffc378;
-  font-size: 15px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-.owner-details {
-  border-top: 2px solid #164f76;
-  border-bottom: 2px solid #164f76;
-  padding: 25px 43px 10px 43px;
-}
-.owner-detail-card {
-  border: 2px solid #164f76;
-  padding: 7px;
-  color: white;
-}
-.owner-txt {
-  color: #8f96b5;
-}
-.nft-details {
-  padding: 25px 43px;
-  color: white;
-}
-.detail-heading {
-  color: #ffc378;
-}
-.nft-price-btn {
-  color: white;
-  border: 1px solid #ff8437;
-  padding: 10px 42px;
-}
-.detail-note {
-  color: #b2ab8c;
-  font-size: 15px;
-  padding-top: 20px;
-}
-.modal-open .modal {
-  padding-left: 0px !important;
-}
-/****detail modal ends here****/
-
 /******** marketplace page starts here ********/
 .marketplace-section{
   padding-top: 10%;
@@ -1268,7 +1168,8 @@ svg .cls-1 {
   /*vertical-align: top;*/
 }
 .marketplace-section label span:after {
-  background: #222021;
+  background: #ffc378;
+  border: 1px solid #ffc378;
   width: 12px;
   height: 12px;
   position: absolute;
@@ -1280,7 +1181,133 @@ svg .cls-1 {
 .marketplace-section label input:checked+span:after {
   opacity: 1;
 }
+.marketplace-section label input:checked+span:before {
+  border: 1px solid #FFC378;
+}
+.marketplace-section label input:checked+span{
+  color: white;
+}
+.keywords-input{
+  background: #060A35;
+  border: 1px solid #114560;
+}
+.sort-options{
+  background: #060A35;
+  border: 1px solid #114560;
+}
+.apply-filter-btn{
+  background: #060A35;
+  border: 1px solid #1095F5;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+}
 /******** marketplace page ends here ********/
+
+/********details page starts here********/
+.profile-section .modal-dialog {
+  max-width: 80% !important;
+  margin: 0 auto;
+}
+.profile-section .modal-body {
+  padding: 0px !important;
+}
+.profile-section .modal-content {
+  background-color: transparent !important;
+}
+.profile-section .modal-content .close {
+  position: absolute;
+  top: 0px;
+  right: 9px;
+  z-index: 1000000;
+  color: white;
+  font-weight: 300;
+  font-size: 35px;
+}
+.detail-section {
+  padding-top: 1%;
+  padding-bottom: 2%;
+  height: auto;
+  margin: 6% auto;
+  width: 100%;
+}
+.detail-section-inner {
+  background-color: #082d91;
+}
+.twitter-icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+  brightness(102%) contrast(102%);
+}
+.twitter-btn {
+  border: 2px solid white;
+  padding: 5px 19px;
+  border-radius: 50px;
+  margin-left: 5px;
+}
+.copy-btn {
+  border: 2px solid white;
+  padding: 5px 9px;
+  border-radius: 50px;
+  margin-right: 5px;
+}
+.properties-block {
+  padding: 25px 43px;
+}
+.properties-card {
+  border: 2px solid #164f76;
+  text-align: center;
+  color: white;
+  padding: 16px 20px;
+}
+.percentage {
+  color: #99a0be;
+  font-size: 15px;
+}
+.detail-section-inner .left-border {
+  border-left: 2px solid #164f76;
+}
+.properties-heading {
+  color: #ffc378;
+  font-size: 15px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.owner-details {
+  border-top: 2px solid #164f76;
+  border-bottom: 2px solid #164f76;
+  padding: 25px 43px 10px 43px;
+}
+.owner-detail-card {
+  border: 2px solid #164f76;
+  padding: 7px;
+  color: white;
+}
+.owner-txt {
+  color: #8f96b5;
+}
+.nft-details {
+  padding: 25px 43px;
+  color: white;
+}
+.detail-heading {
+  color: #ffc378;
+}
+.nft-price-btn {
+  color: white;
+  border: 1px solid #ff8437;
+  padding: 10px 42px;
+}
+.detail-note {
+  color: #b2ab8c;
+  font-size: 15px;
+  padding-top: 20px;
+}
+.modal-open .modal {
+  padding-left: 0px !important;
+}
+/********details page ends here********/
+
+
 /**** Media queries ****/
 
 /* For tablet */

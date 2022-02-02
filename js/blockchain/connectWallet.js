@@ -12,6 +12,7 @@ const {
   userTotalReferral,
 } = require("../blockchain/contracts/punk");
 const { providerHelper } = require("./helper");
+const {getNftData} = require("../nft/nftData");
 const ethers = require("ethers");
 const { getProvider, getSigner, getWeb3Provider } = providerHelper;
 const Web3Modal = window.Web3Modal.default;
@@ -28,6 +29,7 @@ metamaskCheck();
 
 async function init() {
   initWeb3Modal();
+  await getNftData();
   const connectionStatus = localStorage.getItem("connectStatus");
   const mintNftBtn = document.getElementsByClassName("start-minting-btn");
   user.address = localStorage.getItem("userAddress");
