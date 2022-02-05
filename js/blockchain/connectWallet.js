@@ -30,8 +30,8 @@ metamaskCheck();
 async function init() {
   initWeb3Modal();
   // function from nftData.js file
-  await getNftData();
-  await getAttributes();
+  // await getNftData();
+  // await getAttributes();
 
   const connectionStatus = localStorage.getItem("connectStatus");
   const mintNftBtn = document.getElementsByClassName("start-minting-btn");
