@@ -246,14 +246,17 @@ async function getOwnedTokens(address) {
 
   // create a token element starts here
   const container = document.getElementById("tokenData");
-  const connectTxt = document.getElementsByClassName("connect-wallet-txt");
-  connectTxt[0].style.display = "none";
+
   if (container){
+    const connectTxt = document.getElementsByClassName("connect-wallet-txt");
+    connectTxt[0].style.display = "none";
     tokens.forEach((token, idx) => {
       let url = `https://fuzionpunks.s3.us-east-2.amazonaws.com/images/${token.toString()}.png`;
+      let detailUrl = `detail.html/?id=${token.toString()}`;
       // Construct card content
       const content = `
      <div class="col-lg-4 col-md-6">
+     <a href="${detailUrl}">
       <div class="portfolio-card position-relative">
            <div class="portfolio-card-tag">
                <p class="rank-txt mb-0 pr-3 pl-2">RANK 3</p>
@@ -285,6 +288,7 @@ async function getOwnedTokens(address) {
                           </div>
                         </div>
                       </div>
+     </a>
       </div>
   `;
       container.innerHTML += content;

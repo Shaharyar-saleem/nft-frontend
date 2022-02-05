@@ -17,9 +17,9 @@
     <meta property="og:type" content="website" />
     <meta
             property="og:image"
-            content="https://nft.fuzion.team/img/logos/nft-logo.png"
+            content="https://fuzion.team/img/logos/nft-logo.png"
     />
-    <meta property="og:url" content="https://nft.fuzion.team/" />
+    <meta property="og:url" content="https://fuzion.team/" />
     <title>Fuzion NFTs</title>
     <link
             rel="icon"
@@ -458,6 +458,11 @@
     $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
     });
+</script>
+<script>
+    let baseUrl = (window.location).href; // You can also use document.URL
+    let nftId = baseUrl.substring(baseUrl.lastIndexOf('=') + 1);
+    console.log("NFT id is:", nftId);
 </script>
 </body>
 </html>

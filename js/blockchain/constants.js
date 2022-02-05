@@ -13,7 +13,7 @@ const PUNK_ADDRESS = {
 
 // bsc 56
 // mumbai 80001
-const CHAIN_ID = 56;
+const CHAIN_ID = 80001;
 const MAX_PUNKS = 10000;
 const MAX_PRESALE_PUNKS = 1000;
 const REFERRAL_COOKIE_NAME = "FuzionPunkReferral";

@@ -51,6 +51,10 @@ module.exports = {
           from: "profile.html",
           to: "profile.html",
         },
+        {
+          from: "detail.html",
+          to: "detail.html",
+        },
         // {
         //   context: path.resolve(__dirname, "dist"),
         //   from: "./*.html",\
